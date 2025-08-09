@@ -9,7 +9,7 @@ const services = [
   },
   {
     icon: Smartphone,
-    title: "App Design",
+    title: "App Design", 
     description: "Mobile app interfaces that are both beautiful and functional across all devices"
   },
   {
@@ -26,26 +26,26 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="py-20 px-4 bg-secondary/30">
+    <section className="py-24 px-4 section-light">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             My <span className="gradient-text">Services</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-xl max-w-2xl mx-auto leading-relaxed">
             Comprehensive design solutions to bring your digital products to life
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="service-card border-0 text-center p-6">
-              <CardContent className="space-y-4">
-                <div className="w-16 h-16 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center">
-                  <service.icon className="h-8 w-8 text-primary" />
+            <Card key={index} className="service-card text-center p-8 group">
+              <CardContent className="space-y-6 p-0">
+                <div className="w-20 h-20 mx-auto orange-circle-bg rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="h-10 w-10 text-primary-foreground" />
                 </div>
-                <h3 className="font-semibold text-lg">{service.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <h3 className="font-bold text-xl text-foreground">{service.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">
                   {service.description}
                 </p>
               </CardContent>
