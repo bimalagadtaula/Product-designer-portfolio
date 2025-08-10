@@ -10,6 +10,7 @@ import About from "@/components/About";
 import WhyHireMe from "@/components/WhyHireMe";
 import Blog from "@/components/Blog";
 import CTA from "@/components/CTA";
+import Tags from "@/components/Tags";
 
 const Index = () => {
   return (
@@ -23,8 +24,9 @@ const Index = () => {
         <WhyHireMe />
         <Portfolio />
         <Testimonials />
-        <Blog />
         <CTA />
+        <Tags />
+        <Blog />
         <Contact />
         <Footer />
       </main>

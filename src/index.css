@@ -113,53 +113,29 @@ All colors MUST be HSL.
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Urbanist', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Urbanist', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-    letter-spacing: -0.02em;
-  }
+  html { scroll-behavior: smooth; }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-sans antialiased; font-family: 'Urbanist', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+  h1, h2, h3, h4, h5, h6 { font-family: 'Urbanist', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji"; letter-spacing: -0.02em; }
 }
 
 @layer components {
   .hero-gradient { background: var(--gradient-hero); }
   .card-gradient { background: var(--gradient-card); }
-
   .animate-float { animation: float 6s ease-in-out infinite; }
   .animate-glow { animation: glow 2s ease-in-out infinite alternate; }
-
   .hover-lift { transition: var(--transition-smooth); }
   .hover-lift:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
-
-  .gradient-text {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
+  .gradient-text { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .service-card { transition: var(--transition-smooth); }
   .service-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
 
-@layer utilities {
-  .text-shadow { text-shadow: 0 2px 4px hsl(var(--primary) / 0.1); }
-}
+@layer utilities { .text-shadow { text-shadow: 0 2px 4px hsl(var(--primary) / 0.1); } }
 
-@media (prefers-reduced-motion: reduce) {
-  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
-}
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; } }
 
 @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
 @keyframes glow { from { box-shadow: 0 0 12px hsl(var(--primary) / 0.25); } to { box-shadow: 0 0 18px hsl(var(--primary) / 0.45); } }

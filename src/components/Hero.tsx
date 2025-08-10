@@ -11,7 +11,7 @@ const Hero = () => {
           <div className="space-y-6 text-center md:text-left">
             <FadeIn>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
-                I'm Bmala,
+                I’m Bmala,
                 <br className="hidden sm:block" />
                 <span className="text-foreground/90">Product Designer</span>
               </h1>
