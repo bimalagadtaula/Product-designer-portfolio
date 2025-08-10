@@ -6,10 +6,10 @@ const CTA = () => {
     <section id="cta" className="py-20 px-4 bg-secondary/30 scroll-mt-24">
       <div className="container max-w-5xl mx-auto text-center">
         <FadeIn>
-          <h2 className="text-3xl md:text-display font-bold mb-4">
+          <h2 className="text-h2 md:text-display font-bold mb-4">
             Have an Awesome Project Idea? <span className="gradient-text">Let's Discuss</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
+          <p className="text-muted-foreground text-bodyLg max-w-2xl mx-auto mb-8">
             I’m currently available for freelance work. Tell me about your project and timelines.
           </p>
           <div className="flex items-center justify-center gap-3">

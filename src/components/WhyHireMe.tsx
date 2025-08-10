@@ -13,7 +13,7 @@ const WhyHireMe = () => {
           <div className="space-y-6">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold">Why <span className="gradient-text">Hire Me</span></h2>
-              <p className="text-muted-foreground text-lg max-w-prose">I blend product thinking with craft to design experiences that are both usable and beautiful.</p>
+              <p className="text-muted-foreground text-bodyLg max-w-prose">I blend product thinking with craft to design experiences that are both usable and beautiful.</p>
             </FadeIn>
             <FadeIn delay={0.06}>
               <div className="grid grid-cols-2 gap-4">

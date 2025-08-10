@@ -14,8 +14,8 @@ const Blog = () => {
       <div className="container max-w-6xl mx-auto">
         <FadeIn>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-display font-bold mb-4">From my <span className="gradient-text">blog post</span></h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Notes on process, systems, and product design.</p>
+            <h2 className="text-h2 md:text-display font-bold mb-4">From my <span className="gradient-text">blog post</span></h2>
+            <p className="text-muted-foreground text-bodyLg max-w-2xl mx-auto">Notes on process, systems, and product design.</p>
           </div>
         </FadeIn>
         <div className="grid md:grid-cols-3 gap-6">

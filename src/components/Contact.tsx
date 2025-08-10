@@ -47,10 +47,10 @@ const Contact = () => {
     <section id="contact" className="py-20 px-4 bg-secondary/30 scroll-mt-24">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-display font-bold mb-4">
+          <h2 className="text-h2 md:text-display font-bold mb-4">
             Have a project in mind? <span className="gradient-text">Let's talk.</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-bodyLg max-w-2xl mx-auto">
             I partner with teams to design and ship user‑centered products. Share a few details about your goals and timeline, and I’ll follow up within 1–2 business days.
           </p>
         </div>

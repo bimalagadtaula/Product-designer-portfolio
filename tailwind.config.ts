@@ -119,6 +119,8 @@ export default {
 			fontSize: {
 				hero: ['5.973rem', { lineHeight: '1.05' }],
 				display: ['4rem', { lineHeight: '1.1' }],
+				h2: ['2rem', { lineHeight: '1.2' }],
+				bodyLg: ['1.25rem', { lineHeight: '1.7' }],
 			}
 		}
 	},
