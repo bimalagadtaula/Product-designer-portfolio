@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Star } from "lucide-react";
-import portfolioApp from "@/assets/portfolio-app.jpg";
-import portfolioWeb from "@/assets/portfolio-web.jpg";
+import portrait from "@/assets/designer-portrait.jpg";
 import { useEffect, useRef, useState } from "react";
 import { FadeIn } from "@/components/motion";
 import Marquee from "@/components/Marquee";
@@ -63,7 +62,7 @@ const Hero = () => {
                 <span className="inline-flex items-center gap-2 text-muted-foreground text-sm">
                   <Star className="h-4 w-4 text-primary" /> Available for freelance
                 </span>
-                <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.05] tracking-tight">
+                <h1 className="font-display text-5xl md:text-7xl font-extrabold leading-[1.05] tracking-tight">
                   Designing delightful
                   <br />
                   digital <span className="gradient-text">experiences</span>
@@ -76,13 +75,17 @@ const Hero = () => {
 
             <FadeIn delay={0.1} style={t(-6,-4,10)}>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="group hover-lift">
-                  Explore Work
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <Button asChild size="lg" className="group hover-lift">
+                  <a href="#portfolio" className="inline-flex items-center">
+                    Explore Work
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
                 </Button>
-                <Button variant="outline" size="lg" className="hover-lift">
-                  <Download className="mr-2 h-4 w-4" />
-                  Download CV
+                <Button asChild variant="outline" size="lg" className="hover-lift">
+                  <a href="#" download>
+                    <Download className="mr-2 h-4 w-4" />
+                    Download CV
+                  </a>
                 </Button>
               </div>
             </FadeIn>
@@ -106,39 +109,30 @@ const Hero = () => {
             </FadeIn>
           </div>
 
-          {/* Right: Floating project cards and badge */}
-          <div className="relative h-[520px] md:h-[560px]" aria-hidden>
+          {/* Right: Portrait with decorative ring and badge */}
+          <div className="relative h-[520px] md:h-[560px]">
             {/* Rotating badge */}
-            <div className="absolute left-1/2 -translate-x-1/2 -top-6 w-28 h-28 rounded-full border bg-card/80 backdrop-blur flex items-center justify-center shadow-md" style={t(8,-8,-10)}>
+            <div className="absolute right-6 -top-6 w-28 h-28 rounded-full border bg-card/80 backdrop-blur flex items-center justify-center shadow-md" style={t(8,-8,-10)} aria-hidden>
               <div className="absolute inset-0 rounded-full border-4 border-primary/20 animate-[spin_12s_linear_infinite]" />
               <div className="text-xs font-semibold">Since 2021</div>
             </div>
 
-            {/* Cards */}
-            <div className="absolute top-16 left-2 right-10">
-              <div className="ml-auto w-[78%] rounded-2xl overflow-hidden shadow-xl border bg-card hover-lift" style={t(16,10,-30)}>
-                <img src={portfolioWeb} alt="E‑commerce Platform" className="w-full h-48 object-cover" />
-                <div className="p-4">
-                  <div className="text-xs text-muted-foreground mb-1">Web Design</div>
-                  <div className="font-semibold">E‑commerce Platform</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute top-44 right-0 left-10">
-              <div className="w-[72%] rounded-2xl overflow-hidden shadow-xl border bg-card hover-lift" style={t(-20,8,20)}>
-                <img src={portfolioApp} alt="Food Delivery App" className="w-full h-48 object-cover" />
-                <div className="p-4">
-                  <div className="text-xs text-muted-foreground mb-1">Mobile App</div>
-                  <div className="font-semibold">Food Delivery App</div>
+            {/* Portrait */}
+            <div className="absolute inset-0 flex items-center justify-center" aria-hidden>
+              <div className="relative">
+                <div className="absolute -inset-8 rounded-full blur-2xl bg-primary/20" style={t(10,-6,30)} />
+                <div className="rounded-full p-1 bg-gradient-to-tr from-primary/50 to-accent shadow-xl" style={t(16,10,-30)}>
+                  <div className="rounded-full overflow-hidden w-[280px] h-[280px] md:w-[360px] md:h-[360px] border border-white/50 bg-card">
+                    <img src={portrait} alt="Designer portrait" className="w-full h-full object-cover" />
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Small floating chips */}
-            <div className="absolute bottom-8 left-2/3 -translate-x-1/2 flex gap-3" style={t(10,-6,30)}>
-              <span className="px-3 py-1 rounded-full text-xs border bg-background/70 backdrop-blur">Case Studies</span>
-              <span className="px-3 py-1 rounded-full text-xs border bg-background/70 backdrop-blur">Design Systems</span>
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3" style={t(10,-6,30)} aria-hidden>
+              <span className="px-3 py-1 rounded-full text-xs border bg-background/70 backdrop-blur">San Francisco, CA</span>
+              <span className="px-3 py-1 rounded-full text-xs border bg-background/70 backdrop-blur">Product Designer</span>
             </div>
           </div>
         </div>
