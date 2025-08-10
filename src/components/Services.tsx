@@ -1,33 +1,28 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Palette, Smartphone, Monitor, Users } from "lucide-react";
+import { Palette, Monitor, Layout } from "lucide-react";
 import { FadeIn } from "@/components/motion";
 
 const services = [
   {
     icon: Palette,
-    title: "UX Design",
-    description: "User research, wireframing, and prototyping to create intuitive user experiences"
-  },
-  {
-    icon: Smartphone,
-    title: "App Design",
-    description: "Mobile app interfaces that are both beautiful and functional across all devices"
+    title: "UI/UX Design",
+    description: "User research, wireframing, and prototypes that balance aesthetics with usability"
   },
   {
     icon: Monitor,
     title: "Web Design",
-    description: "Responsive web designs that convert visitors into customers"
+    description: "Responsive websites designed to communicate clearly and convert effectively"
   },
   {
-    icon: Users,
-    title: "User Research",
-    description: "In-depth user analysis to inform design decisions and improve usability"
+    icon: Layout,
+    title: "Landing Page",
+    description: "High‑impact landing pages optimized for campaigns and product launches"
   }
 ];
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 px-4 bg-secondary/30 scroll-mt-24">
+    <section id="service" className="py-20 px-4 bg-secondary/30 scroll-mt-24">
       <div className="container max-w-6xl mx-auto">
         <FadeIn>
           <div className="text-center mb-16">
@@ -35,12 +30,12 @@ const Services = () => {
               My <span className="gradient-text">Services</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Comprehensive design solutions to bring your digital products to life
+              Tailored design solutions to help you launch, grow, and differentiate
             </p>
           </div>
         </FadeIn>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <FadeIn key={service.title} delay={index * 0.06}>
               <Card className="service-card border-0 text-center p-6">

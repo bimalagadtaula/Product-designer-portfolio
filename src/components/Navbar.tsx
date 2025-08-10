@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "#home", label: "Home" },
-  { href: "#services", label: "Services" },
+  { href: "#about", label: "About" },
+  { href: "#service", label: "Service" },
   { href: "#experience", label: "Experience" },
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#testimonials", label: "Testimonials" },
+  { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -66,7 +66,7 @@ const Navbar = () => {
       )}
     >
       <div className="container max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#home" className="font-extrabold text-xl tracking-tight font-display">
+        <a href="#home" className="font-extrabold text-xl tracking-tight">
           <span className="gradient-text">Emma</span> Wilson
         </a>
 
