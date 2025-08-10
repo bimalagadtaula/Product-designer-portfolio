@@ -39,7 +39,7 @@ const Hero = () => {
             <div className="relative flex items-center justify-center">
               <SlideInImage>
                 <div className="relative w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[340px] lg:h-[340px]">
-                  <div className="absolute inset-0 rounded-full bg-primary shadow-[0_20px_40px_hsl(var(--primary)/0.35)]" />
+                  <div className="absolute inset-0 rounded-full bg-brand-gradient shadow-[0_20px_40px_hsl(var(--primary)/0.35)]" />
                   <div className="absolute inset-2 rounded-full overflow-hidden ring-1 ring-white/30">
                     <img src={portrait} alt="Profile" className="w-full h-full object-cover" />
                   </div>

@@ -17,11 +17,20 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 13% 18%;
 
-    /* Primary orange/coral brand colors */
-    --primary: 14 100% 60%;
+    /* Brand colors (from user):
+       Gradient: #0652F6 (221 95% 49%) → #EF0478 (330 97% 48%)
+       Deep blue: #0E188A (235 82% 30%)
+       Night: #100425 (262 80% 8%) */
+    --primary: 221 95% 49%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 14 100% 70%;
-    --primary-dark: 14 100% 50%;
+    --primary-light: 221 95% 60%;
+    --primary-dark: 221 95% 40%;
+
+    --accent: 330 97% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --brand-deep: 235 82% 30%;
+    --brand-night: 262 80% 8%;
 
     /* Secondary neutral tones */
     --secondary: 220 13% 95%;
@@ -30,19 +39,16 @@ All colors MUST be HSL.
     --muted: 220 13% 95%;
     --muted-foreground: 220 9% 46%;
 
-    --accent: 14 100% 95%;
-    --accent-foreground: 220 13% 18%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 14 100% 60%;
+    --ring: 221 95% 49%;
 
     /* Design system additions */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.3));
+    --gradient-primary: linear-gradient(135deg, hsl(221 95% 49%), hsl(330 97% 48%));
+    --gradient-hero: linear-gradient(135deg, hsl(221 95% 49% / 0.12), hsl(330 97% 48% / 0.24));
     --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--secondary) / 0.3));
     
     /* Shadows */
@@ -57,19 +63,12 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -122,6 +121,7 @@ All colors MUST be HSL.
 @layer components {
   .hero-gradient { background: var(--gradient-hero); }
   .card-gradient { background: var(--gradient-card); }
+  .bg-brand-gradient { background-image: var(--gradient-primary); }
   .animate-float { animation: float 6s ease-in-out infinite; }
   .animate-glow { animation: glow 2s ease-in-out infinite alternate; }
   .hover-lift { transition: var(--transition-smooth); }
