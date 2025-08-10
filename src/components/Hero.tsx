@@ -4,6 +4,7 @@ import portfolioApp from "@/assets/portfolio-app.jpg";
 import portfolioWeb from "@/assets/portfolio-web.jpg";
 import { useEffect, useRef, useState } from "react";
 import { FadeIn } from "@/components/motion";
+import Marquee from "@/components/Marquee";
 
 const Hero = () => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -88,30 +89,20 @@ const Hero = () => {
 
             {/* Marquee */}
             <FadeIn delay={0.15} style={t(-8,-6,20)}>
-              <div className="relative overflow-hidden border rounded-xl bg-card/70">
-                <div className="whitespace-nowrap flex min-w-[200%] animate-[marquee_18s_linear_infinite]">
-                  <div className="flex items-center gap-6 py-3 px-4 text-sm text-muted-foreground">
-                    <span>UX Design</span>
-                    <span>UI Design</span>
-                    <span>Design Systems</span>
-                    <span>Prototyping</span>
-                    <span>User Research</span>
-                    <span>Accessibility</span>
-                    <span>Interaction Design</span>
-                    <span>Product Strategy</span>
-                  </div>
-                  <div className="flex items-center gap-6 py-3 px-4 text-sm text-muted-foreground">
-                    <span>UX Design</span>
-                    <span>UI Design</span>
-                    <span>Design Systems</span>
-                    <span>Prototyping</span>
-                    <span>User Research</span>
-                    <span>Accessibility</span>
-                    <span>Interaction Design</span>
-                    <span>Product Strategy</span>
-                  </div>
-                </div>
-              </div>
+              <Marquee
+                items={[
+                  "Product Strategy",
+                  "UX Design",
+                  "UI Design",
+                  "Design Systems",
+                  "Prototyping",
+                  "User Research",
+                  "Accessibility",
+                  "Interaction Design",
+                  "Product Strategy",
+                ]}
+                speedSec={26}
+              />
             </FadeIn>
           </div>
 
