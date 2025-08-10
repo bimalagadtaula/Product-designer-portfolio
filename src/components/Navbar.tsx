@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "#home", label: "Home" },
@@ -12,8 +14,32 @@ const navItems = [
 ];
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const tickingRef = useRef(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (tickingRef.current) return;
+      tickingRef.current = true;
+      requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 8);
+        tickingRef.current = false;
+      });
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300",
+        isScrolled
+          ? "border-b bg-background/80 shadow-sm"
+          : "bg-background/40 border-transparent"
+      )}
+    >
       <div className="container max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <a href="#home" className="font-extrabold text-xl tracking-tight">
           <span className="gradient-text">Emma</span> Wilson
@@ -21,7 +47,11 @@ const Navbar = () => {
 
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
               {item.label}
             </a>
           ))}
