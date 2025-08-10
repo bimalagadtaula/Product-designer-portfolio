@@ -16,14 +16,14 @@ const Services = () => {
       <div className="container max-w-6xl mx-auto">
         <FadeIn>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">My <span className="gradient-text">Services</span></h2>
+            <h2 className="text-3xl md:text-display font-bold mb-4">My <span className="gradient-text">Services</span></h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Tailored design solutions to help you launch, grow, and differentiate</p>
           </div>
         </FadeIn>
         <div className="grid md:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <FadeIn key={service.title} delay={index * 0.06}>
-              <Card className="border bg-card text-center p-6 shadow-none hover:bg-muted/20 transition-all hover:shadow-md hover:-translate-y-0.5">
+              <Card className="group border bg-card text-center p-6 shadow-none hover:bg-muted/20 transition-all hover:shadow-md hover:-translate-y-0.5">
                 <CardContent className="space-y-4">
                   <div className="w-16 h-16 mx-auto rounded-2xl ring-1 ring-border flex items-center justify-center group-hover:ring-primary transition-colors">
                     <service.icon className="h-8 w-8 text-primary" />

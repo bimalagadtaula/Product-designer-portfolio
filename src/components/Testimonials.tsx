@@ -14,7 +14,7 @@ const Testimonials = () => {
       <div className="container max-w-6xl mx-auto">
         <FadeIn>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4"><span className="gradient-text">Testimonials</span> That Speak to My Results</h2>
+            <h2 className="text-3xl md:text-display font-bold mb-4"><span className="gradient-text">Testimonials</span> That Speak to My Results</h2>
             <p className="text-muted-foreground text-lg">What clients and colleagues say about working with me</p>
           </div>
         </FadeIn>

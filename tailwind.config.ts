@@ -115,6 +115,10 @@ export default {
 					'Apple Color Emoji',
 					'Segoe UI Emoji'
 				]
+			},
+			fontSize: {
+				hero: ['5.973rem', { lineHeight: '1.05' }],
+				display: ['4rem', { lineHeight: '1.1' }],
 			}
 		}
 	},
