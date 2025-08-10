@@ -4,7 +4,7 @@ import designerPortrait from "@/assets/designer-portrait.jpg";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen hero-gradient flex items-center justify-center py-20 px-4">
+    <section id="home" className="min-h-screen hero-gradient flex items-center justify-center py-20 px-4 scroll-mt-24">
       <div className="container max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
