@@ -5,18 +5,22 @@ import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Hero />
-      <Services />
-      <Experience />
-      <Portfolio />
-      <Testimonials />
-      <Contact />
-      <Footer />
-    </div>
+    <>
+      <Navbar />
+      <main className="min-h-screen pt-20">
+        <Hero />
+        <Services />
+        <Experience />
+        <Portfolio />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </main>
+    </>
   );
 };
 
