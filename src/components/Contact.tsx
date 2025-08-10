@@ -75,7 +75,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-white font-medium">Email</div>
-                  <div className="text-white/60">hello@vrstudio.com</div>
+                  <div className="text-white/60">bimalagadtaula0@gmail.com</div>
                 </div>
               </div>
 
@@ -85,7 +85,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-white font-medium">Phone</div>
-                  <div className="text-white/60">+1 (555) 123-4567</div>
+                  <div className="text-white/60">+977 9745687205</div>
                 </div>
               </div>
 
@@ -95,7 +95,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-white font-medium">Location</div>
-                  <div className="text-white/60">San Francisco, CA</div>
+                  <div className="text-white/60">Bhaktpur, Nepal</div>
                 </div>
               </div>
             </div>

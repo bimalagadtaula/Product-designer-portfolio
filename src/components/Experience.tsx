@@ -2,29 +2,30 @@ import { Calendar, MapPin, ExternalLink } from "lucide-react";
 
 const experiences = [
   {
-    position: "Senior UI/UX Designer",
-    company: "DesignStudio Pro",
-    period: "2022 - Present",
-    location: "San Francisco, CA",
+    position: "Associate UI/UX designer",
+    company: "Glosifi",
+    period: "2024 - Present",
+    location: "Singapore",
     description: "Leading design initiatives for enterprise clients, specializing in user research, wireframing, and creating intuitive user interfaces that drive engagement and conversion.",
-    skills: ["Figma", "Sketch", "User Research", "Prototyping", "Design Systems"]
+    skills: ["Figma", "Miro", "User Research", "Prototyping", "Design Systems"]
+  },
+  
+  {
+    position: "UI developer",
+    company: "Freelance",
+    period: "2023 - 2024",
+    location: "Remote",
+    description: "Collaborated with senior designers on various projects, learning best practices in UI/UX design and contributing to design system development.",
+    skills: ["Photoshop", "Illustrator", "Sketch", "Prototyping", "Design Principles"]
   },
   {
-    position: "UX Designer",
-    company: "Creative Solutions Inc",
-    period: "2020 - 2022",
-    location: "Austin, TX",
+    position: "Frontend developer",
+    company: "OLE Nepal",
+    period: "2023 - 2024",
+    location: "Lalitpur, Nepal",
     description: "Designed user experiences for web and mobile applications, focusing on user-centered design principles and creating seamless user journeys.",
     skills: ["Adobe XD", "InVision", "User Testing", "Wireframing", "Mobile Design"]
   },
-  {
-    position: "Junior Designer",
-    company: "Digital Design Co",
-    period: "2018 - 2020",
-    location: "Seattle, WA",
-    description: "Collaborated with senior designers on various projects, learning best practices in UI/UX design and contributing to design system development.",
-    skills: ["Photoshop", "Illustrator", "Sketch", "Prototyping", "Design Principles"]
-  }
 ];
 
 export default function Experience() {

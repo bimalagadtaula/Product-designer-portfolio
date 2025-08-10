@@ -2,47 +2,29 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah Chen",
+    name: "Emily Johnson",
     role: "Product Manager",
-    company: "TechCorp",
-    content: "The e-commerce app redesign exceeded our expectations. The user research insights and intuitive interface design increased our conversion rates significantly.",
-    rating: 5
+    company: "Glosifi",
+    content:
+      "The beauty and wellness booking platform redesign delivered a seamless experience for our users. The designer’s collaboration and attention to detail improved user engagement significantly.",
+    rating: 5,
   },
   {
-    name: "Marcus Rodriguez",
-    role: "Design Director",
-    company: "Creative Solutions",
-    content: "Working with this designer on our banking dashboard was incredible. Their attention to user experience and accessibility made complex data simple to understand.",
-    rating: 5
+    name: "Michael Davis",
+    role: "Project Lead",
+    company: "Agri AI",
+    content:
+      "Their mobile UI design for our agriculture app made complex workflows intuitive and easy to use for farmers. The prototyping and user testing phases were very thorough.",
+    rating: 5,
   },
   {
-    name: "Emily Watson",
-    role: "UX Lead",
-    company: "Digital Studio",
-    content: "The healthcare app case study was comprehensive and insightful. The user research methodology and design solutions were exactly what we needed.",
-    rating: 5
+    name: "Sophia Miller",
+    role: "Founder",
+    company: "GrowSlow",
+    content:
+      "The mindful productivity app design truly captures the needs of neurodivergent users. The user research and accessibility focus have been invaluable.",
+    rating: 5,
   },
-  {
-    name: "David Kim",
-    role: "Product Owner",
-    company: "SaaS Platform",
-    content: "The design system they created for us has streamlined our entire design process. Consistency and efficiency have improved dramatically across all products.",
-    rating: 5
-  },
-  {
-    name: "Lisa Thompson",
-    role: "Marketing Director",
-    company: "Restaurant Chain",
-    content: "The restaurant booking UX redesign transformed our customer experience. The mobile-first approach and simplified booking flow reduced abandonment rates.",
-    rating: 5
-  },
-  {
-    name: "James Wilson",
-    role: "CEO",
-    company: "Travel Startup",
-    content: "The travel app interface redesign was game-changing. Navigation is now intuitive, and users can complete bookings in half the time.",
-    rating: 5
-  }
 ];
 
 export default function Testimonials() {

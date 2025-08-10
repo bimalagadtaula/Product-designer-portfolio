@@ -57,15 +57,15 @@ export default function Navbar() {
               <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-pink-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">BG</span>
               </div>
-              <span className="text-white font-semibold text-lg">Portifolio</span>
+              <span className="text-white font-semibold text-lg">Portfolio</span>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {[
                 { id: "home", label: "HOME" },
-                { id: "services", label: "PRODUCTS" },
-                { id: "portfolio", label: "SERVICES" },
+                { id: "services", label: "SERVICES" },
+                { id: "portfolio", label: "PORTFOLIO" },
                 { id: "contact", label: "CONTACT" },
               ].map((item) => (
                 <button
@@ -83,11 +83,18 @@ export default function Navbar() {
             </div>
 
             {/* CTA Button */}
-            <div className="hidden md:block">
-              <Button className="gradient-bg-neon text-white border-0 hover:scale-105 transition-transform duration-200">
-                Hire me
-              </Button>
-            </div>
+        {/* Desktop CTA Button */}
+<div className="hidden md:block">
+  <a
+    href="https://www.linkedin.com/in/bmalagadtaula/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button className="gradient-bg-neon text-white border-0 hover:scale-105 transition-transform duration-200">
+      Hire me
+    </Button>
+  </a>
+</div>
 
             {/* Mobile Menu */}
             <Sheet>

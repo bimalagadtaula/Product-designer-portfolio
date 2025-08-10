@@ -1,35 +1,46 @@
-import { Button } from "@/components/ui/button";
-import { Linkedin, Twitter, Github, Dribbble } from "lucide-react";
+import { FaLinkedin, FaTwitter, FaGithub, FaDribbble } from "react-icons/fa";
 
 const Footer = () => {
+  const socialLinks = [
+    { icon: FaLinkedin, label: "LinkedIn", href: "#" },
+    { icon: FaTwitter, label: "Twitter", href: "#" },
+    { icon: FaGithub, label: "GitHub", href: "#" },
+    { icon: FaDribbble, label: "Dribbble", href: "#" },
+  ];
+
   return (
-    <footer className="py-12 px-4 border-t border-slate-200 bg-white">
-      <div className="container max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left">
-            <h3 className="font-bold text-xl mb-2 text-slate-900">Emma Wilson</h3>
-            <p className="text-slate-600">Product Designer crafting digital experiences</p>
-          </div>
-          
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" className="hover-lift text-slate-600 hover:text-blue-600 hover:bg-blue-50">
-              <Linkedin className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="sm" className="hover-lift text-slate-600 hover:text-blue-600 hover:bg-blue-50">
-              <Twitter className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="sm" className="hover-lift text-slate-600 hover:text-blue-600 hover:bg-blue-50">
-              <Github className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="sm" className="hover-lift text-slate-600 hover:text-blue-600 hover:bg-blue-50">
-              <Dribbble className="h-4 w-4" />
-            </Button>
-          </div>
+    <footer className="bg-background border-t border-border py-10 px-6">
+      <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div className="text-center lg:text-left max-w-md">
+          <h3 className="text-2xl font-extrabold tracking-tight mb-1 uppercase neon-glow bg-clip-text gradient-text-neon">
+            Bimala Gadtaula
+          </h3>
         </div>
-        
-        <div className="border-t border-slate-200 mt-8 pt-8 text-center text-slate-500">
-          <p>&copy; 2024 Emma Wilson. All rights reserved.</p>
+
+        <div className="flex items-center gap-6">
+          {socialLinks.map(({ icon: Icon, label, href }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="flex items-center justify-center w-10 h-10 rounded-full text-white bg-white/10 hover:bg-pinkCustom hover:text-white shadow-md hover:shadow-pinkCustom transition-all duration-300 ease-in-out transform hover:scale-110"
+            >
+              <Icon className="w-5 h-5" />
+            </a>
+          ))}
         </div>
+      </div>
+
+      <div
+        className="max-w-screen-xl mx-auto mt-10 pt-6 border-t border-primary text-center text-sm text-gray-400 select-none"
+        style={{
+          textShadow:
+            "0 0 4px rgba(0,132,255,0.3), 0 0 8px rgba(0,132,255,0.15)",
+        }}
+      >
+        &copy; 2024 Bimala Gadtaula. All rights reserved.
       </div>
     </footer>
   );

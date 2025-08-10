@@ -91,7 +91,7 @@ export function OrangeMarquee({ speedSec = 20 }: { speedSec?: number }) {
         {duplicatedItems.map((item, index) => (
           <div
             key={index}
-            className="flex items-center px-4 py-3 mx-2 bg-orange-500 rounded-lg"
+            className="flex items-center px-4 py-3 mx-2 rounded-lg"
           >
             <span className="text-white font-semibold text-sm whitespace-nowrap">
               {item}
