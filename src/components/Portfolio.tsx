@@ -5,7 +5,7 @@ const projects = [
   {
     title: "Glosifi Web App",
     description:
-      "Solo UI/UX designer, collaborating with a design consultant, leading end-to-end design of a beauty and wellness booking platform with various flows including dashboards, booking, partners, and landing pages—all built with a scalable design system.",
+      "Solo UI/UX designer, collaborating with a design consultant, leading end-to-end design of a beauty and wellness booking platform with various flows including dashboards, booking, partners, and landing pages, all built with a scalable design system.",
     image: "/api/placeholder/400/300",
     category: "UX/UI Design",
     year: "2025",
@@ -188,7 +188,7 @@ export default function Portfolio() {
                     className="flex-1 border-white/20 text-white hover:bg-white/10 hover:border-white/30 transition-colors duration-200"
                     asChild
                   >
-                 <a href={project.caseStudyUrl} target="_blank" rel="noopener noreferrer">
+                 <a href={project.caseStudy} target="_blank" rel="noopener noreferrer">
   <BookOpen className="w-4 h-4 mr-2" />
   Case Study
 </a>
