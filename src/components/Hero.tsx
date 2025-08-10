@@ -3,6 +3,7 @@ import { ArrowRight, Download, Star } from "lucide-react";
 import portfolioApp from "@/assets/portfolio-app.jpg";
 import portfolioWeb from "@/assets/portfolio-web.jpg";
 import { useEffect, useRef, useState } from "react";
+import { FadeIn } from "@/components/motion";
 
 const Hero = () => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -56,56 +57,62 @@ const Hero = () => {
         <div className="grid lg:grid-cols-[1.1fr,0.9fr] gap-10 items-center">
           {/* Left: Title and CTA */}
           <div className="space-y-8">
-            <div className="space-y-4" style={t(-12,-8,-20)}>
-              <span className="inline-flex items-center gap-2 text-muted-foreground text-sm">
-                <Star className="h-4 w-4 text-primary" /> Available for freelance
-              </span>
-              <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.05] tracking-tight">
-                Designing delightful
-                <br />
-                digital <span className="gradient-text">experiences</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
-                Product designer crafting human-centered interfaces for startups and scale-ups. I blend research, aesthetics, and usability to create products people love.
-              </p>
-            </div>
+            <FadeIn style={t(-12,-8,-20)}>
+              <div className="space-y-4">
+                <span className="inline-flex items-center gap-2 text-muted-foreground text-sm">
+                  <Star className="h-4 w-4 text-primary" /> Available for freelance
+                </span>
+                <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.05] tracking-tight">
+                  Designing delightful
+                  <br />
+                  digital <span className="gradient-text">experiences</span>
+                </h1>
+                <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
+                  Product designer crafting human-centered interfaces for startups and scale-ups. I blend research, aesthetics, and usability to create products people love.
+                </p>
+              </div>
+            </FadeIn>
 
-            <div className="flex flex-col sm:flex-row gap-4" style={t(-6,-4,10)}>
-              <Button size="lg" className="group hover-lift">
-                Explore Work
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg" className="hover-lift">
-                <Download className="mr-2 h-4 w-4" />
-                Download CV
-              </Button>
-            </div>
+            <FadeIn delay={0.1} style={t(-6,-4,10)}>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="group hover-lift">
+                  Explore Work
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button variant="outline" size="lg" className="hover-lift">
+                  <Download className="mr-2 h-4 w-4" />
+                  Download CV
+                </Button>
+              </div>
+            </FadeIn>
 
             {/* Marquee */}
-            <div className="relative overflow-hidden border rounded-xl bg-card/70" style={t(-8,-6,20)}>
-              <div className="whitespace-nowrap flex min-w-[200%] animate-[marquee_18s_linear_infinite]">
-                <div className="flex items-center gap-6 py-3 px-4 text-sm text-muted-foreground">
-                  <span>UX Design</span>
-                  <span>UI Design</span>
-                  <span>Design Systems</span>
-                  <span>Prototyping</span>
-                  <span>User Research</span>
-                  <span>Accessibility</span>
-                  <span>Interaction Design</span>
-                  <span>Product Strategy</span>
-                </div>
-                <div className="flex items-center gap-6 py-3 px-4 text-sm text-muted-foreground">
-                  <span>UX Design</span>
-                  <span>UI Design</span>
-                  <span>Design Systems</span>
-                  <span>Prototyping</span>
-                  <span>User Research</span>
-                  <span>Accessibility</span>
-                  <span>Interaction Design</span>
-                  <span>Product Strategy</span>
+            <FadeIn delay={0.15} style={t(-8,-6,20)}>
+              <div className="relative overflow-hidden border rounded-xl bg-card/70">
+                <div className="whitespace-nowrap flex min-w-[200%] animate-[marquee_18s_linear_infinite]">
+                  <div className="flex items-center gap-6 py-3 px-4 text-sm text-muted-foreground">
+                    <span>UX Design</span>
+                    <span>UI Design</span>
+                    <span>Design Systems</span>
+                    <span>Prototyping</span>
+                    <span>User Research</span>
+                    <span>Accessibility</span>
+                    <span>Interaction Design</span>
+                    <span>Product Strategy</span>
+                  </div>
+                  <div className="flex items-center gap-6 py-3 px-4 text-sm text-muted-foreground">
+                    <span>UX Design</span>
+                    <span>UI Design</span>
+                    <span>Design Systems</span>
+                    <span>Prototyping</span>
+                    <span>User Research</span>
+                    <span>Accessibility</span>
+                    <span>Interaction Design</span>
+                    <span>Product Strategy</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </FadeIn>
           </div>
 
           {/* Right: Floating project cards and badge */}
