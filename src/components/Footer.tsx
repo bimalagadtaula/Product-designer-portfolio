@@ -1,7 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Linkedin, Behance, Dribbble, Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Dribbble, Mail, Phone, MapPin } from "lucide-react";
+
+const BehanceIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+    <path d="M4 7.5h5.2c1.2 0 2.1.3 2.7.8.5.4.7 1 .7 1.7 0 .9-.5 1.6-1.2 2 .9.3 1.6 1.1 1.6 2.3 0 .8-.3 1.5-.8 2-.7.7-1.7 1-2.9 1H4V7.5zm3.8 3.6h1.8c.5 0 .8-.1 1-.3.2-.2.3-.4.3-.7 0-.3-.1-.5-.3-.6-.2-.2-.5-.2-1-.2H7.8v1.8zm0 4h2.1c.5 0 .9-.1 1.1-.3.3-.2.4-.5.4-.8s-.1-.6-.4-.8c-.3-.2-.7-.3-1.3-.3H7.8v2.2zM15.4 12.6c.1-.7.4-1.3.9-1.8.6-.6 1.5-1 2.7-1 1.2 0 2.1.3 2.7.9.4.4.7.9.8 1.6h-2.1c-.1-.3-.2-.5-.4-.7-.3-.3-.6-.4-1.1-.4-.5 0-.9.2-1.2.5-.3.3-.5.8-.5 1.4 0 .6.2 1 .5 1.4.3.3.7.5 1.2.5.5 0 .9-.2 1.1-.4.2-.2.3-.4.4-.7H22c-.1.7-.4 1.2-.8 1.6-.6.6-1.5.9-2.7.9s-2.1-.4-2.7-1c-.5-.5-.8-1.1-.9-1.8h0zm.3-4.3h4.3v1.1h-4.3V8.3z"/>
+  </svg>
+);
 
 const Footer = () => {
   return (
@@ -31,7 +37,7 @@ const Footer = () => {
               <h4 className="text-xl font-semibold mb-2">Follow</h4>
               <div className="flex items-center gap-4">
                 <a href="#" aria-label="LinkedIn" className="text-white/80 hover:text-white transition-colors"><Linkedin className="h-6 w-6" /></a>
-                <a href="#" aria-label="Behance" className="text-white/80 hover:text-white transition-colors"><Behance className="h-6 w-6" /></a>
+                <a href="#" aria-label="Behance" className="text-white/80 hover:text-white transition-colors"><BehanceIcon className="h-6 w-6" /></a>
                 <a href="#" aria-label="Dribbble" className="text-white/80 hover:text-white transition-colors"><Dribbble className="h-6 w-6" /></a>
               </div>
             </div>

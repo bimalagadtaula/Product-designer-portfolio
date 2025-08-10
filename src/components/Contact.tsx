@@ -23,7 +23,7 @@ const Contact = () => {
     const next: Record<string, string> = {};
     if (!form.firstName.trim()) next.firstName = "Required";
     if (!form.lastName.trim()) next.lastName = "Required";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) next.email = "Valid email required";
+    if (!/^([^\s@]+)@([^\s@]+)\.[^\s@]+$/.test(form.email)) next.email = "Valid email required";
     if (!form.subject.trim()) next.subject = "Required";
     if (form.message.trim().length < 10) next.message = "Please provide at least 10 characters";
     setErrors(next);
@@ -47,7 +47,7 @@ const Contact = () => {
     <section id="contact" className="py-20 px-4 bg-secondary/30 scroll-mt-24">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-display font-bold mb-4">
             Have a project in mind? <span className="gradient-text">Let's talk.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

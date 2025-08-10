@@ -13,7 +13,7 @@ const Experience = () => {
       <div className="container max-w-4xl mx-auto">
         <FadeIn>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">My Work <span className="gradient-text">Experience</span></h2>
+            <h2 className="text-3xl md:text-display font-bold mb-2">My Work <span className="gradient-text">Experience</span></h2>
             <div className="mx-auto w-24 h-1 bg-primary rounded-full" />
           </div>
         </FadeIn>

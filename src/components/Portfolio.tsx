@@ -19,7 +19,7 @@ const Portfolio = () => {
       <div className="container max-w-6xl mx-auto">
         <FadeIn>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Let’s have a look at my <span className="gradient-text">Portfolio</span></h2>
+            <h2 className="text-3xl md:text-display font-bold mb-4">Let’s have a look at my <span className="gradient-text">Portfolio</span></h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Selected projects showcasing process and outcomes.</p>
           </div>
         </FadeIn>

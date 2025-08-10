@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="space-y-6 text-center md:text-left">
             <FadeIn>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-hero font-extrabold leading-tight tracking-tight">
                 I’m Bmala,
                 <br className="hidden sm:block" />
                 <span className="text-foreground/90">Product Designer</span>

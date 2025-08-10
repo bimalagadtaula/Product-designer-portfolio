@@ -6,7 +6,7 @@ const About = () => {
       <div className="container max-w-5xl mx-auto">
         <FadeIn>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">About <span className="gradient-text">Me</span></h2>
+            <h2 className="text-3xl md:text-display font-bold mb-4">About <span className="gradient-text">Me</span></h2>
             <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
               I’m a product designer with a focus on clarity, craft, and measurable outcomes. I partner with teams to ship thoughtful, user‑centered products.
             </p>
