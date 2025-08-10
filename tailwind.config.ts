@@ -91,6 +91,30 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
+			fontFamily: {
+				sans: [
+					'Urbanist',
+					'ui-sans-serif',
+					'system-ui',
+					'-apple-system',
+					'Segoe UI',
+					'Roboto',
+					'Arial',
+					'Apple Color Emoji',
+					'Segoe UI Emoji'
+				],
+				display: [
+					'Josefin Sans',
+					'ui-sans-serif',
+					'system-ui',
+					'-apple-system',
+					'Segoe UI',
+					'Roboto',
+					'Arial',
+					'Apple Color Emoji',
+					'Segoe UI Emoji'
+				]
 			}
 		}
 	},
