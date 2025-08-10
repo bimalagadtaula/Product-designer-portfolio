@@ -6,11 +6,6 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import About from "@/components/About";
-import WhyHireMe from "@/components/WhyHireMe";
-import Blog from "@/components/Blog";
-import CTA from "@/components/CTA";
-import Tags from "@/components/Tags";
 
 const Index = () => {
   return (
@@ -18,15 +13,10 @@ const Index = () => {
       <Navbar />
       <main className="min-h-screen pt-20">
         <Hero />
-        <About />
         <Services />
         <Experience />
-        <WhyHireMe />
         <Portfolio />
         <Testimonials />
-        <CTA />
-        <Tags />
-        <Blog />
         <Contact />
         <Footer />
       </main>
