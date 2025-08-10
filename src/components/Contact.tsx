@@ -48,10 +48,10 @@ const Contact = () => {
       <div className="container max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Have an Awesome Project Idea? <span className="gradient-text">Let's Discuss</span>
+            Have a project in mind? <span className="gradient-text">Let's talk.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Ready to bring your vision to life? Let's collaborate and create something amazing together.
+            I partner with teams to design and ship user‑centered products. Share a few details about your goals and timeline, and I’ll follow up within 1–2 business days.
           </p>
         </div>
         
@@ -59,11 +59,13 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
-                I'm always open to discussing new opportunities, creative projects, 
-                or potential partnerships. Feel free to reach out!
+              <h3 className="text-2xl font-bold mb-6">Get in touch</h3>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                Prefer email? Reach out directly or use the form. I’m currently accepting new freelance engagements and fractional design leadership roles.
               </p>
+              <div className="inline-flex items-center gap-2 text-xs text-muted-foreground rounded-full border px-3 py-1 bg-background/60 backdrop-blur">
+                <span className="h-2 w-2 rounded-full bg-primary inline-block" /> Typically replies within 1–2 business days
+              </div>
             </div>
             
             <div className="space-y-6">
@@ -73,7 +75,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <div className="font-semibold">Email</div>
-                  <div className="text-muted-foreground">emma@designstudio.com</div>
+                  <a href="mailto:emma@designstudio.com" className="text-muted-foreground hover:text-foreground">emma@designstudio.com</a>
                 </div>
               </div>
               
@@ -83,7 +85,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <div className="font-semibold">Phone</div>
-                  <div className="text-muted-foreground">+1 (555) 123-4567</div>
+                  <a href="tel:+15551234567" className="text-muted-foreground hover:text-foreground">+1 (555) 123‑4567</a>
                 </div>
               </div>
               
@@ -124,7 +126,7 @@ const Contact = () => {
                 
                 <div className="space-y-2">
                   <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="Project Discussion" value={form.subject} onChange={handleChange} aria-invalid={!!errors.subject} />
+                  <Input id="subject" placeholder="Project discussion" value={form.subject} onChange={handleChange} aria-invalid={!!errors.subject} />
                   {errors.subject && <p className="text-xs text-destructive">{errors.subject}</p>}
                 </div>
                 
@@ -132,7 +134,7 @@ const Contact = () => {
                   <Label htmlFor="message">Message</Label>
                   <Textarea 
                     id="message" 
-                    placeholder="Tell me about your project..." 
+                    placeholder="Tell me about your project, goals, and timeline..." 
                     className="min-h-[120px]"
                     value={form.message}
                     onChange={handleChange}
@@ -143,7 +145,7 @@ const Contact = () => {
                 
                 <Button className="w-full hover-lift" size="lg" type="submit" disabled={submitting}>
                   <Send className="mr-2 h-4 w-4" />
-                  {submitting ? "Sending..." : "Send Message"}
+                  {submitting ? "Sending..." : "Send message"}
                 </Button>
               </form>
             </CardContent>
