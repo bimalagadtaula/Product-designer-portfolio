@@ -62,7 +62,7 @@ const Hero = () => {
                 <span className="inline-flex items-center gap-2 text-muted-foreground text-sm">
                   <Star className="h-4 w-4 text-primary" /> Available for freelance
                 </span>
-                <h1 className="font-display text-5xl md:text-7xl font-extrabold leading-[1.05] tracking-tight">
+                <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.05] tracking-tight">
                   Designing delightful
                   <br />
                   digital <span className="gradient-text">experiences</span>
