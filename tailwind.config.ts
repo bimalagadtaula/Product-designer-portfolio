@@ -91,6 +91,23 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
+			transformStyle: {
+				'preserve-3d': 'preserve-3d'
+			},
+			perspective: {
+				'1000': '1000px'
+			},
+			rotate: {
+				'y-12': 'rotateY(12deg)',
+				'y-90': 'rotateY(90deg)',
+				'-y-90': 'rotateY(-90deg)',
+				'x-90': 'rotateX(90deg)',
+				'-x-90': 'rotateX(-90deg)'
+			},
+			translate: {
+				'z-40': 'translateZ(40px)',
+				'-z-40': 'translateZ(-40px)'
 			}
 		}
 	},

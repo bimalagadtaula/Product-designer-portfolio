@@ -1,75 +1,107 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
-import { FadeIn } from "@/components/motion";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
+    name: "Sarah Chen",
     role: "Product Manager",
     company: "TechCorp",
-    content: "Emma's design work is exceptional. She has a keen eye for detail and always delivers designs that exceed expectations. Her user research insights have been invaluable to our product development.",
-    rating: 5,
-    avatar: "SJ"
+    content: "The e-commerce app redesign exceeded our expectations. The user research insights and intuitive interface design increased our conversion rates significantly.",
+    rating: 5
   },
   {
-    name: "Mike Chen",
+    name: "Marcus Rodriguez",
+    role: "Design Director",
+    company: "Creative Solutions",
+    content: "Working with this designer on our banking dashboard was incredible. Their attention to user experience and accessibility made complex data simple to understand.",
+    rating: 5
+  },
+  {
+    name: "Emily Watson",
+    role: "UX Lead",
+    company: "Digital Studio",
+    content: "The healthcare app case study was comprehensive and insightful. The user research methodology and design solutions were exactly what we needed.",
+    rating: 5
+  },
+  {
+    name: "David Kim",
+    role: "Product Owner",
+    company: "SaaS Platform",
+    content: "The design system they created for us has streamlined our entire design process. Consistency and efficiency have improved dramatically across all products.",
+    rating: 5
+  },
+  {
+    name: "Lisa Thompson",
+    role: "Marketing Director",
+    company: "Restaurant Chain",
+    content: "The restaurant booking UX redesign transformed our customer experience. The mobile-first approach and simplified booking flow reduced abandonment rates.",
+    rating: 5
+  },
+  {
+    name: "James Wilson",
     role: "CEO",
-    company: "StartupX",
-    content: "Working with Emma was a game-changer for our product. Her design thinking and user-centered approach helped us achieve a 40% increase in user engagement.",
-    rating: 5,
-    avatar: "MC"
+    company: "Travel Startup",
+    content: "The travel app interface redesign was game-changing. Navigation is now intuitive, and users can complete bookings in half the time.",
+    rating: 5
   }
 ];
 
-const Testimonials = () => {
+export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 px-4 scroll-mt-24">
-      <div className="container max-w-4xl mx-auto">
-        <FadeIn>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="gradient-text">Testimonials</span> That Speak to My Results
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              What clients and colleagues say about working with me
-            </p>
-          </div>
-        </FadeIn>
-        
-        <div className="grid md:grid-cols-2 gap-8">
+    <section id="testimonials" className="py-20 relative">
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="text-white">Client </span>
+            <span className="gradient-text-neon">Testimonials</span>
+          </h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+            Hear from our clients about their experiences with our immersive technology solutions.
+          </p>
+        </div>
+
+        {/* Testimonials Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <FadeIn key={testimonial.name} delay={index * 0.08}>
-              <Card className="hover-lift border-0 bg-gradient-to-br from-card to-secondary/20">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                    ))}
+            <div
+              key={index}
+              className="glassmorphism rounded-2xl p-8 hover:scale-105 transition-transform duration-300 group"
+            >
+              {/* Rating */}
+              <div className="flex items-center mb-6">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                  />
+                ))}
+              </div>
+
+              {/* Content */}
+              <blockquote className="text-white/80 mb-6 leading-relaxed italic">
+                "{testimonial.content}"
+              </blockquote>
+
+              {/* Author */}
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500/30 to-pink-500/30 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-white font-semibold text-lg">
+                    {testimonial.name.charAt(0)}
+                  </span>
+                </div>
+                <div>
+                  <div className="text-white font-semibold">
+                    {testimonial.name}
                   </div>
-                  
-                  <blockquote className="text-muted-foreground mb-6 leading-relaxed italic">
-                    "{testimonial.content}"
-                  </blockquote>
-                  
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                      <span className="font-semibold text-primary">{testimonial.avatar}</span>
-                    </div>
-                    <div>
-                      <div className="font-semibold">{testimonial.name}</div>
-                      <div className="text-sm text-muted-foreground">
-                        {testimonial.role} at {testimonial.company}
-                      </div>
-                    </div>
+                  <div className="text-white/60 text-sm">
+                    {testimonial.role} at {testimonial.company}
                   </div>
-                </CardContent>
-              </Card>
-            </FadeIn>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default Testimonials;
+}

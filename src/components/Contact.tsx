@@ -1,157 +1,175 @@
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
-const Contact = () => {
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", subject: "", message: "" });
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    toast({
+      title: "Message sent!",
+      description: "Thank you for reaching out. We'll get back to you soon.",
+    });
+
+    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(false);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value } = e.target;
-    setForm((f) => ({ ...f, [id]: value }));
-    setErrors((prev) => ({ ...prev, [id]: "" }));
-  };
-
-  const validate = () => {
-    const next: Record<string, string> = {};
-    if (!form.firstName.trim()) next.firstName = "Required";
-    if (!form.lastName.trim()) next.lastName = "Required";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) next.email = "Valid email required";
-    if (!form.subject.trim()) next.subject = "Required";
-    if (form.message.trim().length < 10) next.message = "Please provide at least 10 characters";
-    setErrors(next);
-    return Object.keys(next).length === 0;
-  };
-
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validate()) return;
-    setSubmitting(true);
-    try {
-      await new Promise((r) => setTimeout(r, 800));
-      toast({ title: "Message sent ✅", description: "Thanks! I’ll get back to you within 1–2 business days." });
-      setForm({ firstName: "", lastName: "", email: "", subject: "", message: "" });
-    } finally {
-      setSubmitting(false);
-    }
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
   };
 
   return (
-    <section id="contact" className="py-20 px-4 bg-secondary/30 scroll-mt-24">
-      <div className="container max-w-6xl mx-auto">
+    <section id="contact" className="py-20 relative">
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Have an Awesome Project Idea? <span className="gradient-text">Let's Discuss</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="text-white">Get In </span>
+            <span className="gradient-text-neon">Touch</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Ready to bring your vision to life? Let's collaborate and create something amazing together.
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+            Ready to bring your virtual reality vision to life? Let's discuss your project.
           </p>
         </div>
-        
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
+
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
-                I'm always open to discussing new opportunities, creative projects, 
-                or potential partnerships. Feel free to reach out!
+              <h3 className="text-2xl font-semibold text-white mb-4">
+                Let's Start a Conversation
+              </h3>
+              <p className="text-white/70 leading-relaxed">
+                Whether you're looking to redesign your user interface, improve user experience, 
+                or create a comprehensive design system, I'm here to help turn your ideas into beautiful, 
+                functional designs that users love.
               </p>
             </div>
-            
+
+            {/* Contact Details */}
             <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Mail className="h-5 w-5 text-primary" />
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-pink-500/20 rounded-xl flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold">Email</div>
-                  <div className="text-muted-foreground">emma@designstudio.com</div>
+                  <div className="text-white font-medium">Email</div>
+                  <div className="text-white/60">hello@vrstudio.com</div>
                 </div>
               </div>
-              
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Phone className="h-5 w-5 text-primary" />
+
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-pink-500/20 rounded-xl flex items-center justify-center">
+                  <Phone className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold">Phone</div>
-                  <div className="text-muted-foreground">+1 (555) 123-4567</div>
+                  <div className="text-white font-medium">Phone</div>
+                  <div className="text-white/60">+1 (555) 123-4567</div>
                 </div>
               </div>
-              
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <MapPin className="h-5 w-5 text-primary" />
+
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-pink-500/20 rounded-xl flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold">Location</div>
-                  <div className="text-muted-foreground">San Francisco, CA</div>
+                  <div className="text-white font-medium">Location</div>
+                  <div className="text-white/60">San Francisco, CA</div>
                 </div>
               </div>
             </div>
           </div>
-          
+
           {/* Contact Form */}
-          <Card className="border-0 card-gradient">
-            <CardContent className="p-6">
-              <form className="space-y-6" onSubmit={onSubmit} noValidate>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="John" value={form.firstName} onChange={handleChange} aria-invalid={!!errors.firstName} />
-                    {errors.firstName && <p className="text-xs text-destructive">{errors.firstName}</p>}
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Doe" value={form.lastName} onChange={handleChange} aria-invalid={!!errors.lastName} />
-                    {errors.lastName && <p className="text-xs text-destructive">{errors.lastName}</p>}
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="john@example.com" value={form.email} onChange={handleChange} aria-invalid={!!errors.email} />
-                  {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="Project Discussion" value={form.subject} onChange={handleChange} aria-invalid={!!errors.subject} />
-                  {errors.subject && <p className="text-xs text-destructive">{errors.subject}</p>}
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Tell me about your project..." 
-                    className="min-h-[120px]"
-                    value={form.message}
-                    onChange={handleChange}
-                    aria-invalid={!!errors.message}
-                  />
-                  {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
-                </div>
-                
-                <Button className="w-full hover-lift" size="lg" type="submit" disabled={submitting}>
-                  <Send className="mr-2 h-4 w-4" />
-                  {submitting ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+          <div className="glassmorphism rounded-2xl p-8">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-white font-medium mb-2">
+                  Name
+                </label>
+                <Input
+                  id="name"
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 focus:ring-blue-400"
+                  placeholder="Your name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-white font-medium mb-2">
+                  Email
+                </label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 focus:ring-blue-400"
+                  placeholder="your.email@example.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-white font-medium mb-2">
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={5}
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 focus:ring-blue-400 resize-none"
+                  placeholder="Tell us about your project..."
+                />
+              </div>
+
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full gradient-bg-neon text-white border-0 hover:scale-105 transition-transform duration-200 font-semibold py-3"
+              >
+                {isSubmitting ? (
+                  "Sending..."
+                ) : (
+                  <>
+                    <Send className="w-4 h-4 mr-2" />
+                    Send Message
+                  </>
+                )}
+              </Button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default Contact;
+}

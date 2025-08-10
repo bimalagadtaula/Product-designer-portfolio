@@ -1,132 +1,137 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
-const navItems = [
-  { href: "#home", label: "Home" },
-  { href: "#services", label: "Services" },
-  { href: "#experience", label: "Experience" },
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#testimonials", label: "Testimonials" },
-  { href: "#contact", label: "Contact" },
-];
-
-const Navbar = () => {
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeId, setActiveId] = useState<string>("home");
-  const [progress, setProgress] = useState(0);
-  const tickingRef = useRef(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
-      if (tickingRef.current) return;
-      tickingRef.current = true;
-      requestAnimationFrame(() => {
-        setIsScrolled(window.scrollY > 8);
-        const total = document.documentElement.scrollHeight - window.innerHeight;
-        const p = total > 0 ? (window.scrollY / total) * 100 : 0;
-        setProgress(p);
-        tickingRef.current = false;
-      });
+      setIsScrolled(window.scrollY > 50);
     };
 
-    const sectionIds = navItems.map((n) => n.href.replace("#", ""));
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
+            setActiveSection(entry.target.id);
           }
         });
       },
-      { rootMargin: "-40% 0px -55% 0px", threshold: [0, 0.25, 0.5, 1] }
+      { threshold: 0.5 }
     );
 
-    sections.forEach((sec) => observer.observe(sec));
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300",
-        isScrolled ? "border-b bg-background/80 shadow-sm" : "bg-background/40 border-transparent"
-      )}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "py-2" : "py-4"
+      }`}
     >
-      <div className="container max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#home" className="font-extrabold text-xl tracking-tight">
-          <span className="gradient-text">Emma</span> Wilson
-        </a>
-
-        <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "group relative text-sm text-muted-foreground hover:text-foreground transition-colors",
-                activeId === item.href.slice(1) && "text-foreground"
-              )}
-            >
-              {item.label}
-              <span
-                className={cn(
-                  "pointer-events-none absolute -bottom-1 left-0 h-0.5 bg-primary transition-all",
-                  activeId === item.href.slice(1) ? "w-full" : "w-0 group-hover:w-full"
-                )}
-              />
-            </a>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2">
-          <Button asChild size="sm" className="hidden md:inline-flex">
-            <a href="#contact">Hire me</a>
-          </Button>
-
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[280px]">
-              <div className="mt-8 flex flex-col gap-4">
-                {navItems.map((item) => (
-                  <SheetClose asChild key={item.href}>
-                    <a href={item.href} className="text-base font-medium text-foreground">
-                      {item.label}
-                    </a>
-                  </SheetClose>
-                ))}
-                <SheetClose asChild>
-                  <Button asChild className="mt-2">
-                    <a href="#contact">Hire me</a>
-                  </Button>
-                </SheetClose>
+      <div className="container mx-auto px-4">
+        <div className="glassmorphism-nav rounded-2xl px-6 py-3">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-pink-500 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-lg">BG</span>
               </div>
-            </SheetContent>
-          </Sheet>
+              <span className="text-white font-semibold text-lg">Portifolio</span>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              {[
+                { id: "home", label: "HOME" },
+                { id: "services", label: "PRODUCTS" },
+                { id: "portfolio", label: "SERVICES" },
+                { id: "contact", label: "CONTACT" },
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`text-sm font-medium transition-colors duration-200 ${
+                    activeSection === item.id
+                      ? "text-blue-400 neon-glow"
+                      : "text-white/80 hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+
+            {/* CTA Button */}
+            <div className="hidden md:block">
+              <Button className="gradient-bg-neon text-white border-0 hover:scale-105 transition-transform duration-200">
+                Hire me
+              </Button>
+            </div>
+
+            {/* Mobile Menu */}
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden border-slate-600 text-white hover:bg-white/10"
+                >
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="glassmorphism border-l border-white/10">
+                <div className="flex flex-col space-y-6 mt-8">
+                  {[
+                    { id: "home", label: "HOME" },
+                    { id: "services", label: "PRODUCTS" },
+                    { id: "portfolio", label: "SERVICES" },
+                    { id: "contact", label: "CONTACT" },
+                  ].map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className={`text-left text-lg font-medium transition-colors duration-200 ${
+                        activeSection === item.id
+                          ? "text-blue-400 neon-glow"
+                          : "text-white/80 hover:text-white"
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                  <Button className="gradient-bg-neon text-white border-0 hover:scale-105 transition-transform duration-200 mt-4">
+                    Hire me
+                  </Button>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 h-px">
-        <div className="h-[2px] bg-primary/80" style={{ width: `${progress}%` }} />
-      </div>
-    </header>
+      {/* Progress Bar */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-pink-500 opacity-50" />
+    </nav>
   );
-};
-
-export default Navbar;
+}

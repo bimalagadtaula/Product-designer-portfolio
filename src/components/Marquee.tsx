@@ -1,50 +1,107 @@
 import { cn } from "@/lib/utils";
 
-type MarqueeProps = {
+interface MarqueeProps {
   items: string[];
   speedSec?: number;
-  className?: string;
-};
+}
 
-export const Marquee = ({ items, speedSec = 28, className }: MarqueeProps) => {
-  const trackStyle = { animation: `marquee ${speedSec}s linear infinite` } as const;
+const defaultItems = [
+  "User Research",
+  "Wireframing",
+  "Prototyping",
+  "User Testing",
+  "Design Systems",
+  "Mobile Design",
+  "Web Design",
+  "UI Design",
+  "UX Design",
+  "Figma",
+  "Sketch",
+  "Adobe XD",
+  "InVision",
+  "User Interviews",
+  "Personas",
+  "Journey Mapping",
+  "Accessibility",
+  "Responsive Design",
+  "Visual Design",
+  "Information Architecture"
+];
 
-  const Track = ({ ariaHidden }: { ariaHidden?: boolean }) => (
-    <div
-      className={cn(
-        "flex items-center gap-4 py-3 px-4 text-muted-foreground text-base md:text-lg font-medium",
-        "[animation-play-state:running] group-hover:[animation-play-state:paused]"
-      )}
-      style={trackStyle}
-      aria-hidden={ariaHidden}
-    >
-      {items.map((item) => (
-        <span
-          key={item}
-          className={cn(
-            "whitespace-nowrap px-3 py-1 rounded-full border",
-            "bg-background/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-colors",
-            "hover:bg-background"
-          )}
-        >
-          {item}
-        </span>
-      ))}
-    </div>
-  );
+const orangeItems = [
+  "UI/UX Designer",
+  "User Experience",
+  "Interface Design",
+  "Design Thinking",
+  "User-Centered Design"
+];
+
+export default function Marquee({ items = defaultItems, speedSec = 20 }: MarqueeProps) {
+  const duplicatedItems = [...items, ...items];
 
   return (
-    <div className={cn("relative overflow-hidden border rounded-xl bg-card/70 group", className)}>
-      <div className="whitespace-nowrap flex min-w-[200%]">
-        <Track />
-        <Track ariaHidden />
+    <div className="relative overflow-hidden">
+      {/* Edge Fades */}
+      <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-900 to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent z-10" />
+      
+      {/* Marquee Track */}
+      <div 
+        className="flex whitespace-nowrap min-w-[200%]"
+        style={{
+          animation: `marquee ${speedSec}s linear infinite`,
+          animationPlayState: 'running'
+        }}
+      >
+        {duplicatedItems.map((item, index) => (
+          <div
+            key={index}
+            className="flex items-center px-4 py-3 mx-2"
+          >
+            <span className="text-white/80 font-medium text-sm whitespace-nowrap">
+              {item}
+            </span>
+            {index < duplicatedItems.length - 1 && (
+              <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-pink-400 rounded-full ml-4 animate-pulse" />
+            )}
+          </div>
+        ))}
       </div>
-
-      {/* Edge fades */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent" />
     </div>
   );
-};
+}
 
-export default Marquee;
+export function OrangeMarquee({ speedSec = 20 }: { speedSec?: number }) {
+  const duplicatedItems = [...orangeItems, ...orangeItems];
+
+  return (
+    <div className="relative overflow-hidden">
+      {/* Edge Fades */}
+      <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-900 to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent z-10" />
+      
+      {/* Marquee Track */}
+      <div 
+        className="flex whitespace-nowrap min-w-[200%]"
+        style={{
+          animation: `marquee ${speedSec}s linear infinite reverse`,
+          animationPlayState: 'running'
+        }}
+      >
+        {duplicatedItems.map((item, index) => (
+          <div
+            key={index}
+            className="flex items-center px-4 py-3 mx-2 bg-orange-500 rounded-lg"
+          >
+            <span className="text-white font-semibold text-sm whitespace-nowrap">
+              {item}
+            </span>
+            {index < duplicatedItems.length - 1 && (
+              <div className="w-2 h-2 bg-white/60 rounded-full ml-4 animate-pulse" />
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

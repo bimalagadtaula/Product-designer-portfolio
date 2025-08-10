@@ -1,95 +1,109 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { FadeIn } from "@/components/motion";
+import { Calendar, MapPin, ExternalLink } from "lucide-react";
 
 const experiences = [
   {
-    company: "Techflow Inc.",
-    position: "Senior Product Designer",
+    position: "Senior UI/UX Designer",
+    company: "DesignStudio Pro",
     period: "2022 - Present",
     location: "San Francisco, CA",
-    description: "Lead design for core product features, managed design system, collaborated with cross-functional teams on user research and product strategy.",
-    skills: ["Design Systems", "User Research", "Prototyping", "Team Leadership"]
+    description: "Leading design initiatives for enterprise clients, specializing in user research, wireframing, and creating intuitive user interfaces that drive engagement and conversion.",
+    skills: ["Figma", "Sketch", "User Research", "Prototyping", "Design Systems"]
   },
   {
-    company: "StartupX",
-    position: "UX/UI Designer",
-    period: "2021 - 2022",
-    location: "Remote",
-    description: "Designed mobile and web applications from concept to launch, conducted user interviews and usability testing.",
-    skills: ["Mobile Design", "Web Design", "User Testing", "Figma"]
+    position: "UX Designer",
+    company: "Creative Solutions Inc",
+    period: "2020 - 2022",
+    location: "Austin, TX",
+    description: "Designed user experiences for web and mobile applications, focusing on user-centered design principles and creating seamless user journeys.",
+    skills: ["Adobe XD", "InVision", "User Testing", "Wireframing", "Mobile Design"]
   },
   {
-    company: "Creative Agency",
     position: "Junior Designer",
-    period: "2020 - 2021",
-    location: "New York, NY",
-    description: "Created visual designs for various clients, collaborated on branding projects, developed responsive web designs.",
-    skills: ["Visual Design", "Branding", "Responsive Design", "Adobe Creative Suite"]
+    company: "Digital Design Co",
+    period: "2018 - 2020",
+    location: "Seattle, WA",
+    description: "Collaborated with senior designers on various projects, learning best practices in UI/UX design and contributing to design system development.",
+    skills: ["Photoshop", "Illustrator", "Sketch", "Prototyping", "Design Principles"]
   }
 ];
 
-const Experience = () => {
+export default function Experience() {
   return (
-    <section id="experience" className="py-20 px-4 scroll-mt-24">
-      <div className="container max-w-4xl mx-auto">
-        <FadeIn>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              My Work <span className="gradient-text">Experience</span>
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              A journey of growth and impact in product design
-            </p>
-          </div>
-        </FadeIn>
-        
+    <section id="experience" className="py-20 relative">
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="text-white">Work </span>
+            <span className="gradient-text-neon">Experience</span>
+          </h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+            My journey in creating immersive digital experiences across various cutting-edge technologies.
+          </p>
+        </div>
+
+        {/* Timeline */}
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-transparent hidden md:block"></div>
+          {/* Timeline Line */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 transform -translate-x-1/2" />
           
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <FadeIn key={exp.company + exp.period} delay={index * 0.08}>
-                <div className="relative">
-                  {/* Timeline dot */}
-                  <div className="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg animate-glow hidden md:block"></div>
-                  
-                  <Card className="ml-0 md:ml-16 hover-lift">
-                    <CardContent className="p-6">
-                      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-                        <div className="flex-1">
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                            <h3 className="font-bold text-lg">{exp.position}</h3>
-                            <span className="text-primary font-semibold">@ {exp.company}</span>
-                          </div>
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4 text-muted-foreground">
-                            <span>{exp.period}</span>
-                            <span className="hidden sm:inline">•</span>
-                            <span>{exp.location}</span>
-                          </div>
-                          <p className="text-muted-foreground mb-4 leading-relaxed">
-                            {exp.description}
-                          </p>
-                          <div className="flex flex-wrap gap-2">
-                            {exp.skills.map((skill) => (
-                              <Badge key={skill} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">
-                                {skill}
-                              </Badge>
-                            ))}
-                          </div>
+          <div className="space-y-12">
+            {experiences.map((experience, index) => (
+              <div key={index} className="relative">
+                {/* Timeline Dot */}
+                <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-gradient-to-r from-blue-500 to-pink-500 rounded-full border-4 border-slate-900 transform -translate-x-1/2 z-10" />
+                
+                {/* Content Card */}
+                <div className={`ml-16 md:ml-0 md:w-5/12 ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
+                  <div className="glassmorphism rounded-2xl p-8 hover:scale-105 transition-transform duration-300">
+                    {/* Header */}
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <h3 className="text-xl font-semibold text-white mb-2">
+                          {experience.position}
+                        </h3>
+                        <div className="flex items-center text-blue-400 font-medium mb-2">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          {experience.company}
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+
+                    {/* Period & Location */}
+                    <div className="flex items-center space-x-4 text-sm text-white/60 mb-4">
+                      <div className="flex items-center">
+                        <Calendar className="w-4 h-4 mr-2" />
+                        {experience.period}
+                      </div>
+                      <div className="flex items-center">
+                        <MapPin className="w-4 h-4 mr-2" />
+                        {experience.location}
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-white/70 mb-6 leading-relaxed">
+                      {experience.description}
+                    </p>
+
+                    {/* Skills */}
+                    <div className="flex flex-wrap gap-2">
+                      {experience.skills.map((skill, skillIndex) => (
+                        <span
+                          key={skillIndex}
+                          className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-pink-500/20 text-blue-300 text-sm rounded-full border border-blue-500/30"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </FadeIn>
+              </div>
             ))}
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default Experience;
+}

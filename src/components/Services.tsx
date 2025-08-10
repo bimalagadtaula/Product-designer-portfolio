@@ -1,65 +1,76 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Palette, Smartphone, Monitor, Users } from "lucide-react";
-import { FadeIn } from "@/components/motion";
+import { Code, Palette, Smartphone, Globe, Zap, Shield } from "lucide-react";
 
 const services = [
   {
+    icon: Code,
+    title: "UI Design",
+    description: "Beautiful and intuitive user interfaces designed with modern design principles and accessibility in mind."
+  },
+  {
     icon: Palette,
-    title: "UX Design",
-    description: "User research, wireframing, and prototyping to create intuitive user experiences"
+    title: "UX Research",
+    description: "Comprehensive user research including user interviews, surveys, and usability testing to inform design decisions."
   },
   {
     icon: Smartphone,
-    title: "App Design",
-    description: "Mobile app interfaces that are both beautiful and functional across all devices"
+    title: "Mobile Design",
+    description: "Responsive mobile-first designs that provide seamless experiences across all devices and screen sizes."
   },
   {
-    icon: Monitor,
+    icon: Globe,
     title: "Web Design",
-    description: "Responsive web designs that convert visitors into customers"
+    description: "Modern web applications with engaging user experiences and intuitive navigation patterns."
   },
   {
-    icon: Users,
-    title: "User Research",
-    description: "In-depth user analysis to inform design decisions and improve usability"
+    icon: Zap,
+    title: "Prototyping",
+    description: "Interactive prototypes and wireframes that bring your ideas to life before development begins."
+  },
+  {
+    icon: Shield,
+    title: "Design Systems",
+    description: "Comprehensive design systems that ensure consistency and scalability across all your products."
   }
 ];
 
-const Services = () => {
+export default function Services() {
   return (
-    <section id="services" className="py-20 px-4 bg-secondary/30 scroll-mt-24">
-      <div className="container max-w-6xl mx-auto">
-        <FadeIn>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              My <span className="gradient-text">Services</span>
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Comprehensive design solutions to bring your digital products to life
-            </p>
-          </div>
-        </FadeIn>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <section id="services" className="py-20 relative">
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="text-white">Our </span>
+            <span className="gradient-text-neon">Services</span>
+          </h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+            We specialize in creating immersive digital experiences that push the boundaries of what's possible.
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <FadeIn key={service.title} delay={index * 0.06}>
-              <Card className="service-card border-0 text-center p-6">
-                <CardContent className="space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center">
-                    <service.icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-lg">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
-            </FadeIn>
+            <div
+              key={index}
+              className="glassmorphism rounded-2xl p-8 hover:scale-105 transition-transform duration-300 group"
+            >
+              {/* Icon */}
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <service.icon className="w-8 h-8 text-blue-400" />
+              </div>
+
+              {/* Content */}
+              <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                {service.title}
+              </h3>
+              <p className="text-white/70 leading-relaxed">
+                {service.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default Services;
+}
