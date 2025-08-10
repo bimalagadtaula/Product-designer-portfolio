@@ -20,7 +20,7 @@ const Blog = () => {
         <div className="grid md:grid-cols-3 gap-6">
           {posts.map((p, i) => (
             <FadeIn key={p.title} delay={i * 0.06}>
-              <Card className="hover-lift border-0 bg-card">
+              <Card className="border bg-card shadow-none">
                 <CardContent className="p-6">
                   <div className="text-xs text-muted-foreground mb-2">{p.date}</div>
                   <h3 className="font-semibold text-lg mb-2">{p.title}</h3>
