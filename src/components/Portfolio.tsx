@@ -15,23 +15,23 @@ const tabs = ["Landing Page", "Product Design", "Animation", "Discussion", "Card
 
 const Portfolio = () => {
   return (
-    <section id="projects" className="py-20 px-4 bg-secondary/30 scroll-mt-24">
+    <section id="projects" className="py-16 md:py-20 px-4 bg-secondary/30 scroll-mt-24">
       <div className="container max-w-6xl mx-auto">
         <FadeIn>
-          <div className="text-center mb-16">
-            <h2 className="text-h2 md:text-display font-bold mb-4">Let’s have a look at my <span className="gradient-text">Portfolio</span></h2>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-h2 md:text-display font-bold mb-3 md:mb-4">Let’s have a look at my <span className="gradient-text">Portfolio</span></h2>
             <p className="text-muted-foreground text-bodyLg max-w-2xl mx-auto">Selected projects showcasing process and outcomes.</p>
           </div>
         </FadeIn>
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <FadeIn key={project.title + index} delay={index * 0.08}>
-              <Card className="overflow-hidden border bg-card shadow-none">
-                <div className="aspect-video overflow-hidden">
+              <Card className="overflow-hidden border bg-card shadow-none hover:shadow-md transition-shadow">
+                <div className="w-full h-56 md:h-64 overflow-hidden">
                   <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                 </div>
                 <CardContent className="p-6">
-                  <div className="flex items-start justify-between mb-3">
+                  <div className="flex items-start justify-between mb-2">
                     <Badge variant="secondary" className="bg-primary/10 text-primary">{project.category}</Badge>
                     <span className="text-sm text-muted-foreground">{project.year}</span>
                   </div>
@@ -41,7 +41,7 @@ const Portfolio = () => {
                       <span key={t} className="px-3 py-1 rounded-full border text-xs text-foreground/80">{t}</span>
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+                  <p className="text-muted-foreground mb-5 leading-relaxed">{project.description}</p>
                   <div className="flex gap-3">
                     <Button variant="outline" size="sm" className="flex-1"><ExternalLink className="mr-2 h-4 w-4" />Live Demo</Button>
                     <Button variant="outline" size="sm" className="flex-1"><Github className="mr-2 h-4 w-4" />Case Study</Button>

@@ -63,29 +63,34 @@ const Navbar = () => {
       )}
     >
       <div className="container max-w-6xl mx-auto h-16 flex items-center justify-center px-4">
-        <nav className="rounded-full border bg-card/90 shadow-sm px-4 sm:px-6 py-2">
-          <ul className="flex items-center gap-4 sm:gap-6 text-sm">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  className={cn(
-                    "relative px-2 py-1 text-muted-foreground hover:text-foreground transition-colors",
-                    activeId === item.href.slice(1) && "text-foreground"
-                  )}
-                >
-                  {item.label}
-                  <span
-                    className={cn(
-                      "pointer-events-none absolute -bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-primary rounded-full transition-all",
-                      activeId === item.href.slice(1) ? "w-6" : "w-0 group-hover:w-6"
-                    )}
-                  />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="max-w-full overflow-x-auto no-scrollbar">
+          <nav className="inline-flex rounded-full border bg-card/90 shadow-md px-3 sm:px-5 py-2">
+            <ul className="flex items-center gap-2 sm:gap-4 md:gap-6 text-sm">
+              {navItems.map((item) => {
+                const isActive = activeId === item.href.slice(1);
+                return (
+                  <li key={item.href} className="shrink-0">
+                    <a
+                      href={item.href}
+                      className={cn(
+                        "group relative px-3 py-1 text-muted-foreground hover:text-foreground transition-colors",
+                        isActive && "text-foreground"
+                      )}
+                    >
+                      {item.label}
+                      <span
+                        className={cn(
+                          "pointer-events-none absolute left-0 -bottom-0.5 h-0.5 bg-primary rounded-full transition-all",
+                          isActive ? "w-full" : "w-0 group-hover:w-full"
+                        )}
+                      />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </div>
       </div>
 
       <div className="absolute inset-x-0 bottom-0 h-px">
