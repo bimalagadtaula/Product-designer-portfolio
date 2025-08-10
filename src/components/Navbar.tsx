@@ -66,7 +66,7 @@ const Navbar = () => {
       )}
     >
       <div className="container max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#home" className="font-extrabold text-xl tracking-tight">
+        <a href="#home" className="font-extrabold text-xl tracking-tight font-display">
           <span className="gradient-text">Emma</span> Wilson
         </a>
 
