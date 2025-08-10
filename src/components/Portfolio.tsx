@@ -27,15 +27,15 @@ const projects = [
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-20 px-4 bg-secondary/30 scroll-mt-24">
+    <section id="projects" className="py-20 px-4 bg-secondary/30 scroll-mt-24">
       <div className="container max-w-6xl mx-auto">
         <FadeIn>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Let's have a look at my <span className="gradient-text">Portfolio</span>
+              Recent <span className="gradient-text">Projects</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Recent projects showcasing my design process and problem-solving skills
+              A preview of selected work across mobile and web
             </p>
           </div>
         </FadeIn>

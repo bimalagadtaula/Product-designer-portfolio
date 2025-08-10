@@ -15,13 +15,12 @@ const Hero = () => {
                   <Star className="h-4 w-4 text-primary" /> Available for freelance
                 </span>
                 <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.05] tracking-tight">
-                  Designing delightful
+                  Emma Wilson
                   <br />
-                  digital <span className="gradient-text">experiences</span>
+                  <span className="text-foreground/80">Product Designer</span>
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
-                  Product designer crafting human-centered interfaces for startups and scale-ups. I blend research, aesthetics,
-                  and usability to create products people love.
+                  I help startups and teams design clear, modern interfaces that feel effortless.
                 </p>
               </div>
             </FadeIn>
@@ -29,15 +28,14 @@ const Hero = () => {
             <FadeIn delay={0.08}>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="group">
-                  <a href="#portfolio" className="inline-flex items-center">
-                    Explore Work
+                  <a href="#projects" className="inline-flex items-center">
+                    Portfolio
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <a href="#" download>
-                    <Download className="mr-2 h-4 w-4" />
-                    Download CV
+                  <a href="#contact">
+                    Hire Me
                   </a>
                 </Button>
               </div>

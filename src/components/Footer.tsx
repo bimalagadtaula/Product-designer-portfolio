@@ -10,6 +10,9 @@ const Footer = () => {
               <span className="gradient-text">Emma</span> Wilson
             </a>
             <p className="text-muted-foreground mt-2">Product designer for web and mobile products.</p>
+            <a href="mailto:emma@designstudio.com" className="text-sm text-foreground/80 hover:text-primary transition-colors mt-1 inline-block">
+              emma@designstudio.com
+            </a>
           </div>
 
           <div className="flex items-center gap-4">
