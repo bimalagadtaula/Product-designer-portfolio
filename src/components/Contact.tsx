@@ -4,8 +4,45 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", subject: "", message: "" });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setForm((f) => ({ ...f, [id]: value }));
+    setErrors((prev) => ({ ...prev, [id]: "" }));
+  };
+
+  const validate = () => {
+    const next: Record<string, string> = {};
+    if (!form.firstName.trim()) next.firstName = "Required";
+    if (!form.lastName.trim()) next.lastName = "Required";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) next.email = "Valid email required";
+    if (!form.subject.trim()) next.subject = "Required";
+    if (form.message.trim().length < 10) next.message = "Please provide at least 10 characters";
+    setErrors(next);
+    return Object.keys(next).length === 0;
+  };
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+    setSubmitting(true);
+    try {
+      await new Promise((r) => setTimeout(r, 800));
+      toast({ title: "Message sent ✅", description: "Thanks! I’ll get back to you within 1–2 business days." });
+      setForm({ firstName: "", lastName: "", email: "", subject: "", message: "" });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 px-4 bg-secondary/30 scroll-mt-24">
       <div className="container max-w-6xl mx-auto">
@@ -65,26 +102,30 @@ const Contact = () => {
           {/* Contact Form */}
           <Card className="border-0 card-gradient">
             <CardContent className="p-6">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={onSubmit} noValidate>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="John" />
+                    <Input id="firstName" placeholder="John" value={form.firstName} onChange={handleChange} aria-invalid={!!errors.firstName} />
+                    {errors.firstName && <p className="text-xs text-destructive">{errors.firstName}</p>}
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Doe" />
+                    <Input id="lastName" placeholder="Doe" value={form.lastName} onChange={handleChange} aria-invalid={!!errors.lastName} />
+                    {errors.lastName && <p className="text-xs text-destructive">{errors.lastName}</p>}
                   </div>
                 </div>
                 
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="john@example.com" />
+                  <Input id="email" type="email" placeholder="john@example.com" value={form.email} onChange={handleChange} aria-invalid={!!errors.email} />
+                  {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
                 </div>
                 
                 <div className="space-y-2">
                   <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="Project Discussion" />
+                  <Input id="subject" placeholder="Project Discussion" value={form.subject} onChange={handleChange} aria-invalid={!!errors.subject} />
+                  {errors.subject && <p className="text-xs text-destructive">{errors.subject}</p>}
                 </div>
                 
                 <div className="space-y-2">
@@ -93,12 +134,16 @@ const Contact = () => {
                     id="message" 
                     placeholder="Tell me about your project..." 
                     className="min-h-[120px]"
+                    value={form.message}
+                    onChange={handleChange}
+                    aria-invalid={!!errors.message}
                   />
+                  {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
                 </div>
                 
-                <Button className="w-full hover-lift" size="lg">
+                <Button className="w-full hover-lift" size="lg" type="submit" disabled={submitting}>
                   <Send className="mr-2 h-4 w-4" />
-                  Send Message
+                  {submitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </CardContent>

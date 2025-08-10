@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { FadeIn } from "@/components/motion";
 
 const experiences = [
   {
@@ -32,14 +33,16 @@ const Experience = () => {
   return (
     <section id="experience" className="py-20 px-4 scroll-mt-24">
       <div className="container max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            My Work <span className="gradient-text">Experience</span>
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            A journey of growth and impact in product design
-          </p>
-        </div>
+        <FadeIn>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              My Work <span className="gradient-text">Experience</span>
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              A journey of growth and impact in product design
+            </p>
+          </div>
+        </FadeIn>
         
         <div className="relative">
           {/* Timeline line */}
@@ -47,38 +50,40 @@ const Experience = () => {
           
           <div className="space-y-8">
             {experiences.map((exp, index) => (
-              <div key={index} className="relative">
-                {/* Timeline dot */}
-                <div className="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg animate-glow hidden md:block"></div>
-                
-                <Card className="ml-0 md:ml-16 hover-lift">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                          <h3 className="font-bold text-lg">{exp.position}</h3>
-                          <span className="text-primary font-semibold">@ {exp.company}</span>
-                        </div>
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4 text-muted-foreground">
-                          <span>{exp.period}</span>
-                          <span className="hidden sm:inline">•</span>
-                          <span>{exp.location}</span>
-                        </div>
-                        <p className="text-muted-foreground mb-4 leading-relaxed">
-                          {exp.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.skills.map((skill, skillIndex) => (
-                            <Badge key={skillIndex} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">
-                              {skill}
-                            </Badge>
-                          ))}
+              <FadeIn key={exp.company + exp.period} delay={index * 0.08}>
+                <div className="relative">
+                  {/* Timeline dot */}
+                  <div className="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg animate-glow hidden md:block"></div>
+                  
+                  <Card className="ml-0 md:ml-16 hover-lift">
+                    <CardContent className="p-6">
+                      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                        <div className="flex-1">
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+                            <h3 className="font-bold text-lg">{exp.position}</h3>
+                            <span className="text-primary font-semibold">@ {exp.company}</span>
+                          </div>
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4 text-muted-foreground">
+                            <span>{exp.period}</span>
+                            <span className="hidden sm:inline">•</span>
+                            <span>{exp.location}</span>
+                          </div>
+                          <p className="text-muted-foreground mb-4 leading-relaxed">
+                            {exp.description}
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {exp.skills.map((skill) => (
+                              <Badge key={skill} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">
+                                {skill}
+                              </Badge>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
