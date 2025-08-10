@@ -8,14 +8,14 @@ const Hero = () => {
     <section id="home" className="relative min-h-[80vh] flex items-center scroll-mt-24">
       <div className="container max-w-6xl px-4">
         <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div className="space-y-6 text-center md:text-left">
+          <div className="space-y-5 text-center md:text-left">
             <FadeIn>
-              <h1 className="text-4xl sm:text-5xl md:text-hero font-extrabold leading-tight tracking-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-hero font-extrabold leading-tight tracking-tight">
                 I’m Bmala,
                 <br className="hidden sm:block" />
                 <span className="text-foreground/90">Product Designer</span>
               </h1>
-              <p className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto md:mx-0">
+              <p className="text-base md:text-bodyLg text-muted-foreground max-w-xl mx-auto md:mx-0">
                 I design clear, modern interfaces and experiences that feel effortless.
               </p>
             </FadeIn>
@@ -38,7 +38,7 @@ const Hero = () => {
           <FadeIn delay={0.1}>
             <div className="relative flex items-center justify-center">
               <SlideInImage>
-                <div className="relative w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] md:w-[340px] md:h-[340px]">
+                <div className="relative w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[340px] lg:h-[340px]">
                   <div className="absolute inset-0 rounded-full bg-primary shadow-[0_20px_40px_hsl(var(--primary)/0.35)]" />
                   <div className="absolute inset-2 rounded-full overflow-hidden ring-1 ring-white/30">
                     <img src={portrait} alt="Profile" className="w-full h-full object-cover" />

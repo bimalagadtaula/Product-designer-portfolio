@@ -9,25 +9,25 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 px-4 scroll-mt-24">
+    <section id="experience" className="py-16 md:py-20 px-4 scroll-mt-24">
       <div className="container max-w-4xl mx-auto">
         <FadeIn>
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <h2 className="text-h2 md:text-display font-bold mb-2">My Work <span className="gradient-text">Experience</span></h2>
-            <div className="mx-auto w-24 h-1 bg-primary rounded-full" />
+            <div className="mx-auto w-20 md:w-24 h-1 bg-primary rounded-full" />
           </div>
         </FadeIn>
 
         <div className="relative">
           <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-border hidden md:block" />
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             {experiences.map((exp, index) => (
               <FadeIn key={exp.company + exp.role} delay={index * 0.08}>
                 <div className="relative">
-                  <div className="md:grid md:grid-cols-2 md:gap-10">
+                  <div className="md:grid md:grid-cols-2 md:gap-8 lg:gap-10">
                     <div className={index % 2 === 0 ? "md:text-right" : "md:col-start-2"}>
                       <Card className="border bg-card shadow-none">
-                        <CardContent className="p-6">
+                        <CardContent className="p-5 md:p-6">
                           <h3 className="font-semibold">{exp.company}, {exp.location}</h3>
                           <div className="text-muted-foreground mb-1">{exp.role}</div>
                           <div className="text-sm text-muted-foreground">{exp.period}</div>
