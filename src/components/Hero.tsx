@@ -11,15 +11,15 @@ const Hero = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="inline-block">
-                <span className="text-muted-foreground text-lg">👋 Hi there!</span>
+                <span className="text-muted-foreground text-lg">Namaste</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-shadow">
-                I'm <span className="gradient-text">Emma</span>,<br />
-                Product Designer
+                I'm <span className="gradient-text">Bimala</span>,<br />
+              UI/UX designer
               </h1>
               <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
-                Creating digital experiences that solve real problems and delight users. 
-                Specialized in UX/UI design, user research, and design systems.
+              With a strong focus on UX/UI design, user research, and scalable design systems, I help businesses turn ideas into products
+               that are both beautiful and easy to use. 
               </p>
             </div>
             
