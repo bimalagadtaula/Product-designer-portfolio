@@ -1,38 +1,45 @@
-import { Linkedin, Twitter, Github, Dribbble } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Linkedin, Behance, Dribbble, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="py-10 px-4 border-t bg-card">
-      <div className="container max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <footer className="bg-[#0f1115] text-white">
+      <div className="container max-w-6xl mx-auto px-4 py-16">
+        <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <a href="#home" className="font-extrabold text-xl tracking-tight">
-              <span className="gradient-text">Emma</span> Wilson
-            </a>
-            <p className="text-muted-foreground mt-2">Product designer for web and mobile products.</p>
-            <a href="mailto:emma@designstudio.com" className="text-sm text-foreground/80 hover:text-primary transition-colors mt-1 inline-block">
-              emma@designstudio.com
-            </a>
+            <h3 className="text-2xl font-bold mb-4">Let’s work together</h3>
+            <form className="space-y-4">
+              <Input placeholder="Name" className="bg-white/5 border-white/10 text-white placeholder:text-white/50" />
+              <Input type="email" placeholder="Email" className="bg-white/5 border-white/10 text-white placeholder:text-white/50" />
+              <Textarea placeholder="Message" className="bg-white/5 border-white/10 text-white placeholder:text-white/50 min-h-[120px]" />
+              <Button className="bg-primary text-primary-foreground hover:opacity-90">Submit</Button>
+            </form>
           </div>
 
-          <div className="flex items-center gap-4">
-            <a href="#" aria-label="LinkedIn" className="text-foreground hover:text-primary transition-colors">
-              <Linkedin className="h-6 w-6" strokeWidth={2.25} />
-            </a>
-            <a href="#" aria-label="Twitter/X" className="text-foreground hover:text-primary transition-colors">
-              <Twitter className="h-6 w-6" strokeWidth={2.25} />
-            </a>
-            <a href="#" aria-label="GitHub" className="text-foreground hover:text-primary transition-colors">
-              <Github className="h-6 w-6" strokeWidth={2.25} />
-            </a>
-            <a href="#" aria-label="Dribbble" className="text-foreground hover:text-primary transition-colors">
-              <Dribbble className="h-6 w-6" strokeWidth={2.25} />
-            </a>
+          <div className="space-y-6">
+            <div>
+              <h4 className="text-xl font-semibold mb-2">Contact</h4>
+              <ul className="space-y-2 text-white/80">
+                <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> emma@designstudio.com</li>
+                <li className="flex items-center gap-2"><Phone className="h-4 w-4" /> +1 (555) 123‑4567</li>
+                <li className="flex items-center gap-2"><MapPin className="h-4 w-4" /> San Francisco, CA</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-xl font-semibold mb-2">Follow</h4>
+              <div className="flex items-center gap-4">
+                <a href="#" aria-label="LinkedIn" className="text-white/80 hover:text-white transition-colors"><Linkedin className="h-6 w-6" /></a>
+                <a href="#" aria-label="Behance" className="text-white/80 hover:text-white transition-colors"><Behance className="h-6 w-6" /></a>
+                <a href="#" aria-label="Dribbble" className="text-white/80 hover:text-white transition-colors"><Dribbble className="h-6 w-6" /></a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="border-t mt-8 pt-6 text-xs text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Emma Wilson. All rights reserved.</p>
+        <div className="border-t border-white/10 mt-12 pt-6 text-center text-white/70 text-sm">
+          Copyright 2025 Portfolio. All Rights Reserved
         </div>
       </div>
     </footer>

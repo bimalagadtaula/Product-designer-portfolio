@@ -23,7 +23,7 @@ const Services = () => {
         <div className="grid md:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <FadeIn key={service.title} delay={index * 0.06}>
-              <Card className="border bg-card text-center p-6 shadow-none hover:bg-muted/20 transition-all hover:shadow-md hover:-translate-y-0.5">
+              <Card className="group border bg-card text-center p-6 shadow-none hover:bg-muted/20 transition-all hover:shadow-md hover:-translate-y-0.5">
                 <CardContent className="space-y-4">
                   <div className="w-16 h-16 mx-auto rounded-2xl ring-1 ring-border flex items-center justify-center group-hover:ring-primary transition-colors">
                     <service.icon className="h-8 w-8 text-primary" />
