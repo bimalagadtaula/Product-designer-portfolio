@@ -110,10 +110,12 @@ export default function Portfolio() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-white">Featured </span>
-            <span className="gradient-text-neon">Projects</span>
-          </h2>
+          <a href="/case-studies" className="inline-block group">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 group-hover:scale-105 transition-transform duration-300">
+              <span className="text-white">Featured </span>
+              <span className="gradient-text-neon">Projects</span>
+            </h2>
+          </a>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
             Explore our portfolio of cutting-edge virtual and augmented reality experiences.
           </p>
@@ -188,7 +190,7 @@ export default function Portfolio() {
                     className="flex-1 border-white/20 text-white hover:bg-white/10 hover:border-white/30 transition-colors duration-200"
                     asChild
                   >
-                 <a href={project.caseStudy} target="_blank" rel="noopener noreferrer">
+                 <a href="/case-studies" rel="noopener noreferrer">
   <BookOpen className="w-4 h-4 mr-2" />
   Case Study
 </a>
