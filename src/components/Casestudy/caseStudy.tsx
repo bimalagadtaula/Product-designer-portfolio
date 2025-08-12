@@ -196,21 +196,21 @@ export default function CaseStudies() {
       <main className="min-h-screen pt-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
         <div className="container mx-auto px-4 py-12">
           {/* Header */}
-          <div className="mb-12">
+          <div className="mb-12 animate-fade-in">
             <Button
               variant="ghost"
               onClick={() => navigate(-1)}
-              className="mb-6 text-white/70 hover:text-white hover:bg-white/10"
+              className="mb-6 text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 hover:scale-105"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Portfolio
             </Button>
             
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
               <span className="text-white">Case </span>
               <span className="gradient-text-neon">Studies</span>
             </h1>
-            <p className="text-xl text-white/70 max-w-3xl">
+            <p className="text-xl text-white/70 max-w-3xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Deep dives into my design process, challenges faced, and solutions created. 
               Each project tells a story of user-centered design and measurable impact.
             </p>
@@ -219,45 +219,52 @@ export default function CaseStudies() {
           {/* Case Studies */}
           <div className="space-y-20">
             {caseStudies.map((study, index) => (
-              <div key={study.id} className="glassmorphism rounded-3xl p-8 md:p-12">
+              <div 
+                key={study.id} 
+                className="glassmorphism rounded-3xl p-8 md:p-12 animate-fade-in hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20"
+                style={{ animationDelay: `${0.3 + index * 0.2}s` }}
+              >
                 {/* Project Header */}
                 <div className="grid md:grid-cols-2 gap-8 mb-12">
-                  <div>
+                  <div className="space-y-6">
                     <div className="flex flex-wrap gap-2 mb-4">
-                      <Badge variant="secondary" className="bg-gradient-to-r from-blue-500/20 to-pink-500/20 text-white border-white/20">
+                      <Badge variant="secondary" className="bg-gradient-to-r from-blue-500/20 to-pink-500/20 text-white border-white/20 hover:scale-105 transition-transform duration-200">
                         {study.category}
                       </Badge>
-                      <Badge variant="outline" className="border-white/20 text-white/70">
+                      <Badge variant="outline" className="border-white/20 text-white/70 hover:scale-105 transition-transform duration-200">
                         {study.year}
                       </Badge>
                     </div>
                     
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                      {study.title}
-                    </h2>
-                    <p className="text-xl text-blue-300 mb-4">{study.subtitle}</p>
-                    <p className="text-white/70 mb-6 leading-relaxed">
-                      {study.description}
-                    </p>
+                    <div className="animate-fade-in" style={{ animationDelay: `${0.4 + index * 0.1}s` }}>
+                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 hover:text-blue-300 transition-colors duration-300">
+                        {study.title}
+                      </h2>
+                      <p className="text-xl text-blue-300 mb-4">{study.subtitle}</p>
+                      <p className="text-white/70 mb-6 leading-relaxed">
+                        {study.description}
+                      </p>
+                    </div>
 
                     {/* Project Details */}
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="flex items-center gap-2 text-white/60">
+                    <div className="grid grid-cols-2 gap-4 mb-6 animate-fade-in" style={{ animationDelay: `${0.5 + index * 0.1}s` }}>
+                      <div className="flex items-center gap-2 text-white/60 hover:text-white/80 transition-colors duration-200">
                         <Calendar className="w-4 h-4" />
                         <span className="text-sm">{study.duration}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-white/60">
+                      <div className="flex items-center gap-2 text-white/60 hover:text-white/80 transition-colors duration-200">
                         <Users className="w-4 h-4" />
                         <span className="text-sm">{study.team}</span>
                       </div>
                     </div>
 
                     {/* Tools */}
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-2 mb-6 animate-fade-in" style={{ animationDelay: `${0.6 + index * 0.1}s` }}>
                       {study.tools.map((tool, toolIndex) => (
                         <span
                           key={toolIndex}
-                          className="px-3 py-1 bg-white/10 text-white/70 text-sm rounded-full border border-white/20"
+                          className="px-3 py-1 bg-white/10 text-white/70 text-sm rounded-full border border-white/20 hover:bg-white/20 hover:text-white transition-all duration-200 hover:scale-105 cursor-default"
+                          style={{ animationDelay: `${0.7 + toolIndex * 0.05}s` }}
                         >
                           {tool}
                         </span>
@@ -266,26 +273,28 @@ export default function CaseStudies() {
 
                     {/* Links */}
                     {study.liveUrl && (
-                      <Button
-                        variant="outline"
-                        className="border-white/20 text-white hover:bg-white/10"
-                        asChild
-                      >
-                        <a href={study.liveUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          View Live Project
-                        </a>
-                      </Button>
+                      <div className="animate-fade-in" style={{ animationDelay: `${0.8 + index * 0.1}s` }}>
+                        <Button
+                          variant="outline"
+                          className="border-white/20 text-white hover:bg-white/10 hover:scale-105 transition-all duration-300 hover:shadow-lg"
+                          asChild
+                        >
+                          <a href={study.liveUrl} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            View Live Project
+                          </a>
+                        </Button>
+                      </div>
                     )}
                   </div>
 
                   {/* Project Image */}
-                  <div className="relative">
-                    <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-pink-500/20 rounded-2xl overflow-hidden">
+                  <div className="relative animate-fade-in" style={{ animationDelay: `${0.5 + index * 0.1}s` }}>
+                    <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-pink-500/20 rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-500 shadow-lg hover:shadow-xl">
                       <img
                         src={study.image}
                         alt={study.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                         onError={(e) => {
                           const target = e.currentTarget as HTMLImageElement;
                           const nextSibling = target.nextElementSibling as HTMLElement;
@@ -307,14 +316,14 @@ export default function CaseStudies() {
 
                 {/* Challenge & Solution */}
                 <div className="grid md:grid-cols-2 gap-8 mb-12">
-                  <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+                  <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: `${0.6 + index * 0.1}s` }}>
                     <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
                       <Target className="w-5 h-5 text-red-400" />
                       Challenge
                     </h3>
                     <p className="text-white/70 leading-relaxed">{study.challenge}</p>
                   </div>
-                  <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+                  <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: `${0.7 + index * 0.1}s` }}>
                     <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-green-400" />
                       Solution
@@ -325,18 +334,22 @@ export default function CaseStudies() {
 
                 {/* Design Process */}
                 <div className="mb-12">
-                  <h3 className="text-2xl font-semibold text-white mb-8">Design Process</h3>
+                  <h3 className="text-2xl font-semibold text-white mb-8 animate-fade-in" style={{ animationDelay: `${0.8 + index * 0.1}s` }}>Design Process</h3>
                   <div className="grid md:grid-cols-3 gap-6">
                     {study.process.map((phase, phaseIndex) => (
-                      <div key={phaseIndex} className="bg-white/5 rounded-2xl p-6 border border-white/10">
-                        <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm mb-4">
+                      <div 
+                        key={phaseIndex} 
+                        className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in"
+                        style={{ animationDelay: `${0.9 + phaseIndex * 0.1}s` }}
+                      >
+                        <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm mb-4 hover:scale-110 transition-transform duration-200">
                           {phaseIndex + 1}
                         </div>
-                        <h4 className="text-lg font-semibold text-white mb-3">{phase.phase}</h4>
+                        <h4 className="text-lg font-semibold text-white mb-3 hover:text-blue-300 transition-colors duration-200">{phase.phase}</h4>
                         <p className="text-white/70 text-sm mb-4 leading-relaxed">{phase.description}</p>
                         <div className="space-y-1">
                           {phase.deliverables.map((deliverable, delIndex) => (
-                            <div key={delIndex} className="text-xs text-white/50 flex items-center gap-2">
+                            <div key={delIndex} className="text-xs text-white/50 flex items-center gap-2 hover:text-white/70 transition-colors duration-200">
                               <div className="w-1 h-1 bg-blue-400 rounded-full" />
                               {deliverable}
                             </div>
@@ -349,10 +362,14 @@ export default function CaseStudies() {
 
                 {/* Results */}
                 <div>
-                  <h3 className="text-2xl font-semibold text-white mb-6">Results & Impact</h3>
+                  <h3 className="text-2xl font-semibold text-white mb-6 animate-fade-in" style={{ animationDelay: `${1.2 + index * 0.1}s` }}>Results & Impact</h3>
                   <div className="grid md:grid-cols-3 gap-4">
                     {study.results.map((result, resultIndex) => (
-                      <div key={resultIndex} className="bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-xl p-4 border border-green-500/20">
+                      <div 
+                        key={resultIndex} 
+                        className="bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-xl p-4 border border-green-500/20 hover:from-green-500/30 hover:to-blue-500/30 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in"
+                        style={{ animationDelay: `${1.3 + resultIndex * 0.1}s` }}
+                      >
                         <div className="flex items-center gap-2">
                           <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
                           <p className="text-white/90 text-sm leading-relaxed">{result}</p>
