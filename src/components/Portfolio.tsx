@@ -190,10 +190,10 @@ export default function Portfolio() {
                     className="flex-1 border-white/20 text-white hover:bg-white/10 hover:border-white/30 transition-colors duration-200"
                     asChild
                   >
-                 <a href="/case-studies" rel="noopener noreferrer">
-  <BookOpen className="w-4 h-4 mr-2" />
-  Case Study
-</a>
+                    <a href={`/case-studies/${project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '')}`} rel="noopener noreferrer">
+                      <BookOpen className="w-4 h-4 mr-2" />
+                      Case Study
+                    </a>
 
                   </Button>
                 </div>
