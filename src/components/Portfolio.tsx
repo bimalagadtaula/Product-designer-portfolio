@@ -1,78 +1,60 @@
 import { ExternalLink, Github, Eye, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import meImage from "@/assets/me.jpg";
 
-const projects = [
+const designProjects = [
   {
     title: "Glosifi Web App",
     description:
       "Solo UI/UX designer, collaborating with a design consultant, leading end-to-end design of a beauty and wellness booking platform with various flows including dashboards, booking, partners, and landing pages, all built with a scalable design system.",
-    image: "/api/placeholder/400/300",
+    image: meImage,
     category: "UX/UI Design",
     year: "2025",
     tools: ["Figma", "User Research", "Prototyping", "User Testing"],
     liveUrl: "https://glosifi.com/",
-    caseStudy: "#",
+    caseStudyUrl: "/case-studies/glosifi-web-app",
   },
-  // {
-  //   title: "Glossybyte Landing Page",
-  //   description:
-  //     "Led UI design for Glossybyte’s marketing landing page, focusing on brand presentation and conversion optimization.",
-  //   image: "/api/placeholder/400/300",
-  //   category: "Web Design",
-  //   year: "2024",
-  //   tools: ["Figma", "Prototyping", "User Testing"],
-  //   liveUrl: "#",
-  //   githubUrl: "#",
-  // },
-  // {
-  //   title: "Partners Landing Page",
-  //   description:
-  //     "Designed partners landing page to enhance engagement and highlight collaboration opportunities.",
-  //   image: "/api/placeholder/400/300",
-  //   category: "Web Design",
-  //   year: "2024",
-  //   tools: ["Figma", "UI Design", "Responsive Design"],
-  //   liveUrl: "#",
-  //   githubUrl: "#",
-  // },
   {
     title: "GrowSlow – Reflective Productivity App",
     description:
       "A mindful, non-linear productivity tool designed for creatives and neurodivergent users. Features journaling, emotional check-ins, and creative progress tracking without hustle culture pressure.",
-    image: "/api/placeholder/400/300",
+    image: meImage,
     category: "App Design",
     year: "2025",
     tools: ["Figma", "User Research", "Accessibility", "Prototyping"],
     liveUrl: "#",
-    caseStudy: "#",
+    caseStudyUrl: "/case-studies/growslow-reflective-productivity-app",
   },
   {
     title: "Design System Creation",
     description:
       "Developed a comprehensive design system for 'Glosifi' a SaaS platform, ensuring consistency across all products and improving design efficiency.",
-    image: "/api/placeholder/400/300",
+    image: meImage,
     category: "Design System",
     year: "2025",
     tools: ["Figma", "Component Library", "Documentation", "Design Tokens"],
     liveUrl: "#",
-    caseStudy: "#",
+    caseStudyUrl: "#",
   },
   {
     title: "Agri App UI",
     description:
       "Mobile UI for farmers and suppliers to connect, manage orders, and track produce quality. (UI Only)",
-    image: "/api/placeholder/400/300",
+    image: meImage,
     category: "UI Design",
     year: "2024",
     tools: ["Adobe XD", "User Testing", "Mobile Design", "Prototyping"],
     liveUrl: "#",
-    caseStudy: "#",
+    caseStudyUrl: "#",
   },
+];
+
+const codeProjects = [
   {
     title: "Epaath-Learning about plants",
     description:
-      "This chapter was developed to help students learn how to classify plants, utilizing technologies such as Handlebars, JS, jQuery, CSS, XML, and JSON.",
-    image: "/api/placeholder/400/300",
+      "Educational web application to help students learn how to classify plants, utilizing modern web technologies for interactive learning experiences.",
+    image: meImage,
     category: "Web Development",
     year: "2023",
     tools: ["JavaScript", "jQuery", "Handlebars", "CSS"],
@@ -80,130 +62,175 @@ const projects = [
     githubUrl: "#",
   },
   {
-    title: "Geometric Shapes",
+    title: "Geometric Shapes Learning",
     description:
-      "This chapter was developed to teach students about the basic concept of shapes and their components.",
-    image: "/api/placeholder/400/300",
+      "Interactive educational platform designed to teach students fundamental concepts of geometric shapes and their components through engaging web interfaces.",
+    image: meImage,
     category: "Web Development",
     year: "2023",
     tools: ["JavaScript", "CSS", "HTML"],
     liveUrl: "https://epaath.olenepal.org/start.html?id=scilap01&lang=en&grade=1",
     githubUrl: "#",
   },
-  // {
-  //   title: "Astro_web",
-  //   description:
-  //     "Conceptualized and developed a responsive, astro-themed portfolio website using HTML, CSS, and JavaScript.",
-  //   image: "/api/placeholder/400/300",
-  //   category: "Web Development",
-  //   year: "2021",
-  //   tools: ["HTML", "CSS", "JavaScript"],
-  //   liveUrl: "https://astro-portfolio-wheat.vercel.app/",
-  //   githubUrl: "#",
-  // }
 ];
 
+const ProjectCard = ({ project, isCodeProject = false }: { project: any, isCodeProject?: boolean }) => (
+  <div className="bg-card rounded-3xl overflow-hidden border border-border hover-scale group transition-all duration-300 hover:shadow-xl">
+    {/* Project Image */}
+    <div className="relative h-56 overflow-hidden">
+      <img
+        src={project.image}
+        alt={project.title}
+        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        onError={(e) => {
+          const target = e.currentTarget as HTMLImageElement;
+          const nextSibling = target.nextElementSibling as HTMLElement;
+          target.style.display = 'none';
+          if (nextSibling) nextSibling.style.display = 'flex';
+        }}
+      />
+      <div className="hidden w-full h-full items-center justify-center absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20">
+        <Eye className="w-16 h-16 text-muted-foreground" />
+      </div>
+      
+      {/* Category Badge */}
+      <div className="absolute top-4 left-4">
+        <span className="px-3 py-2 bg-primary/90 text-primary-foreground text-sm rounded-full font-medium backdrop-blur-sm">
+          {project.category}
+        </span>
+      </div>
+      
+      {/* Year */}
+      <div className="absolute top-4 right-4">
+        <span className="px-2 py-1 bg-background/80 text-foreground text-sm rounded-lg backdrop-blur-sm">
+          {project.year}
+        </span>
+      </div>
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    </div>
+
+    {/* Project Content */}
+    <div className="p-8">
+      <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+        {project.title}
+      </h3>
+      <p className="text-muted-foreground mb-6 leading-relaxed text-base">
+        {project.description}
+      </p>
+
+      {/* Tools */}
+      <div className="flex flex-wrap gap-2 mb-8">
+        {project.tools.map((tool: string, toolIndex: number) => (
+          <span
+            key={toolIndex}
+            className="px-3 py-1 bg-accent/50 text-accent-foreground text-sm rounded-full border border-border hover:bg-accent transition-colors duration-200"
+          >
+            {tool}
+          </span>
+        ))}
+      </div>
+
+      {/* Action Buttons */}
+      <div className="flex gap-3">
+        <Button
+          variant="outline"
+          size="default"
+          className="flex-1 hover-scale"
+          asChild
+        >
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+            <ExternalLink className="w-4 h-4 mr-2" />
+            Live Demo
+          </a>
+        </Button>
+        
+        {isCodeProject ? (
+          <Button
+            variant="outline"
+            size="default"
+            className="flex-1 hover-scale"
+            asChild
+          >
+            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+              <Github className="w-4 h-4 mr-2" />
+              View Code
+            </a>
+          </Button>
+        ) : (
+          <Button
+            variant="outline"
+            size="default"
+            className="flex-1 hover-scale"
+            asChild
+          >
+            <a href={project.caseStudyUrl}>
+              <BookOpen className="w-4 h-4 mr-2" />
+              Case Study
+            </a>
+          </Button>
+        )}
+      </div>
+    </div>
+  </div>
+);
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-20 relative">
+    <section id="portfolio" className="py-24 bg-gradient-to-br from-background via-accent/5 to-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-white">Featured </span>
-            <span className="gradient-text-neon">Projects</span>
+        <div className="text-center mb-20 animate-fade-in">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            <span className="text-foreground">Featured </span>
+            <span className="gradient-text-neon">Portfolio</span>
           </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Explore our portfolio of cutting-edge virtual and augmented reality experiences.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            A curated selection of design projects and development work showcasing user-centered solutions and technical expertise.
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="glassmorphism rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 group"
-            >
-              {/* Project Image */}
-              <div className="relative h-48 bg-gradient-to-br from-blue-500/20 to-pink-500/20 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-pink-500/10" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Eye className="w-16 h-16 text-white/40" />
-                </div>
-                
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-gradient-to-r from-blue-500/80 to-pink-500/80 text-white text-xs rounded-full font-medium">
-                    {project.category}
-                  </span>
-                </div>
-                
-                {/* Year */}
-                <div className="absolute top-4 right-4">
-                  <span className="px-2 py-1 bg-white/20 text-white/80 text-xs rounded backdrop-blur-sm">
-                    {project.year}
-                  </span>
-                </div>
-              </div>
-
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-white/70 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Tools */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tools.map((tool, toolIndex) => (
-                    <span
-                      key={toolIndex}
-                      className="px-2 py-1 bg-white/10 text-white/60 text-xs rounded border border-white/20 hover:bg-white/20 transition-colors duration-200"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-3">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex-1 border-white/20 text-white hover:bg-white/10 hover:border-white/30 transition-colors duration-200"
-                    asChild
-                  >
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Live Demo
-                    </a>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex-1 border-white/20 text-white hover:bg-white/10 hover:border-white/30 transition-colors duration-200"
-                    asChild
-                  >
-                    <a href={
-                      project.title === "Glosifi Web App" 
-                        ? "/case-studies/glosifi-web-app"
-                        : project.title === "GrowSlow – Reflective Productivity App"
-                        ? "/case-studies/growslow-reflective-productivity-app"
-                        : "#"
-                    }>
-                      <BookOpen className="w-4 h-4 mr-2" />
-                      Case Study
-                    </a>
-
-                  </Button>
-                </div>
-              </div>
+        {/* Design Projects Section */}
+        <div className="mb-20 animate-fade-in">
+          <div className="flex items-center gap-4 mb-12">
+            <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center">
+              <Eye className="w-6 h-6 text-primary-foreground" />
             </div>
-          ))}
+            <div>
+              <h3 className="text-3xl md:text-4xl font-bold text-foreground">Design Projects</h3>
+              <p className="text-muted-foreground">UI/UX design, research, and user experience solutions</p>
+            </div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {designProjects.map((project, index) => (
+              <div key={index} className="animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <ProjectCard project={project} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Code Projects Section */}
+        <div className="animate-fade-in">
+          <div className="flex items-center gap-4 mb-12">
+            <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl flex items-center justify-center">
+              <Github className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h3 className="text-3xl md:text-4xl font-bold text-foreground">Development Projects</h3>
+              <p className="text-muted-foreground">Web development and interactive applications</p>
+            </div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {codeProjects.map((project, index) => (
+              <div key={index} className="animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <ProjectCard project={project} isCodeProject={true} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
