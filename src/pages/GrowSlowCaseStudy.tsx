@@ -56,11 +56,11 @@ export default function GrowSlowCaseStudy() {
           <div className="mb-16 animate-fade-in">
             <Button
               variant="ghost"
-              onClick={() => navigate('/case-studies')}
+              onClick={() => navigate('/#portfolio')}
               className="mb-8 text-muted-foreground hover:text-foreground hover-scale"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Case Studies
+              Back to Portfolio
             </Button>
             
             <div className="max-w-4xl">
@@ -252,7 +252,7 @@ export default function GrowSlowCaseStudy() {
                 <Button size="lg" asChild className="hover-scale">
                   <a href="/#contact">Get in Touch</a>
                 </Button>
-                <Button variant="outline" size="lg" onClick={() => navigate('/case-studies')} className="hover-scale">
+                <Button variant="outline" size="lg" onClick={() => navigate('/case-studies/glosifi-web-app')} className="hover-scale">
                   View More Work
                 </Button>
               </div>
