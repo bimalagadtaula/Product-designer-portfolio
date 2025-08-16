@@ -1,385 +1,302 @@
-import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, ExternalLink, Calendar, Users, Target, CheckCircle, Award, TrendingUp, Zap } from "lucide-react";
+import { TrendingUp, CheckCircle, Zap, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { BeforeAfterSlider } from "./BeforeAfterSlider "; 
 
-const caseStudies = [
-  {
-    id: "glosifi",
-    title: "Glosifi Web App",
-    subtitle: "Beauty & Wellness Booking Platform",
-    description: "Solo UI/UX designer, collaborating with a design consultant, leading end-to-end design of a beauty and wellness booking platform with various flows including dashboards, booking, partners, and landing pages, all built with a scalable design system.",
-    image: "/src/assets/glosifi-mockup.png",
-    category: "UX/UI Design",
-    year: "2025",
-    duration: "6 months",
-    team: "1 Designer + 1 Consultant",
-    tools: ["Figma", "User Research", "Prototyping", "User Testing", "Miro", "Adobe Creative Suite"],
-    liveUrl: "https://glosifi.com/",
-    challenge: "Design a comprehensive booking platform that serves both customers and service providers in the beauty and wellness industry, ensuring seamless user experience across multiple user types and complex booking flows while maintaining scalability for future growth.",
-    solution: "Created a scalable design system with modular components, conducted extensive user research to understand pain points, and designed intuitive flows for customers, service providers, and administrators with a focus on accessibility and mobile-first design.",
-    process: [
-      {
-        phase: "Discovery & Strategy",
-        description: "Conducted comprehensive market research, stakeholder interviews, and business analysis to define project scope, goals, and success metrics. Analyzed 15+ competitor platforms and identified key differentiators.",
-        deliverables: ["Project Brief", "Stakeholder Interviews", "Market Research Report", "Competitive Analysis", "Project Roadmap", "Success Metrics Definition"]
-      },
-      {
-        phase: "User Research & Empathy",
-        description: "Deep-dive user research with 25+ beauty service customers and 15+ service providers through interviews, surveys, and observational studies. Created detailed user personas and mapped current booking experiences.",
-        deliverables: ["User Interview Scripts", "Survey Results", "User Personas (5 primary)", "User Journey Maps", "Pain Point Analysis", "Empathy Maps"]
-      },
-      {
-        phase: "Problem Definition & Ideation",
-        description: "Synthesized research findings to define core problems and opportunities. Facilitated ideation workshops with stakeholders to generate and prioritize solution concepts.",
-        deliverables: ["Problem Statement", "How Might We Questions", "Ideation Workshop Results", "Solution Concepts", "Feature Prioritization Matrix"]
-      },
-      {
-        phase: "Information Architecture",
-        description: "Designed the overall structure and navigation of the platform, creating sitemaps, user flows, and task flows for all user types. Conducted card sorting sessions with users.",
-        deliverables: ["Site Map", "User Flow Diagrams", "Task Flows", "Card Sorting Results", "Navigation Structure", "Content Strategy"]
-      },
-      {
-        phase: "Wireframing & Prototyping",
-        description: "Created low-fidelity wireframes for all key screens and flows, then developed interactive prototypes for user testing. Iteratively refined based on feedback.",
-        deliverables: ["Low-fi Wireframes (50+ screens)", "Interactive Prototypes", "User Flow Prototypes", "Mobile Wireframes", "Prototype Testing Results"]
-      },
-      {
-        phase: "Design System Development",
-        description: "Built a comprehensive design system with 50+ reusable components, design tokens, and guidelines to ensure consistency across all platform touchpoints and future scalability.",
-        deliverables: ["Design System Documentation", "Component Library", "Design Tokens", "Style Guide", "Icon Library", "Pattern Library"]
-      },
-      {
-        phase: "Visual Design & UI",
-        description: "Applied visual design principles to create high-fidelity mockups with consistent branding, typography, and color systems. Designed for both light and dark themes.",
-        deliverables: ["High-fidelity Mockups", "Visual Style Guide", "Brand Guidelines", "Icon Set", "Illustration Style", "Photography Guidelines"]
-      },
-      {
-        phase: "Usability Testing & Iteration",
-        description: "Conducted multiple rounds of usability testing with 20+ users across different demographics. Analyzed task completion rates, error patterns, and user satisfaction.",
-        deliverables: ["Usability Test Plans", "Testing Sessions (3 rounds)", "Usability Reports", "Design Iterations", "A/B Test Results", "Accessibility Audit"]
-      },
-      {
-        phase: "Development Handoff",
-        description: "Prepared detailed design specifications, developer documentation, and conducted design review sessions. Created interactive prototypes for complex animations and micro-interactions.",
-        deliverables: ["Design Specifications", "Developer Documentation", "Asset Exports", "Interaction Specifications", "Quality Assurance Guidelines", "Implementation Support"]
-      },
-      {
-        phase: "Launch & Post-Launch Optimization",
-        description: "Monitored user behavior post-launch through analytics and user feedback. Conducted post-launch usability testing and implemented iterative improvements.",
-        deliverables: ["Launch Analytics Report", "User Feedback Analysis", "Post-launch Usability Tests", "Performance Metrics", "Optimization Recommendations", "Future Roadmap"]
-      }
-    ],
-    results: [
-      "40% increase in booking completion rate compared to previous solutions",
-      "60% reduction in user support tickets through improved UX",
-      "95% user satisfaction score in post-launch surveys",
-      "25% faster booking process for service providers",
-      "Successful launch across 3 major cities with 500+ partner salons"
-    ]
-  },
-  {
-    id: "growslow",
-    title: "GrowSlow – Reflective Productivity App",
-    subtitle: "Mindful Productivity for Creatives",
-    description: "A mindful, non-linear productivity tool designed for creatives and neurodivergent users. Features journaling, emotional check-ins, and creative progress tracking without hustle culture pressure.",
-    image: "/src/assets/mind-garden.png",
-    category: "App Design",
-    year: "2025",
-    duration: "4 months",
-    team: "Solo Project",
-    tools: ["Figma", "User Research", "Accessibility Testing", "Prototyping", "Principle", "After Effects"],
-    challenge: "Traditional productivity apps often promote hustle culture and linear thinking, which doesn't work for many creatives and neurodivergent individuals who need more flexible, emotion-aware tools that respect their unique cognitive patterns and work styles.",
-    solution: "Designed a gentle, non-linear productivity app that focuses on emotional well-being, creative progress tracking, and mindful reflection rather than rigid task management, with extensive accessibility features and customizable interfaces.",
-    process: [
-      {
-        phase: "Research & Problem Discovery",
-        description: "Conducted in-depth research with 30+ creative professionals and individuals with ADHD/autism to understand their unique productivity challenges, existing tool frustrations, and emotional needs in work environments.",
-        deliverables: ["User Research Plan", "Interview Scripts", "Survey Results", "Behavioral Observations", "Pain Point Analysis", "Opportunity Map"]
-      },
-      {
-        phase: "Inclusive Design Research",
-        description: "Partnered with neurodivergent communities and accessibility experts to understand specific needs around sensory sensitivity, executive function, and cognitive load management.",
-        deliverables: ["Accessibility Research", "Neurodivergent User Personas", "Sensory Considerations Guide", "Cognitive Load Analysis", "Inclusive Design Principles"]
-      },
-      {
-        phase: "Concept Development & Validation",
-        description: "Developed the core concept of 'growth without pressure' through co-design sessions with target users. Created and tested multiple concept directions focusing on emotional intelligence and flexibility.",
-        deliverables: ["Concept Sketches", "Co-design Session Results", "Concept Validation Tests", "Feature Prioritization", "Value Proposition Canvas", "Core Experience Map"]
-      },
-      {
-        phase: "Information Architecture & Flow Design",
-        description: "Designed non-linear navigation patterns and flexible content structures that adapt to different cognitive styles and energy levels throughout the day.",
-        deliverables: ["Adaptive Information Architecture", "Non-linear User Flows", "Cognitive Load Mapping", "Energy-based Navigation", "Content Hierarchy", "Personalization Framework"]
-      },
-      {
-        phase: "Accessibility-First Design",
-        description: "Created wireframes and prototypes with accessibility as the foundation, not an afterthought. Designed for screen readers, voice control, and various input methods.",
-        deliverables: ["Accessible Wireframes", "Screen Reader Optimized Flows", "Voice Interface Design", "Alternative Input Methods", "Color Contrast Analysis", "Motion Sensitivity Options"]
-      },
-      {
-        phase: "Visual Design & Emotional UX",
-        description: "Developed a calming visual language with customizable themes, gentle animations, and emotion-aware color systems that adapt to user's current emotional state and preferences.",
-        deliverables: ["Emotional Design System", "Customizable Themes", "Gentle Animation Library", "Adaptive Color Systems", "Mindful Iconography", "Calming Visual Patterns"]
-      },
-      {
-        phase: "Prototype Development & Testing",
-        description: "Built interactive prototypes with micro-interactions and tested extensively with neurodivergent users in real-world scenarios. Focused on reducing cognitive overhead and anxiety.",
-        deliverables: ["High-fidelity Prototypes", "Micro-interaction Designs", "Real-world Testing Results", "Cognitive Load Testing", "Anxiety Reduction Metrics", "User Feedback Integration"]
-      },
-      {
-        phase: "Inclusive Testing & Iteration",
-        description: "Conducted comprehensive usability testing with diverse user groups including those with ADHD, autism, anxiety, and depression. Iterated based on specific neurological and emotional needs.",
-        deliverables: ["Inclusive Test Plans", "Neurodivergent User Testing", "Emotional Response Analysis", "Accessibility Compliance Report", "Iterative Design Improvements", "Community Feedback Integration"]
-      },
-      {
-        phase: "Implementation Support & Guidelines",
-        description: "Created detailed implementation guidelines for developers focusing on performance optimization, accessibility compliance, and maintaining the app's gentle, non-judgmental user experience.",
-        deliverables: ["Development Guidelines", "Accessibility Implementation Guide", "Performance Optimization Plan", "UX Quality Assurance", "Launch Strategy", "Community Guidelines"]
-      }
-    ],
-    results: [
-      "Featured in top 10 productivity apps for neurodivergent users by major accessibility publications",
-      "85% of beta users reported improved creative output without increased stress",
-      "WCAG 2.1 AA accessibility compliance achieved with AAA ratings for contrast and navigation",
-      "90% reduction in productivity-related anxiety among test users",
-      "Awarded 'Most Inclusive Design' by the Neurodiversity Design Council",
-      "4.8/5 app store rating with 95% of reviews highlighting the gentle, non-judgmental approach"
-    ]
-  },
-  {
-    id: "agri-app",
-    title: "Agri App UI",
-    subtitle: "Agricultural Supply Chain Platform",
-    description: "Mobile UI for farmers and suppliers to connect, manage orders, and track produce quality. Focused on creating an intuitive interface for users with varying digital literacy levels.",
-    image: "/src/assets/Agri-home.png",
-    category: "UI Design",
-    year: "2024",
-    duration: "3 months",
-    team: "1 Designer + 2 Developers",
-    tools: ["Adobe XD", "User Testing", "Mobile Design", "Prototyping"],
-    challenge: "Design a mobile interface that works for farmers with varying levels of digital literacy, while handling complex supply chain data and transactions in challenging field conditions.",
-    solution: "Created a simple, icon-heavy interface with clear visual hierarchy, offline capabilities, and voice guidance features to accommodate all user skill levels.",
-    process: [
-      {
-        phase: "Field Research",
-        description: "Visited farms and agricultural markets to observe workflows and understand technology constraints in rural areas.",
-        deliverables: ["Field Study Report", "User Context Analysis", "Technical Constraints"]
-      },
-      {
-        phase: "Simplified Design",
-        description: "Designed with large touch targets, high contrast colors, and minimal text to ensure usability in bright outdoor conditions.",
-        deliverables: ["Mobile Wireframes", "Visual Design System", "Interaction Patterns"]
-      },
-      {
-        phase: "Rural Testing",
-        description: "Conducted usability testing with farmers in actual field conditions to validate design decisions.",
-        deliverables: ["Field Test Results", "Design Refinements", "Accessibility Improvements"]
-      }
-    ],
-    results: [
-      "90% task completion rate among first-time users",
-      "50% reduction in order processing time",
-      "Positive feedback from farmers across 5 regions"
-    ]
-  }
-];
-
-export default function CaseStudies() {
-  const navigate = useNavigate();
-
+export default function GlosifiCaseStudy() {
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen pt-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        <div className="container mx-auto px-4 py-12">
-          {/* Header */}
-          <div className="mb-12 animate-fade-in">
-            <Button
-              variant="ghost"
-              onClick={() => navigate(-1)}
-              className="mb-6 text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 hover:scale-105"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Portfolio
-            </Button>
-            
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              <span className="text-white">Case </span>
-              <span className="gradient-text-neon">Studies</span>
+    <div className="max-w-6xl mx-auto p-6">
+      {/* Back Button */}
+      <Button variant="ghost" className="mb-8 -ml-2">
+        <ArrowLeft className="w-4 h-4 mr-2" />
+        Back to Portfolio
+      </Button>
+
+      {/* Hero Section */}
+      <div className="mb-16">
+        <div className="flex flex-col md:flex-row gap-8 items-start">
+          <div className="md:w-2/3">
+            <span className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4 inline-block">
+              SaaS Product Design
+            </span>
+            <h1 className="text-5xl font-bold mt-2 mb-4 leading-tight">
+              <span className="text-foreground">Glosifi:</span>{" "}
+              <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+                Booking Platform Redesign
+              </span>
             </h1>
-            <p className="text-xl text-white/70 max-w-3xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Deep dives into my design process, challenges faced, and solutions created. 
-              Each project tells a story of user-centered design and measurable impact.
+            <p className="text-xl text-muted-foreground mb-6">
+              Transformed a fragmented experience into a unified platform serving 3 user types—boosting conversions by 40% through strategic UX architecture.
             </p>
-          </div>
-
-          {/* Case Studies */}
-          <div className="space-y-20">
-            {caseStudies.map((study, index) => (
-              <div 
-                key={study.id} 
-                className="glassmorphism rounded-3xl p-8 md:p-12 animate-fade-in hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20"
-                style={{ animationDelay: `${0.3 + index * 0.2}s` }}
-              >
-                {/* Project Header */}
-                <div className="grid md:grid-cols-2 gap-8 mb-12">
-                  <div className="space-y-6">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <Badge variant="secondary" className="bg-gradient-to-r from-blue-500/20 to-pink-500/20 text-white border-white/20 hover:scale-105 transition-transform duration-200">
-                        {study.category}
-                      </Badge>
-                      <Badge variant="outline" className="border-white/20 text-white/70 hover:scale-105 transition-transform duration-200">
-                        {study.year}
-                      </Badge>
-                    </div>
-                    
-                    <div className="animate-fade-in" style={{ animationDelay: `${0.4 + index * 0.1}s` }}>
-                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 hover:text-blue-300 transition-colors duration-300">
-                        {study.title}
-                      </h2>
-                      <p className="text-xl text-blue-300 mb-4">{study.subtitle}</p>
-                      <p className="text-white/70 mb-6 leading-relaxed">
-                        {study.description}
-                      </p>
-                    </div>
-
-                    {/* Project Details */}
-                    <div className="grid grid-cols-2 gap-4 mb-6 animate-fade-in" style={{ animationDelay: `${0.5 + index * 0.1}s` }}>
-                      <div className="flex items-center gap-2 text-white/60 hover:text-white/80 transition-colors duration-200">
-                        <Calendar className="w-4 h-4" />
-                        <span className="text-sm">{study.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-white/60 hover:text-white/80 transition-colors duration-200">
-                        <Users className="w-4 h-4" />
-                        <span className="text-sm">{study.team}</span>
-                      </div>
-                    </div>
-
-                    {/* Tools */}
-                    <div className="flex flex-wrap gap-2 mb-6 animate-fade-in" style={{ animationDelay: `${0.6 + index * 0.1}s` }}>
-                      {study.tools.map((tool, toolIndex) => (
-                        <span
-                          key={toolIndex}
-                          className="px-3 py-1 bg-white/10 text-white/70 text-sm rounded-full border border-white/20 hover:bg-white/20 hover:text-white transition-all duration-200 hover:scale-105 cursor-default"
-                          style={{ animationDelay: `${0.7 + toolIndex * 0.05}s` }}
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Links */}
-                    {study.liveUrl && (
-                      <div className="animate-fade-in" style={{ animationDelay: `${0.8 + index * 0.1}s` }}>
-                        <Button
-                          variant="outline"
-                          className="border-white/20 text-white hover:bg-white/10 hover:scale-105 transition-all duration-300 hover:shadow-lg"
-                          asChild
-                        >
-                          <a href={study.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            View Live Project
-                          </a>
-                        </Button>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Project Image */}
-                  <div className="relative animate-fade-in" style={{ animationDelay: `${0.5 + index * 0.1}s` }}>
-                    <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-pink-500/20 rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-500 shadow-lg hover:shadow-xl">
-                      <img
-                        src={study.image}
-                        alt={study.title}
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-                        onError={(e) => {
-                          const target = e.currentTarget as HTMLImageElement;
-                          const nextSibling = target.nextElementSibling as HTMLElement;
-                          target.style.display = 'none';
-                          if (nextSibling) nextSibling.style.display = 'flex';
-                        }}
-                      />
-                      <div className="hidden w-full h-full items-center justify-center">
-                        <div className="text-white/40 text-center">
-                          <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-white/10 flex items-center justify-center">
-                            <Target className="w-8 h-8" />
-                          </div>
-                          <p className="text-sm">Project Preview</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Challenge & Solution */}
-                <div className="grid md:grid-cols-2 gap-8 mb-12">
-                  <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: `${0.6 + index * 0.1}s` }}>
-                    <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-                      <Target className="w-5 h-5 text-red-400" />
-                      Challenge
-                    </h3>
-                    <p className="text-white/70 leading-relaxed">{study.challenge}</p>
-                  </div>
-                  <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: `${0.7 + index * 0.1}s` }}>
-                    <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-400" />
-                      Solution
-                    </h3>
-                    <p className="text-white/70 leading-relaxed">{study.solution}</p>
-                  </div>
-                </div>
-
-                {/* Design Process */}
-                <div className="mb-12">
-                  <h3 className="text-2xl font-semibold text-white mb-8 animate-fade-in" style={{ animationDelay: `${0.8 + index * 0.1}s` }}>Design Process</h3>
-                  <div className="grid md:grid-cols-3 gap-6">
-                    {study.process.map((phase, phaseIndex) => (
-                      <div 
-                        key={phaseIndex} 
-                        className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in"
-                        style={{ animationDelay: `${0.9 + phaseIndex * 0.1}s` }}
-                      >
-                        <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm mb-4 hover:scale-110 transition-transform duration-200">
-                          {phaseIndex + 1}
-                        </div>
-                        <h4 className="text-lg font-semibold text-white mb-3 hover:text-blue-300 transition-colors duration-200">{phase.phase}</h4>
-                        <p className="text-white/70 text-sm mb-4 leading-relaxed">{phase.description}</p>
-                        <div className="space-y-1">
-                          {phase.deliverables.map((deliverable, delIndex) => (
-                            <div key={delIndex} className="text-xs text-white/50 flex items-center gap-2 hover:text-white/70 transition-colors duration-200">
-                              <div className="w-1 h-1 bg-blue-400 rounded-full" />
-                              {deliverable}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Results */}
-                <div>
-                  <h3 className="text-2xl font-semibold text-white mb-6 animate-fade-in" style={{ animationDelay: `${1.2 + index * 0.1}s` }}>Results & Impact</h3>
-                  <div className="grid md:grid-cols-3 gap-4">
-                    {study.results.map((result, resultIndex) => (
-                      <div 
-                        key={resultIndex} 
-                        className="bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-xl p-4 border border-green-500/20 hover:from-green-500/30 hover:to-blue-500/30 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in"
-                        style={{ animationDelay: `${1.3 + resultIndex * 0.1}s` }}
-                      >
-                        <div className="flex items-center gap-2">
-                          <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                          <p className="text-white/90 text-sm leading-relaxed">{result}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+            
+            <div className="flex flex-wrap gap-4 mb-8">
+              <div className="bg-background border rounded-lg px-4 py-3">
+                <p className="text-sm text-muted-foreground">Duration</p>
+                <p className="font-medium">6 months</p>
               </div>
-            ))}
+              <div className="bg-background border rounded-lg px-4 py-3">
+                <p className="text-sm text-muted-foreground">Role</p>
+                <p className="font-medium">Lead Product Designer</p>
+              </div>
+              <div className="bg-background border rounded-lg px-4 py-3">
+                <p className="text-sm text-muted-foreground">Metrics Improved</p>
+                <p className="font-medium">3 Key Areas</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="md:w-1/3 bg-gradient-to-br from-primary/10 to-purple-500/10 rounded-2xl p-8 border border-primary/20">
+            <h3 className="font-semibold mb-3">Core Contributions</h3>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-start gap-2">
+                <span className="text-primary">▹</span>
+                <span>End-to-end UX strategy</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary">▹</span>
+                <span>Design system architecture</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary">▹</span>
+                <span>User flow optimization</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary">▹</span>
+                <span>Usability testing program</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Before/After Slider */}
+      <div className="mb-20">
+        <BeforeAfterSlider
+          beforeImage="/src/assets/glosifi-mockup.png"
+          afterImage="/src/assets/CRM-GLOSIFI.png"
+          label="Provider Selection Flow"
+          caption="Reduced steps from 5 → 2 while increasing information clarity"
+          className="rounded-xl border shadow-lg"
+        />
+      </div>
+
+      {/* Challenge & Solution */}
+      <div className="grid md:grid-cols-2 gap-8 mb-20">
+        <div>
+          <span className="text-sm font-medium text-primary mb-2 block">The Problem</span>
+          <h2 className="text-3xl font-bold mb-6">Why Beauty Booking Needed Disruption</h2>
+          <div className="space-y-4">
+            <div className="flex items-start gap-4">
+              <div className="bg-red-500/10 text-red-500 rounded-full p-2 mt-1 flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
+              <div>
+                <h4 className="font-semibold">Decision Paralysis</h4>
+                <p className="text-muted-foreground">70% abandonment during provider selection</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-4">
+              <div className="bg-red-500/10 text-red-500 rounded-full p-2 mt-1 flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
+              <div>
+                <h4 className="font-semibold">Operational Chaos</h4>
+                <p className="text-muted-foreground">3+ hours/week wasted fixing double-bookings</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <span className="text-sm font-medium text-primary mb-2 block">Our Solution</span>
+          <h2 className="text-3xl font-bold mb-6">Architecting for Scale</h2>
+          <div className="space-y-4">
+            <div className="flex items-start gap-4">
+              <div className="bg-green-500/10 text-green-500 rounded-full p-2 mt-1 flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4 className="font-semibold">Smart Provider Matching</h4>
+                <p className="text-muted-foreground">Contextual algorithm reduces choice overload</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-4">
+              <div className="bg-green-500/10 text-green-500 rounded-full p-2 mt-1 flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4 className="font-semibold">Role-Specific Dashboards</h4>
+                <p className="text-muted-foreground">Customized workflows for each user type</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Key Results */}
+      <div className="mb-20">
+        <span className="text-sm font-medium text-primary mb-2 block">The Impact</span>
+        <h2 className="text-3xl font-bold mb-8">By the Numbers</h2>
+        
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-gradient-to-b from-primary/5 to-transparent p-6 rounded-xl border border-primary/10">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-primary/10 text-primary p-3 rounded-lg">
+                <TrendingUp size={20} />
+              </div>
+              <div>
+                <p className="text-3xl font-bold">40%</p>
+                <p className="text-sm text-muted-foreground">Increase</p>
+              </div>
+            </div>
+            <p className="font-medium">Booking Conversions</p>
+            <p className="text-sm text-muted-foreground mt-2">Streamlined flows reduced decision fatigue</p>
+          </div>
+          
+          <div className="bg-gradient-to-b from-primary/5 to-transparent p-6 rounded-xl border border-primary/10">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-primary/10 text-primary p-3 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div>
+                <p className="text-3xl font-bold">60%</p>
+                <p className="text-sm text-muted-foreground">Reduction</p>
+              </div>
+            </div>
+            <p className="font-medium">Support Tickets</p>
+            <p className="text-sm text-muted-foreground mt-2">Self-service tools empowered providers</p>
+          </div>
+          
+          <div className="bg-gradient-to-b from-primary/5 to-transparent p-6 rounded-xl border border-primary/10">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-primary/10 text-primary p-3 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                </svg>
+              </div>
+              <div>
+                <p className="text-3xl font-bold">95%</p>
+                <p className="text-sm text-muted-foreground">Satisfaction</p>
+              </div>
+            </div>
+            <p className="font-medium">User Approval</p>
+            <p className="text-sm text-muted-foreground mt-2">"Finally a booking system that just works"</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Process */}
+      <div className="mb-20">
+        <span className="text-sm font-medium text-primary mb-2 block">Process</span>
+        <h2 className="text-3xl font-bold mb-8">Strategic Design Approach</h2>
+        
+        <div className="space-y-12">
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="md:w-1/3">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-primary/10 text-primary rounded-full w-8 h-8 flex items-center justify-center font-bold">1</div>
+                <h3 className="text-xl font-semibold">Discovery Research</h3>
+              </div>
+              <p className="text-sm text-muted-foreground">2 weeks • 40+ interviews</p>
+            </div>
+            <div className="md:w-2/3 bg-card p-6 rounded-xl border">
+              <h4 className="font-medium mb-3">Key Insights</h4>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="text-primary mt-1">•</span>
+                  <div>
+                    <p className="font-medium">The Comparison Trap</p>
+                    <p className="text-muted-foreground">Users averaged 8+ provider comparisons before booking</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary mt-1">•</span>
+                  <div>
+                    <p className="font-medium">Last-Minute Chaos</p>
+                    <p className="text-muted-foreground">No system for handling cancellations under 24 hours</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="md:w-1/3">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-primary/10 text-primary rounded-full w-8 h-8 flex items-center justify-center font-bold">2</div>
+                <h3 className="text-xl font-semibold">System Architecture</h3>
+              </div>
+              <p className="text-sm text-muted-foreground">3 weeks • 50+ components</p>
+            </div>
+            <div className="md:w-2/3 bg-card p-6 rounded-xl border">
+              <h4 className="font-medium mb-3">Design Decisions</h4>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="text-primary mt-1">•</span>
+                  <div>
+                    <p className="font-medium">Progressive Disclosure</p>
+                    <p className="text-muted-foreground">Only show essential info upfront, reveal details on demand</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary mt-1">•</span>
+                  <div>
+                    <p className="font-medium">Flexible White-Labeling</p>
+                    <p className="text-muted-foreground">Built for franchise partners to customize their branding</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Before/After - Dashboard */}
+      <div className="mb-20">
+        <BeforeAfterSlider
+          beforeImage="/src/assets/glosifi-mockup.png"
+          afterImage="/src/assets/CRM-GLOSIFI.png"
+          label="Provider Dashboard"
+          caption="Redesigned to surface critical actions while reducing visual noise"
+          className="rounded-xl border shadow-lg"
+        />
+      </div>
+
+      {/* Reflection */}
+      <div className="bg-gradient-to-br from-primary/5 to-purple-500/5 p-8 rounded-xl border border-primary/10 mb-16">
+        <span className="text-sm font-medium text-primary mb-2 block">Reflection</span>
+        <h2 className="text-3xl font-bold mb-4">Key Learnings</h2>
+        <div className="space-y-4">
+          <p className="text-muted-foreground">
+            "Involving service providers earlier in testing would have revealed scheduling edge cases 3 weeks sooner. Next time, I'll conduct co-design sessions during discovery."
+          </p>
+          <div className="flex items-start gap-4 p-4 bg-background rounded-lg border">
+            <div className="bg-primary/10 text-primary rounded-full p-2 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 className="font-medium mb-1">Client Feedback</h4>
+              <p className="text-muted-foreground text-sm">
+                "The design system saved us 160+ dev hours in our first market expansion.", Glosifi CTO
+              </p>
+            </div>
           </div>
         </div>
       </div>
