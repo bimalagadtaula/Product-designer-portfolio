@@ -61,7 +61,7 @@ const StackCard = ({ project, type, idx, activeIdx }: { project: any; type: "Des
       className="absolute inset-0 flex items-end pb-10"
       style={{ zIndex: 100 - idx, pointerEvents: relative === 0 ? "auto" : "none" }}
       animate={{ scale, y, rotate, opacity }}
-      transition={{ type: "spring", stiffness: 120, damping: 20 }}
+      transition={{ type: "spring", stiffness: 70, damping: 18, mass: 0.9 }}
     >
       {/* Background visual */}
       <div className="absolute inset-0 overflow-hidden">
@@ -148,7 +148,7 @@ export default function Portfolio() {
 
   const onWheel = (e: React.WheelEvent) => {
     const now = Date.now();
-    if (now - lastWheelAt < 650) return; // throttle
+    if (now - lastWheelAt < 500) return; // throttle
     if (e.deltaY > 20) {
       next();
       setLastWheelAt(now);
@@ -200,6 +200,7 @@ export default function Portfolio() {
       </div>
 
       <div ref={containerRef} className="h-screen overflow-hidden" onWheel={onWheel}>
+        <div className="absolute inset-0 grid-pattern pointer-events-none z-0" />
         <div className="absolute inset-0">
           {allProjects.map((p, idx) => (
             <StackCard key={idx} project={p} type={p.type} idx={idx} activeIdx={active} />

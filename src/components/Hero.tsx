@@ -41,6 +41,7 @@ export default function Hero() {
       className="relative min-h-screen flex flex flex-col items-center justify-center pt-24 overflow-hidden bg-background"
       aria-label="Introduction section"
     >
+      <div className="absolute inset-0 grid-pattern" />
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-20 w-32 h-32 bg-primary/15 rounded-full blur-2xl animate-pulse" />

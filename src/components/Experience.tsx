@@ -31,6 +31,7 @@ const experiences = [
 export default function Experience() {
   return (
     <section id="experience" className="py-20 relative">
+      <div className="absolute inset-0 grid-pattern" />
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">

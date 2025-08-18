@@ -50,7 +50,8 @@ export default function GrowSlowCaseStudy() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen pt-20 bg-gradient-to-br from-background via-accent/5 to-background">
+      <main className="min-h-screen pt-20 bg-gradient-to-br from-background via-accent/5 to-background relative">
+        <div className="absolute inset-0 grid-pattern" />
         <div className="container mx-auto px-4 py-12">
           {/* Header */}
           <div className="mb-16 animate-fade-in">
