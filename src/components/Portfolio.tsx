@@ -2,7 +2,7 @@ import { ExternalLink, Github, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import meImage from "@/assets/glosifi-mockup.png";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useEffect, useState } from "react";
 
 const designProjects = [
   {
@@ -177,16 +177,17 @@ export default function Portfolio() {
 function SectionStack({ allProjects }: { allProjects: Array<any> }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start center", "end start"] });
+  const isSmallScreen = useIsSmallScreen();
 
   const transforms = useMemo(
     () =>
       allProjects.map((_, idx) => {
         const offsetPx = idx * 24;
-        const scale = Math.max(0.94, 1 - idx * 0.02);
-        const rotate = (idx % 2 === 0 ? -1 : 1) * Math.min(0.6, idx * 0.2);
-        return { offsetPx, scale, rotate };
+        const baseScale = Math.max(0.94, 1 - idx * 0.02);
+        const baseRotate = isSmallScreen ? 0 : (idx % 2 === 0 ? -1 : 1) * Math.min(0.6, idx * 0.2);
+        return { offsetPx, baseScale, baseRotate };
       }),
-    [allProjects]
+    [allProjects, isSmallScreen]
   );
 
   return (
@@ -202,16 +203,16 @@ function SectionStack({ allProjects }: { allProjects: Array<any> }) {
 
       <div className="relative" style={{ perspective: 1000 }}>
         {allProjects.map((project, idx) => {
-          const { offsetPx, scale, rotate } = transforms[idx];
+          const { offsetPx, baseScale, baseRotate } = transforms[idx];
           return (
             <motion.div
               key={idx}
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              whileInView={{ opacity: 1, scale: baseScale + 0.01, boxShadow: "0 14px 60px rgba(0,0,0,0.40)" }}
               viewport={{ once: true, margin: "-20% 0px -20% 0px" }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: idx * 0.06 }}
               className="will-change-transform"
-              style={{ transform: `translateY(${offsetPx}px) scale(${scale}) rotate(${rotate}deg)` }}
+              style={{ y: offsetPx, scale: baseScale, rotate: baseRotate, boxShadow: "0 8px 32px rgba(0,0,0,0.30)" }}
             >
               <ProjectCard project={project} type={project.type} />
             </motion.div>
@@ -220,4 +221,16 @@ function SectionStack({ allProjects }: { allProjects: Array<any> }) {
       </div>
     </div>
   );
+}
+
+function useIsSmallScreen() {
+  const [isSmall, setIsSmall] = useState(false);
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 768px)");
+    const update = () => setIsSmall(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+  return isSmall;
 }
