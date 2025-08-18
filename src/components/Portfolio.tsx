@@ -1,4 +1,4 @@
-import { ExternalLink, Github, BookOpen } from "lucide-react";
+import { ExternalLink, Github, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import meImage from "@/assets/glosifi-mockup.png";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
@@ -139,9 +139,68 @@ export default function Portfolio() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [active, setActive] = useState(0);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const totalSlides = allProjects.length + 2; // intro + projects + outro
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const idx = Math.round(el.scrollTop / el.clientHeight);
+      setCurrentSlide(Math.max(0, Math.min(totalSlides - 1, idx)));
+    };
+    el.addEventListener("scroll", onScroll, { passive: true } as AddEventListenerOptions);
+    onScroll();
+    return () => el.removeEventListener("scroll", onScroll as any);
+  }, [totalSlides]);
+
+  const scrollToSlide = (idx: number) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const target = el.children[idx] as HTMLElement | undefined;
+    target?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const scrollNext = () => {
+    if (currentSlide < totalSlides - 1) scrollToSlide(currentSlide + 1);
+  };
+  const scrollPrev = () => {
+    if (currentSlide > 0) scrollToSlide(currentSlide - 1);
+  };
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const tag = (e.target as HTMLElement)?.tagName?.toLowerCase();
+      if (tag === "input" || tag === "textarea" || (e.target as HTMLElement)?.isContentEditable) return;
+      if (e.key === "PageDown" || e.key === "ArrowDown" || e.key === " ") {
+        e.preventDefault();
+        scrollNext();
+      } else if (e.key === "PageUp" || e.key === "ArrowUp") {
+        e.preventDefault();
+        scrollPrev();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [currentSlide, totalSlides]);
 
   return (
     <section id="portfolio" className="relative">
+      {/* Floating navigation buttons */}
+      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-2">
+        {currentSlide > 0 && (
+          <Button onClick={scrollPrev} className="rounded-full p-0 h-12 w-12 bg-card text-foreground border border-border hover:scale-105 transition-transform" aria-label="Previous section">
+            <ChevronUp className="w-5 h-5" />
+          </Button>
+        )}
+        {currentSlide < totalSlides - 1 && (
+          <Button onClick={scrollNext} className="rounded-full p-0 h-12 w-12 gradient-bg-neon text-white border-0 hover:scale-105 transition-transform" aria-label="Next section">
+            <ChevronDown className="w-5 h-5" />
+          </Button>
+        )}
+      </div>
+
       {/* Right-side progress dots */}
       <div className="hidden md:block sticky top-1/2 -translate-y-1/2 right-6 md:right-10 z-30 float-right mr-4">
         <div className="flex flex-col gap-3 items-center">
