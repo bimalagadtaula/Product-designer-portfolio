@@ -1,6 +1,8 @@
-import { ExternalLink, Github, BookOpen, Figma, Code } from "lucide-react";
+import { ExternalLink, Github, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import meImage from "@/assets/glosifi-mockup.png";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const designProjects = [
   {
@@ -46,100 +48,104 @@ const devProjects = [
   },
 ];
 
-const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }) => (
-  <div className="glassmorphism rounded-2xl overflow-hidden hover-lift group flex flex-col">
-    {/* Image */}
-    <div className="relative aspect-[16/10] w-full overflow-hidden">
-      <img
-        src={project.image}
-        alt={project.title}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
-      <div className="absolute top-4 left-4 flex items-center gap-2">
-        <span className="text-xs px-3 py-1 bg-card text-foreground/80 rounded-full border border-border">
-          {type === 'Design' ? 'Design' : 'Development'}
-        </span>
-        <span className="text-xs px-3 py-1 bg-card text-foreground/80 rounded-full border border-border">
-          {project.year}
-        </span>
-      </div>
-    </div>
+const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [-20, 20]);
+  const yOverlay = useTransform(scrollYProgress, [0, 1], [10, -10]);
 
-    {/* Content */}
-    <div className="p-8 flex flex-col justify-between flex-1">
-      <div>
-        <h3 className="text-2xl font-bold text-foreground mb-2">{project.title}</h3>
-        <p className="text-foreground/70 mb-4">{project.description}</p>
-
-        {/* Metrics */}
-        {type === "Design" && project.metrics && (
-          <ul className="mb-4 flex flex-wrap gap-2">
-            {project.metrics.map((m: string, idx: number) => (
-              <li
-                key={idx}
-                className="text-sm px-3 py-1 bg-card text-foreground/80 rounded-full border border-border"
-              >
-                {m}
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {/* Tools */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.tools.map((tool: string, idx: number) => (
-            <span
-              key={idx}
-              className="text-xs px-3 py-1 bg-card text-foreground/80 rounded-full border border-border"
-            >
-              {tool}
-            </span>
-          ))}
+  return (
+    <div ref={ref} className="glassmorphism rounded-2xl overflow-hidden hover-lift group flex flex-col">
+      {/* Image with parallax */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden">
+        <motion.img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover"
+          style={{ y }}
+        />
+        <motion.div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" style={{ y: yOverlay }} />
+        <div className="absolute top-4 left-4 flex items-center gap-2">
+          <span className="text-xs px-3 py-1 bg-card text-foreground/80 rounded-full border border-border">
+            {type === 'Design' ? 'Design' : 'Development'}
+          </span>
+          <span className="text-xs px-3 py-1 bg-card text-foreground/80 rounded-full border border-border">
+            {project.year}
+          </span>
+        </div>
+        {/* Title overlay for more visual focus */}
+        <div className="absolute bottom-0 left-0 right-0 p-5">
+          <div className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-4">
+            <h3 className="text-xl md:text-2xl font-bold text-foreground">{project.title}</h3>
+          </div>
         </div>
       </div>
 
-      {/* Buttons */}
-      <div className="flex gap-3 mt-auto">
-        {type === "Design" ? (
-          <>
-            <Button variant="outline" className="flex-1 text-foreground" asChild>
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Live Demo
-              </a>
-            </Button>
-            <Button className="flex-1 gradient-bg-neon text-white border-0" asChild>
-              <a href={project.caseStudyUrl}>
-                <BookOpen className="w-4 h-4 mr-2" />
-                Case Study
-              </a>
-            </Button>
-          </>
-        ) : (
-          <>
-            <Button variant="outline" className="flex-1 text-foreground" asChild>
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Live Demo
-              </a>
-            </Button>
-            <Button
-              variant="outline"
-              className="flex-1 border-secondary hover:bg-secondary/10 text-foreground"
-              asChild
-            >
-              <a href={project.githubUrl}>
-                <Github className="w-4 h-4 mr-2" />
-                Code
-              </a>
-            </Button>
-          </>
-        )}
+      {/* Content: minimal text, supportive chips */}
+      <div className="p-6 md:p-8 flex flex-col justify-between flex-1">
+        <div>
+          {/* Keep description subtle to emphasize visuals */}
+          <p className="text-foreground/70 mb-4 hidden md:block">{project.description}</p>
+
+          {/* Metrics (design only) */}
+          {type === "Design" && project.metrics && (
+            <ul className="mb-4 flex flex-wrap gap-2">
+              {project.metrics.map((m: string, idx: number) => (
+                <li key={idx} className="text-sm px-3 py-1 bg-card text-foreground/80 rounded-full border border-border">
+                  {m}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* Tools */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.tools.map((tool: string, idx: number) => (
+              <span key={idx} className="text-xs px-3 py-1 bg-card text-foreground/80 rounded-full border border-border">
+                {tool}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* CTAs */}
+        <div className="flex gap-3 mt-auto">
+          {type === "Design" ? (
+            <>
+              <Button variant="outline" className="flex-1 text-foreground" asChild>
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Live Demo
+                </a>
+              </Button>
+              <Button className="flex-1 gradient-bg-neon text-white border-0" asChild>
+                <a href={project.caseStudyUrl}>
+                  <BookOpen className="w-4 h-4 mr-2" />
+                  Case Study
+                </a>
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button variant="outline" className="flex-1 text-foreground" asChild>
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Live Demo
+                </a>
+              </Button>
+              <Button variant="outline" className="flex-1 border-secondary hover:bg-secondary/10 text-foreground" asChild>
+                <a href={project.githubUrl}>
+                  <Github className="w-4 h-4 mr-2" />
+                  Code
+                </a>
+              </Button>
+            </>
+          )}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default function Portfolio() {
   const allProjects = [
@@ -160,7 +166,7 @@ export default function Portfolio() {
           </p>
         </div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid with subtle staggered animation */}
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {allProjects.map((project, idx) => (
             <ProjectCard key={idx} project={project} type={project.type} />
