@@ -153,6 +153,7 @@ export default function Portfolio() {
     ...devProjects.map((p) => ({ ...p, type: "Dev" as const })),
   ];
 
+  // Stacked card visuals: center column stack with parallax offsets
   return (
     <section id="portfolio" className="py-20 relative">
       <div className="container mx-auto px-4">
@@ -162,15 +163,29 @@ export default function Portfolio() {
             <span className="gradient-text-neon">Portfolio</span>
           </h2>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-            Selected projects showcasing product design and development with measurable impact.
+            Selected projects with a focus on visual storytelling and product impact.
           </p>
         </div>
 
-        {/* Projects Grid with subtle staggered animation */}
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {allProjects.map((project, idx) => (
-            <ProjectCard key={idx} project={project} type={project.type} />
-          ))}
+        <div className="max-w-5xl mx-auto">
+          <div className="relative" style={{ perspective: 1000 }}>
+            {allProjects.map((project, idx) => {
+              const offset = idx * 24; // spacing offset for stacked look
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-20% 0px -20% 0px" }}
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: idx * 0.06 }}
+                  className="will-change-transform"
+                  style={{ transform: `translateY(${offset}px)` }}
+                >
+                  <ProjectCard project={project} type={project.type} />
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
