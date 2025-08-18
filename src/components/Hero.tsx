@@ -72,7 +72,7 @@ export default function Hero() {
           </p>
 
           <Button
-            className="gradient-bg-neon text-white text-lg px-8 py-4 rounded-xl hover:scale-105 hover:shadow-lg transition-transform duration-200 font-semibold focus:outline-none focus:ring-4 focus:ring-primary"
+            className="gradient-bg-neon text-white text-lg px-8 py-4 rounded-xl hover:shadow-lg transition-transform duration-200 ease-premium hover-tail font-semibold focus:outline-none focus:ring-4 focus:ring-primary"
             onClick={handleScrollToPortfolio}
             aria-label="View Portfolio"
           >

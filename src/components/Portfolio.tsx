@@ -73,8 +73,8 @@ const StackCard = ({ project, type, idx, activeIdx }: { project: any; type: "Des
       <div className="container mx-auto px-4 relative z-10 w-full">
         <div className="max-w-4xl">
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-xs px-3 py-1 bg-card/90 text-foreground rounded-full border border-border">{type === 'Design' ? 'Design' : 'Development'}</span>
-            <span className="text-xs px-3 py-1 bg-card/90 text-foreground rounded-full border border-border">{project.year}</span>
+            <span className="text-xs px-3 py-1 bg-card/90 text-foreground rounded-full border border-border hover-tail ease-premium">{type === 'Design' ? 'Design' : 'Development'}</span>
+            <span className="text-xs px-3 py-1 bg-card/90 text-foreground rounded-full border border-border hover-tail ease-premium">{project.year}</span>
           </div>
 
           <h3 className="text-4xl md:text-6xl font-bold text-foreground mb-3">{project.title}</h3>
@@ -82,12 +82,12 @@ const StackCard = ({ project, type, idx, activeIdx }: { project: any; type: "Des
 
           <div className="flex flex-wrap gap-2 mb-6">
             {type === 'Design' && project.metrics?.map((m: string, i: number) => (
-              <span key={i} className="text-xs md:text-sm px-3 py-1 bg-card/90 text-foreground rounded-full border border-border">
+              <span key={i} className="text-xs md:text-sm px-3 py-1 bg-card/90 text-foreground rounded-full border border-border hover-tail ease-premium">
                 {m}
               </span>
             ))}
             {project.tools.map((tool: string, i: number) => (
-              <span key={i} className="text-xs md:text-sm px-3 py-1 bg-card/90 text-foreground rounded-full border border-border">
+              <span key={i} className="text-xs md:text-sm px-3 py-1 bg-card/90 text-foreground rounded-full border border-border hover-tail ease-premium">
                 {tool}
               </span>
             ))}
@@ -96,13 +96,13 @@ const StackCard = ({ project, type, idx, activeIdx }: { project: any; type: "Des
           <div className="flex gap-3">
             {type === 'Design' ? (
               <>
-                <Button variant="outline" className="text-foreground" asChild>
+                <Button variant="outline" className="text-foreground hover-tail ease-premium" asChild>
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Live Demo
                   </a>
                 </Button>
-                <Button className="gradient-bg-neon text-white border-0" asChild>
+                <Button className="gradient-bg-neon text-white border-0 hover-tail ease-premium" asChild>
                   <a href={project.caseStudyUrl}>
                     <BookOpen className="w-4 h-4 mr-2" />
                     Case Study
@@ -111,13 +111,13 @@ const StackCard = ({ project, type, idx, activeIdx }: { project: any; type: "Des
               </>
             ) : (
               <>
-                <Button variant="outline" className="text-foreground" asChild>
+                <Button variant="outline" className="text-foreground hover-tail ease-premium" asChild>
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Live Demo
                   </a>
                 </Button>
-                <Button variant="outline" className="border-secondary hover:bg-secondary/10 text-foreground" asChild>
+                <Button variant="outline" className="border-secondary hover:bg-secondary/10 text-foreground hover-tail ease-premium" asChild>
                   <a href={project.githubUrl}>
                     <Github className="w-4 h-4 mr-2" />
                     Code
