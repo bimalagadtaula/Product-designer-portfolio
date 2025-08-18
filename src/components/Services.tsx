@@ -44,6 +44,7 @@ const services = [
 export default function Services() {
   return (
     <section id="services" className="py-20 relative">
+      <div className="absolute inset-0 grid-pattern" />
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -61,7 +62,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="glassmorphism rounded-2xl p-8 hover:scale-105 transition-transform duration-300 group"
+              className="glassmorphism rounded-2xl p-8 hover-tail ease-premium group"
             >
               {/* Icon */}
               <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">

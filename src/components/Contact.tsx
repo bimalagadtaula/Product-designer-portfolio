@@ -41,6 +41,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-20 relative">
+      <div className="absolute inset-0 grid-pattern" />
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -155,7 +156,7 @@ export default function Contact() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full gradient-bg-neon text-white border-0 hover:scale-105 transition-transform duration-200 font-semibold py-3"
+                className="w-full gradient-bg-neon text-white border-0 transition-transform duration-200 ease-premium hover-tail font-semibold py-3"
               >
                 {isSubmitting ? (
                   "Sending..."

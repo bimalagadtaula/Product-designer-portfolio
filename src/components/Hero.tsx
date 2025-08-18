@@ -41,6 +41,7 @@ export default function Hero() {
       className="relative min-h-screen flex flex flex-col items-center justify-center pt-24 overflow-hidden bg-background"
       aria-label="Introduction section"
     >
+      <div className="absolute inset-0 grid-pattern" />
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-20 w-32 h-32 bg-primary/15 rounded-full blur-2xl animate-pulse" />
@@ -71,7 +72,7 @@ export default function Hero() {
           </p>
 
           <Button
-            className="gradient-bg-neon text-white text-lg px-8 py-4 rounded-xl hover:scale-105 hover:shadow-lg transition-transform duration-200 font-semibold focus:outline-none focus:ring-4 focus:ring-primary"
+            className="gradient-bg-neon text-white text-lg px-8 py-4 rounded-xl hover:shadow-lg transition-transform duration-200 ease-premium hover-tail font-semibold focus:outline-none focus:ring-4 focus:ring-primary"
             onClick={handleScrollToPortfolio}
             aria-label="View Portfolio"
           >

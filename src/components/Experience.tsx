@@ -31,6 +31,7 @@ const experiences = [
 export default function Experience() {
   return (
     <section id="experience" className="py-20 relative">
+      <div className="absolute inset-0 grid-pattern" />
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -56,7 +57,7 @@ export default function Experience() {
                 
                 {/* Content Card */}
                 <div className={`ml-16 md:ml-0 md:w-5/12 ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
-                  <div className="glassmorphism rounded-2xl p-8 hover:scale-105 transition-transform duration-300">
+                  <div className="glassmorphism rounded-2xl p-8 hover-tail ease-premium">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
                       <div>
@@ -92,7 +93,7 @@ export default function Experience() {
                       {experience.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
-                          className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-primary/30 to-accent/30 text-white border border-white/20"
+                          className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-primary/30 to-accent/30 text-white border border-white/20 hover-tail ease-premium"
                         >
                           {skill}
                         </span>
