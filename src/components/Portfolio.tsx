@@ -1,7 +1,7 @@
 import { ExternalLink, Github, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import meImage from "@/assets/glosifi-mockup.png";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useScroll, useTransform, useInView, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const designProjects = [
@@ -56,8 +56,10 @@ const Slide = ({ project, type, index, onInView }: { project: any; type: "Design
   }, [isInView, index, onInView]);
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const yImg = useTransform(scrollYProgress, [0, 1], [-30, 30]);
-  const yOverlay = useTransform(scrollYProgress, [0, 1], [15, -15]);
+  const rawYImg = useTransform(scrollYProgress, [0, 1], [-30, 30]);
+  const rawYOverlay = useTransform(scrollYProgress, [0, 1], [15, -15]);
+  const yImg = useSpring(rawYImg, { stiffness: 60, damping: 20, mass: 0.9 });
+  const yOverlay = useSpring(rawYOverlay, { stiffness: 60, damping: 20, mass: 0.9 });
 
   return (
     <section ref={ref} className="relative h-screen snap-start flex items-end pb-10">
@@ -65,11 +67,14 @@ const Slide = ({ project, type, index, onInView }: { project: any; type: "Design
       <div className="absolute inset-0 overflow-hidden">
         <motion.img src={project.image} alt={project.title} className="w-full h-full object-cover" style={{ y: yImg }} />
         <motion.div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/30 to-transparent" style={{ y: yOverlay }} />
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: "radial-gradient(120% 100% at 50% 100%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.15) 40%, transparent 70%)"
+        }} />
       </div>
 
       {/* Foreground content */}
       <div className="container mx-auto px-4 relative z-10 w-full">
-        <div className="max-w-4xl">
+        <motion.div className="max-w-4xl bg-card/75 backdrop-blur-md border border-border rounded-2xl p-6 md:p-8 shadow-xl" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 0.5 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
           <div className="flex items-center gap-2 mb-4">
             <span className="text-xs px-3 py-1 bg-card/90 text-foreground rounded-full border border-border hover-tail ease-premium">{type === 'Design' ? 'Design' : 'Development'}</span>
             <span className="text-xs px-3 py-1 bg-card/90 text-foreground rounded-full border border-border hover-tail ease-premium">{project.year}</span>
@@ -124,7 +129,7 @@ const Slide = ({ project, type, index, onInView }: { project: any; type: "Design
               </>
             )}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -196,7 +201,7 @@ export default function Portfolio() {
         </div>
       </div>
 
-      <div ref={containerRef} className="snap-y snap-mandatory h-screen overflow-y-auto">
+      <div ref={containerRef} className="snap-y snap-mandatory h-screen overflow-y-auto scroll-smooth">
         {/* Intro slide */}
         <section className="relative h-screen snap-start flex items-center">
           <div className="absolute inset-0 grid-pattern" />
