@@ -61,18 +61,17 @@ export default function Hero() {
                   "0 0 6px rgba(0,132,255,0.75), 0 0 12px rgba(0,132,255,0.5)",
               }}
             >
-              Namaste,
+            Hi, I’m Bimala — 
             </h1>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight gradient-text-neon mt-2">
-              I’m Bimala, a UI/UX Designer
+            Product & UX Designer
             </h2>
           </div>
 
           <p className="text-base md:text-lg text-white/80 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-            For me, design is more than aesthetics: it’s about creating seamless,
-            user-friendly experiences that engage users and achieve strategic goals.
-            Whether it’s a website, app, or web application, I focus on blending creativity
-            with functionality to enhance both user experience and business success.
+           I help startups and SaaS platforms create user-centered products that increase engagement,
+            improve conversions, and delight users. With hands-on experience designing web and mobile apps for both international and local clients, I combine research, design strategy,
+            and interactive prototypes to deliver meaningful digital experiences.
           </p>
 
           <Button
