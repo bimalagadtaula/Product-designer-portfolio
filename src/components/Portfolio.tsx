@@ -56,17 +56,17 @@ const Slide = ({ project, type, index, onInView }: { project: any; type: "Design
   }, [isInView, index, onInView]);
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const rawYImg = useTransform(scrollYProgress, [0, 1], [-30, 30]);
-  const rawYOverlay = useTransform(scrollYProgress, [0, 1], [15, -15]);
-  const yImg = useSpring(rawYImg, { stiffness: 60, damping: 20, mass: 0.9 });
-  const yOverlay = useSpring(rawYOverlay, { stiffness: 60, damping: 20, mass: 0.9 });
+  const rawYImg = useTransform(scrollYProgress, [0, 1], [-20, 20]);
+  const rawYOverlay = useTransform(scrollYProgress, [0, 1], [10, -10]);
+  const yImg = useSpring(rawYImg, { stiffness: 40, damping: 26, mass: 0.9 });
+  const yOverlay = useSpring(rawYOverlay, { stiffness: 40, damping: 26, mass: 0.9 });
 
   return (
     <section ref={ref} className="relative h-screen snap-start flex items-end pb-10">
       {/* Background visual */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.img src={project.image} alt={project.title} className="w-full h-full object-cover" style={{ y: yImg }} />
-        <motion.div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/30 to-transparent" style={{ y: yOverlay }} />
+        <motion.img src={project.image} alt={project.title} className="w-full h-full object-cover will-change-transform" style={{ y: yImg, transform: 'translateZ(0)' }} />
+        <motion.div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/30 to-transparent will-change-transform" style={{ y: yOverlay }} />
         <div className="absolute inset-0 pointer-events-none" style={{
           background: "radial-gradient(120% 100% at 50% 100%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.15) 40%, transparent 70%)"
         }} />
@@ -172,6 +172,22 @@ export default function Portfolio() {
     if (currentSlide > 0) scrollToSlide(currentSlide - 1);
   };
 
+  // Gentle wheel handler to snap between slides without jitter
+  const [lastWheelAt, setLastWheelAt] = useState(0);
+  const onWheel = (e: React.WheelEvent) => {
+    const now = Date.now();
+    if (now - lastWheelAt < 600) return;
+    if (e.deltaY > 18) {
+      e.preventDefault();
+      scrollNext();
+      setLastWheelAt(now);
+    } else if (e.deltaY < -18) {
+      e.preventDefault();
+      scrollPrev();
+      setLastWheelAt(now);
+    }
+  };
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const tag = (e.target as HTMLElement)?.tagName?.toLowerCase();
@@ -201,7 +217,7 @@ export default function Portfolio() {
         </div>
       </div>
 
-      <div ref={containerRef} className="snap-y snap-mandatory h-screen overflow-y-auto scroll-smooth">
+      <div ref={containerRef} className="snap-y snap-mandatory h-screen overflow-y-auto scroll-smooth overscroll-y-contain" onWheel={onWheel} style={{ scrollSnapStop: 'always' }}>
         {/* Intro slide */}
         <section className="relative h-screen snap-start flex items-center">
           <div className="absolute inset-0 grid-pattern" />
