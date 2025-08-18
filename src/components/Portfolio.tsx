@@ -48,23 +48,25 @@ const devProjects = [
   },
 ];
 
-const Slide = ({ project, type, index, onInView }: { project: any; type: "Design" | "Dev"; index: number; onInView: (i: number) => void }) => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(ref, { amount: 0.6 });
-  useEffect(() => {
-    if (isInView) onInView(index);
-  }, [isInView, index, onInView]);
-
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const yImg = useTransform(scrollYProgress, [0, 1], [-30, 30]);
-  const yOverlay = useTransform(scrollYProgress, [0, 1], [15, -15]);
+const StackCard = ({ project, type, idx, activeIdx }: { project: any; type: "Design" | "Dev"; idx: number; activeIdx: number }) => {
+  const relative = idx - activeIdx; // 0 = active, >0 upcoming, <0 passed
+  const clamped = Math.max(-2, Math.min(3, relative));
+  const scale = relative <= 0 ? 1 : Math.max(0.85, 1 - 0.05 * relative);
+  const y = relative <= 0 ? 0 : relative * 28;
+  const rotate = relative <= 0 ? 0 : (idx % 2 === 0 ? -1 : 1) * Math.min(3, relative * 1.2);
+  const opacity = relative < 0 ? 0 : Math.max(0, 1 - relative * 0.15);
 
   return (
-    <section ref={ref} className="relative h-screen snap-start flex items-end pb-10">
+    <motion.section
+      className="absolute inset-0 flex items-end pb-10"
+      style={{ zIndex: 100 - idx, pointerEvents: relative === 0 ? "auto" : "none" }}
+      animate={{ scale, y, rotate, opacity }}
+      transition={{ type: "spring", stiffness: 120, damping: 20 }}
+    >
       {/* Background visual */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.img src={project.image} alt={project.title} className="w-full h-full object-cover" style={{ y: yImg }} />
-        <motion.div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/30 to-transparent" style={{ y: yOverlay }} />
+        <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/30 to-transparent" />
       </div>
 
       {/* Foreground content */}
@@ -126,7 +128,7 @@ const Slide = ({ project, type, index, onInView }: { project: any; type: "Design
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
@@ -138,35 +140,22 @@ export default function Portfolio() {
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [active, setActive] = useState(0);
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const totalSlides = allProjects.length; // only project cards in stack
+  const [lastWheelAt, setLastWheelAt] = useState(0);
 
-  const totalSlides = allProjects.length + 2; // intro + projects + outro
+  const next = () => setActive((i) => Math.min(totalSlides - 1, i + 1));
+  const prev = () => setActive((i) => Math.max(0, i - 1));
 
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const onScroll = () => {
-      const idx = Math.round(el.scrollTop / el.clientHeight);
-      setCurrentSlide(Math.max(0, Math.min(totalSlides - 1, idx)));
-    };
-    el.addEventListener("scroll", onScroll, { passive: true } as AddEventListenerOptions);
-    onScroll();
-    return () => el.removeEventListener("scroll", onScroll as any);
-  }, [totalSlides]);
-
-  const scrollToSlide = (idx: number) => {
-    const el = containerRef.current;
-    if (!el) return;
-    const target = el.children[idx] as HTMLElement | undefined;
-    target?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  const scrollNext = () => {
-    if (currentSlide < totalSlides - 1) scrollToSlide(currentSlide + 1);
-  };
-  const scrollPrev = () => {
-    if (currentSlide > 0) scrollToSlide(currentSlide - 1);
+  const onWheel = (e: React.WheelEvent) => {
+    const now = Date.now();
+    if (now - lastWheelAt < 650) return; // throttle
+    if (e.deltaY > 20) {
+      next();
+      setLastWheelAt(now);
+    } else if (e.deltaY < -20) {
+      prev();
+      setLastWheelAt(now);
+    }
   };
 
   useEffect(() => {
@@ -175,34 +164,34 @@ export default function Portfolio() {
       if (tag === "input" || tag === "textarea" || (e.target as HTMLElement)?.isContentEditable) return;
       if (e.key === "PageDown" || e.key === "ArrowDown" || e.key === " ") {
         e.preventDefault();
-        scrollNext();
+        next();
       } else if (e.key === "PageUp" || e.key === "ArrowUp") {
         e.preventDefault();
-        scrollPrev();
+        prev();
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [currentSlide, totalSlides]);
+  }, [totalSlides]);
 
   return (
     <section id="portfolio" className="relative">
       {/* Floating navigation buttons */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-2">
-        {currentSlide > 0 && (
-          <Button onClick={scrollPrev} className="rounded-full p-0 h-12 w-12 bg-card text-foreground border border-border hover:scale-105 transition-transform" aria-label="Previous section">
+        {active > 0 && (
+          <Button onClick={prev} className="rounded-full p-0 h-12 w-12 bg-card text-foreground border border-border hover:scale-105 transition-transform" aria-label="Previous">
             <ChevronUp className="w-5 h-5" />
           </Button>
         )}
-        {currentSlide < totalSlides - 1 && (
-          <Button onClick={scrollNext} className="rounded-full p-0 h-12 w-12 gradient-bg-neon text-white border-0 hover:scale-105 transition-transform" aria-label="Next section">
+        {active < totalSlides - 1 && (
+          <Button onClick={next} className="rounded-full p-0 h-12 w-12 gradient-bg-neon text-white border-0 hover:scale-105 transition-transform" aria-label="Next">
             <ChevronDown className="w-5 h-5" />
           </Button>
         )}
       </div>
 
       {/* Right-side progress dots */}
-      <div className="hidden md:block sticky top-1/2 -translate-y-1/2 right-6 md:right-10 z-30 float-right mr-4">
+      <div className="hidden md:block absolute top-1/2 -translate-y-1/2 right-6 md:right-10 z-30">
         <div className="flex flex-col gap-3 items-center">
           {allProjects.map((_, i) => (
             <div key={i} className={`w-2.5 h-2.5 rounded-full border ${active === i ? 'bg-accent border-accent' : 'bg-border border-border'}`} />
@@ -210,32 +199,18 @@ export default function Portfolio() {
         </div>
       </div>
 
-      <div ref={containerRef} className="snap-y snap-mandatory h-screen overflow-y-auto">
-        {/* Intro slide */}
-        <section className="relative h-screen snap-start flex items-center">
-          <div className="absolute inset-0 grid-pattern" />
-          <div className="container mx-auto px-4 relative z-10 text-center">
-            <h2 className="text-4xl md:text-6xl font-black tracking-tight gradient-text-neon mb-4">Selected Work</h2>
-            <p className="text-foreground/80 text-lg max-w-2xl mx-auto">Explore case studies with a focus on product outcomes, interaction details, and design systems.</p>
-          </div>
-        </section>
-
-        {allProjects.map((p, idx) => (
-          <Slide key={idx} project={p} type={p.type} index={idx} onInView={setActive} />
-        ))}
-
-        {/* Outro slide */}
-        <section className="relative h-screen snap-start flex items-center">
+      <div ref={containerRef} className="h-screen overflow-hidden" onWheel={onWheel}>
+        <div className="absolute inset-0">
+          {allProjects.map((p, idx) => (
+            <StackCard key={idx} project={p} type={p.type} idx={idx} activeIdx={active} />
+          ))}
+        </div>
+        {/* Header overlay */}
+        <div className="absolute top-6 left-0 right-0 z-30">
           <div className="container mx-auto px-4 text-center">
-            <div className="max-w-3xl mx-auto glassmorphism rounded-2xl p-8">
-              <h3 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Want the full story?</h3>
-              <p className="text-foreground/80 mb-6">Deep dives include research process, design system specs, and measurable results.</p>
-              <Button className="gradient-bg-neon text-white border-0" asChild>
-                <a href="#contact">Get in touch</a>
-              </Button>
-            </div>
+            <h2 className="text-3xl md:text-5xl font-bold gradient-text-neon">Selected Work</h2>
           </div>
-        </section>
+        </div>
       </div>
     </section>
   );
