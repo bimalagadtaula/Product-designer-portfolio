@@ -47,7 +47,7 @@ const devProjects = [
 ];
 
 const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }) => (
-  <div className="glassmorphism rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-300 group flex flex-col">
+  <div className="glassmorphism rounded-2xl overflow-hidden hover-lift group flex flex-col">
     {/* Image */}
     <div className="relative aspect-[16/10] w-full overflow-hidden">
       <img
@@ -57,10 +57,10 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
       <div className="absolute top-4 left-4 flex items-center gap-2">
-        <span className="text-xs px-3 py-1 bg-background/80 backdrop-blur-sm text-foreground rounded-full border border-border">
+        <span className="text-xs px-3 py-1 bg-card text-foreground/80 rounded-full border border-border">
           {type === 'Design' ? 'Design' : 'Development'}
         </span>
-        <span className="text-xs px-3 py-1 bg-background/80 backdrop-blur-sm text-foreground rounded-full border border-border">
+        <span className="text-xs px-3 py-1 bg-card text-foreground/80 rounded-full border border-border">
           {project.year}
         </span>
       </div>
@@ -78,7 +78,7 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
             {project.metrics.map((m: string, idx: number) => (
               <li
                 key={idx}
-                className="text-sm px-3 py-1 bg-gradient-to-r from-primary/20 to-accent/20 text-primary rounded-full border border-primary/30"
+                className="text-sm px-3 py-1 bg-card text-foreground/80 rounded-full border border-border"
               >
                 {m}
               </li>
@@ -91,7 +91,7 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
           {project.tools.map((tool: string, idx: number) => (
             <span
               key={idx}
-              className="text-xs px-3 py-1 bg-gradient-to-r from-primary/20 to-accent/20 text-primary rounded-full border border-primary/30"
+              className="text-xs px-3 py-1 bg-card text-foreground/80 rounded-full border border-border"
             >
               {tool}
             </span>
@@ -103,11 +103,7 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
       <div className="flex gap-3 mt-auto">
         {type === "Design" ? (
           <>
-            <Button
-              variant="outline"
-              className="flex-1 border-primary hover:bg-primary/10 text-foreground"
-              asChild
-            >
+            <Button variant="outline" className="flex-1 text-foreground" asChild>
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-4 h-4 mr-2" />
                 Live Demo
@@ -122,7 +118,7 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
           </>
         ) : (
           <>
-            <Button className="flex-1 gradient-bg-neon text-white border-0" asChild>
+            <Button variant="outline" className="flex-1 text-foreground" asChild>
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-4 h-4 mr-2" />
                 Live Demo
