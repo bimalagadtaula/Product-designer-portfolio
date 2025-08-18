@@ -56,10 +56,10 @@ const Slide = ({ project, type, index, onInView }: { project: any; type: "Design
   }, [isInView, index, onInView]);
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const rawYImg = useTransform(scrollYProgress, [0, 1], [-20, 20]);
-  const rawYOverlay = useTransform(scrollYProgress, [0, 1], [10, -10]);
-  const yImg = useSpring(rawYImg, { stiffness: 40, damping: 26, mass: 0.9 });
-  const yOverlay = useSpring(rawYOverlay, { stiffness: 40, damping: 26, mass: 0.9 });
+  const rawYImg = useTransform(scrollYProgress, [0, 1], [-14, 14]);
+  const rawYOverlay = useTransform(scrollYProgress, [0, 1], [7, -7]);
+  const yImg = useSpring(rawYImg, { stiffness: 32, damping: 34, mass: 1.0 });
+  const yOverlay = useSpring(rawYOverlay, { stiffness: 32, damping: 34, mass: 1.0 });
 
   return (
     <section ref={ref} className="relative h-screen snap-start flex items-end pb-10">
@@ -176,12 +176,12 @@ export default function Portfolio() {
   const [lastWheelAt, setLastWheelAt] = useState(0);
   const onWheel = (e: React.WheelEvent) => {
     const now = Date.now();
-    if (now - lastWheelAt < 600) return;
-    if (e.deltaY > 18) {
+    if (now - lastWheelAt < 800) return;
+    if (e.deltaY > 16) {
       e.preventDefault();
       scrollNext();
       setLastWheelAt(now);
-    } else if (e.deltaY < -18) {
+    } else if (e.deltaY < -16) {
       e.preventDefault();
       scrollPrev();
       setLastWheelAt(now);
