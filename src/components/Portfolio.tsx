@@ -185,19 +185,7 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" className="relative">
-      {/* Floating navigation buttons */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-2">
-        {currentSlide > 0 && (
-          <Button onClick={scrollPrev} className="rounded-full p-0 h-12 w-12 bg-card text-foreground border border-border hover:scale-105 transition-transform" aria-label="Previous section">
-            <ChevronUp className="w-5 h-5" />
-          </Button>
-        )}
-        {currentSlide < totalSlides - 1 && (
-          <Button onClick={scrollNext} className="rounded-full p-0 h-12 w-12 gradient-bg-neon text-white border-0 hover:scale-105 transition-transform" aria-label="Next section">
-            <ChevronDown className="w-5 h-5" />
-          </Button>
-        )}
-      </div>
+      
 
       {/* Right-side progress dots */}
       <div className="hidden md:block sticky top-1/2 -translate-y-1/2 right-6 md:right-10 z-30 float-right mr-4">
