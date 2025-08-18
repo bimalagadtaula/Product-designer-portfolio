@@ -49,23 +49,28 @@ const devProjects = [
 const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }) => (
   <div className="glassmorphism rounded-2xl overflow-hidden flex flex-col md:flex-row hover:scale-105 transition-transform duration-300">
     {/* Image */}
-    <img
-      src={project.image}
-      alt={project.title}
-      className="w-full md:w-1/2 object-cover h-72 md:h-auto"
-    />
+    <div className="w-full md:w-1/2">
+      <img
+        src={project.image}
+        alt={project.title}
+        className="w-full h-72 md:h-full object-cover"
+      />
+    </div>
 
     {/* Content */}
-    <div className="p-6 flex flex-col justify-between flex-1">
+    <div className="p-8 flex flex-col justify-between flex-1">
       <div>
         <h3 className="text-2xl font-bold text-foreground mb-2">{project.title}</h3>
-        <p className="text-foreground/70 mb-3">{project.description}</p>
+        <p className="text-foreground/70 mb-4">{project.description}</p>
 
         {/* Metrics */}
         {type === "Design" && project.metrics && (
           <ul className="mb-3 flex flex-wrap gap-2">
             {project.metrics.map((m: string, idx: number) => (
-              <li key={idx} className="text-sm text-primary bg-primary/10 px-2 py-1 rounded-full">
+              <li
+                key={idx}
+                className="text-sm px-3 py-1 bg-gradient-to-r from-primary/20 to-accent/20 text-primary rounded-full border border-primary/30"
+              >
                 {m}
               </li>
             ))}
@@ -75,7 +80,10 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
         {/* Tools */}
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tools.map((tool: string, idx: number) => (
-            <span key={idx} className="text-xs bg-background/50 border border-border px-2 py-1 rounded-full text-foreground/70">
+            <span
+              key={idx}
+              className="text-xs px-3 py-1 bg-gradient-to-r from-primary/20 to-accent/20 text-primary rounded-full border border-primary/30"
+            >
               {tool}
             </span>
           ))}
@@ -84,39 +92,44 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
 
       {/* Buttons */}
       <div className="flex gap-3 mt-auto">
-        <Button
-          variant="outline"
-          className={`flex-1 ${type === "Design" ? "border-primary hover:bg-primary/10" : "border-secondary hover:bg-secondary/10"} text-foreground`}
-          asChild
-        >
-          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-            <ExternalLink className="w-4 h-4 mr-2" />
-            Live Demo
-          </a>
-        </Button>
-
         {type === "Design" ? (
-          <Button
-            variant="outline"
-            className="flex-1 border-accent hover:bg-accent/10 text-foreground"
-            asChild
-          >
-            <a href={project.caseStudyUrl}>
-              <BookOpen className="w-4 h-4 mr-2" />
-              Case Study
-            </a>
-          </Button>
+          <>
+            <Button
+              variant="outline"
+              className="flex-1 border-primary hover:bg-primary/10 text-foreground"
+              asChild
+            >
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Live Demo
+              </a>
+            </Button>
+            <Button className="flex-1 gradient-bg-neon text-white border-0" asChild>
+              <a href={project.caseStudyUrl}>
+                <BookOpen className="w-4 h-4 mr-2" />
+                Case Study
+              </a>
+            </Button>
+          </>
         ) : (
-          <Button
-            variant="outline"
-            className="flex-1 border-secondary hover:bg-secondary/10 text-foreground"
-            asChild
-          >
-            <a href={project.githubUrl}>
-              <Github className="w-4 h-4 mr-2" />
-              Code
-            </a>
-          </Button>
+          <>
+            <Button className="flex-1 gradient-bg-neon text-white border-0" asChild>
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Live Demo
+              </a>
+            </Button>
+            <Button
+              variant="outline"
+              className="flex-1 border-secondary hover:bg-secondary/10 text-foreground"
+              asChild
+            >
+              <a href={project.githubUrl}>
+                <Github className="w-4 h-4 mr-2" />
+                Code
+              </a>
+            </Button>
+          </>
         )}
       </div>
     </div>
