@@ -47,7 +47,7 @@ const devProjects = [
 ];
 
 const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }) => (
-  <div className="bg-gray-900 rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row hover:scale-105 transition-transform duration-300">
+  <div className="glassmorphism rounded-2xl overflow-hidden flex flex-col md:flex-row hover:scale-105 transition-transform duration-300">
     {/* Image */}
     <img
       src={project.image}
@@ -58,14 +58,14 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
     {/* Content */}
     <div className="p-6 flex flex-col justify-between flex-1">
       <div>
-        <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
-        <p className="text-white/70 mb-3">{project.description}</p>
+        <h3 className="text-2xl font-bold text-foreground mb-2">{project.title}</h3>
+        <p className="text-foreground/70 mb-3">{project.description}</p>
 
         {/* Metrics */}
         {type === "Design" && project.metrics && (
           <ul className="mb-3 flex flex-wrap gap-2">
             {project.metrics.map((m: string, idx: number) => (
-              <li key={idx} className="text-sm text-blue-400 bg-blue-900/20 px-2 py-1 rounded-full">
+              <li key={idx} className="text-sm text-primary bg-primary/10 px-2 py-1 rounded-full">
                 {m}
               </li>
             ))}
@@ -75,7 +75,7 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
         {/* Tools */}
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tools.map((tool: string, idx: number) => (
-            <span key={idx} className="text-xs bg-gray-800 px-2 py-1 rounded-full text-white/70">
+            <span key={idx} className="text-xs bg-background/50 border border-border px-2 py-1 rounded-full text-foreground/70">
               {tool}
             </span>
           ))}
@@ -86,7 +86,7 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
       <div className="flex gap-3 mt-auto">
         <Button
           variant="outline"
-          className={`flex-1 ${type === "Design" ? "border-blue-400 hover:bg-blue-500/10" : "border-purple-400 hover:bg-purple-500/10"} text-white`}
+          className={`flex-1 ${type === "Design" ? "border-primary hover:bg-primary/10" : "border-secondary hover:bg-secondary/10"} text-foreground`}
           asChild
         >
           <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
@@ -98,7 +98,7 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
         {type === "Design" ? (
           <Button
             variant="outline"
-            className="flex-1 border-pink-400 hover:bg-pink-500/10 text-white"
+            className="flex-1 border-accent hover:bg-accent/10 text-foreground"
             asChild
           >
             <a href={project.caseStudyUrl}>
@@ -109,7 +109,7 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
         ) : (
           <Button
             variant="outline"
-            className="flex-1 border-purple-400 hover:bg-purple-500/10 text-white"
+            className="flex-1 border-secondary hover:bg-secondary/10 text-foreground"
             asChild
           >
             <a href={project.githubUrl}>
@@ -132,7 +132,7 @@ export default function Portfolio() {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text-neon">Portfolio</span>
           </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Selected projects showcasing design and development work with measurable impact.
           </p>
         </div>
@@ -140,10 +140,10 @@ export default function Portfolio() {
         {/* Design Projects */}
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
-              <Figma className="w-6 h-6 text-blue-400" />
+            <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+              <Figma className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="text-2xl font-semibold text-white">Design Projects</h3>
+            <h3 className="text-2xl font-semibold text-foreground">Design Projects</h3>
           </div>
           <div className="grid gap-8">
             {designProjects.map((project, idx) => (
@@ -155,10 +155,10 @@ export default function Portfolio() {
         {/* Development Projects */}
         <div>
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center">
-              <Code className="w-6 h-6 text-purple-400" />
+            <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center">
+              <Code className="w-6 h-6 text-secondary" />
             </div>
-            <h3 className="text-2xl font-semibold text-white">Development Projects</h3>
+            <h3 className="text-2xl font-semibold text-foreground">Development Projects</h3>
           </div>
           <div className="grid gap-8">
             {devProjects.map((project, idx) => (

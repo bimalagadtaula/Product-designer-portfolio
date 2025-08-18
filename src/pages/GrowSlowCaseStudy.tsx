@@ -163,8 +163,8 @@ export default function GrowSlowCaseStudy() {
           <div className="grid md:grid-cols-2 gap-8 mb-20 animate-fade-in">
             <div className="bg-card rounded-3xl p-8 border border-border hover-scale group">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-destructive/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Target className="w-8 h-8 text-destructive" />
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Target className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-3xl font-bold text-foreground">Challenge</h3>
               </div>
@@ -173,8 +173,8 @@ export default function GrowSlowCaseStudy() {
             
             <div className="bg-card rounded-3xl p-8 border border-border hover-scale group">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <CheckCircle className="w-8 h-8 text-green-500" />
+                <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <CheckCircle className="w-8 h-8 text-accent" />
                 </div>
                 <h3 className="text-3xl font-bold text-foreground">Solution</h3>
               </div>

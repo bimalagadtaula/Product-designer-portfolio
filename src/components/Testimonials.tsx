@@ -34,10 +34,10 @@ export default function Testimonials() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-white">Client </span>
+            <span className="text-foreground">Client </span>
             <span className="gradient-text-neon">Testimonials</span>
           </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Hear from our clients about their experiences with our immersive technology solutions.
           </p>
         </div>
@@ -52,30 +52,27 @@ export default function Testimonials() {
               {/* Rating */}
               <div className="flex items-center mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                  />
+                  <Star key={i} className="w-5 h-5 text-primary" />
                 ))}
               </div>
 
               {/* Content */}
-              <blockquote className="text-white/80 mb-6 leading-relaxed italic">
+              <blockquote className="text-foreground/80 mb-6 leading-relaxed italic">
                 "{testimonial.content}"
               </blockquote>
 
               {/* Author */}
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500/30 to-pink-500/30 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-white font-semibold text-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-foreground font-semibold text-lg">
                     {testimonial.name.charAt(0)}
                   </span>
                 </div>
                 <div>
-                  <div className="text-white font-semibold">
+                  <div className="text-foreground font-semibold">
                     {testimonial.name}
                   </div>
-                  <div className="text-white/60 text-sm">
+                  <div className="text-foreground/60 text-sm">
                     {testimonial.role} at {testimonial.company}
                   </div>
                 </div>
