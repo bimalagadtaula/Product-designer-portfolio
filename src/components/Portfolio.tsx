@@ -62,7 +62,7 @@ const Slide = ({ project, type, index, onInView }: { project: any; type: "Design
   const yOverlay = useSpring(rawYOverlay, { stiffness: 32, damping: 34, mass: 1.0 });
 
   return (
-    <section ref={ref} className="relative h-screen snap-start flex items-end pb-10">
+    <section ref={ref} className="relative h-screen snap-start flex items-center">
       {/* Background visual */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.img src={project.image} alt={project.title} className="w-full h-full object-cover will-change-transform" style={{ y: yImg, transform: 'translateZ(0)' }} />
@@ -74,13 +74,13 @@ const Slide = ({ project, type, index, onInView }: { project: any; type: "Design
 
       {/* Foreground content */}
       <div className="container mx-auto px-4 relative z-10 w-full">
-        <motion.div className="max-w-4xl bg-card/75 backdrop-blur-md border border-border rounded-2xl p-6 md:p-8 shadow-xl" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 0.5 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
+        <motion.div className="max-w-3xl md:max-w-4xl bg-card/75 backdrop-blur-md border border-border rounded-2xl p-5 md:p-8 shadow-xl max-h-[72vh] md:max-h-[62vh] overflow-hidden" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 0.5 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
           <div className="flex items-center gap-2 mb-4">
             <span className="text-xs px-3 py-1 bg-card/90 text-foreground rounded-full border border-border hover-tail ease-premium">{type === 'Design' ? 'Design' : 'Development'}</span>
             <span className="text-xs px-3 py-1 bg-card/90 text-foreground rounded-full border border-border hover-tail ease-premium">{project.year}</span>
           </div>
 
-          <h3 className="text-4xl md:text-6xl font-bold text-foreground mb-3">{project.title}</h3>
+          <h3 className="text-3xl md:text-5xl font-bold text-foreground mb-3">{project.title}</h3>
           <p className="text-foreground/80 max-w-2xl mb-6 hidden md:block">{project.description}</p>
 
           <div className="flex flex-wrap gap-2 mb-6">
