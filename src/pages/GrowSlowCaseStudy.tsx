@@ -86,21 +86,21 @@ export default function GrowSlowCaseStudy() {
               {/* Project Meta */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
                 <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                  <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                  <div className="flex items-center gap-2 text-foreground/80 mb-1">
                     <Calendar className="w-4 h-4" />
                     <span className="text-sm">Duration</span>
                   </div>
                   <p className="font-semibold text-foreground">{study.duration}</p>
                 </div>
                 <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                  <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                  <div className="flex items-center gap-2 text-foreground/80 mb-1">
                     <Users className="w-4 h-4" />
                     <span className="text-sm">Team</span>
                   </div>
                   <p className="font-semibold text-foreground">{study.team}</p>
                 </div>
                 <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                  <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                  <div className="flex items-center gap-2 text-foreground/80 mb-1">
                     <Target className="w-4 h-4" />
                     <span className="text-sm">Role</span>
                   </div>

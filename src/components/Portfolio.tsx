@@ -57,10 +57,10 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
       <div className="absolute top-4 left-4 flex items-center gap-2">
-        <span className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">
+        <span className="text-xs px-3 py-1 bg-background/80 backdrop-blur-sm text-foreground rounded-full border border-border">
           {type === 'Design' ? 'Design' : 'Development'}
         </span>
-        <span className="text-xs px-3 py-1 bg-accent/10 text-accent rounded-full border border-accent/20">
+        <span className="text-xs px-3 py-1 bg-background/80 backdrop-blur-sm text-foreground rounded-full border border-border">
           {project.year}
         </span>
       </div>
