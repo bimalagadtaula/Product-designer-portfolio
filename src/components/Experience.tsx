@@ -92,7 +92,7 @@ export default function Experience() {
                       {experience.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
-                          className="px-3 py-1 text-sm rounded-full bg-white/10 text-white border border-white/20"
+                          className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-primary/30 to-accent/30 text-white border border-white/20"
                         >
                           {skill}
                         </span>
