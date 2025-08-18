@@ -5,6 +5,7 @@ import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Education from "@/components/Education";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <Services />
       <Experience />
+      <Education />
       <Portfolio />
       <Testimonials />
       <Contact />
