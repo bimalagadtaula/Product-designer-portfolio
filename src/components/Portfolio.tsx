@@ -2,7 +2,7 @@ import { ExternalLink, Github, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import meImage from "@/assets/glosifi-mockup.png";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 
 const designProjects = [
   {
@@ -158,7 +158,7 @@ export default function Portfolio() {
     <section id="portfolio" className="py-20 relative">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text-neon">Portfolio</span>
           </h2>
@@ -167,27 +167,57 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          <div className="relative" style={{ perspective: 1000 }}>
-            {allProjects.map((project, idx) => {
-              const offset = idx * 24; // spacing offset for stacked look
-              return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-20% 0px -20% 0px" }}
-                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: idx * 0.06 }}
-                  className="will-change-transform"
-                  style={{ transform: `translateY(${offset}px)` }}
-                >
-                  <ProjectCard project={project} type={project.type} />
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
+        {/* Sticky progress bar for the portfolio section */}
+        <SectionStack allProjects={allProjects} />
       </div>
     </section>
+  );
+}
+
+function SectionStack({ allProjects }: { allProjects: Array<any> }) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start center", "end start"] });
+
+  const transforms = useMemo(
+    () =>
+      allProjects.map((_, idx) => {
+        const offsetPx = idx * 24;
+        const scale = Math.max(0.94, 1 - idx * 0.02);
+        const rotate = (idx % 2 === 0 ? -1 : 1) * Math.min(0.6, idx * 0.2);
+        return { offsetPx, scale, rotate };
+      }),
+    [allProjects]
+  );
+
+  return (
+    <div ref={containerRef} className="max-w-5xl mx-auto">
+      <div className="sticky top-20 z-20 mb-8">
+        <div className="h-1 w-full bg-border rounded-full overflow-hidden">
+          <motion.div
+            className="h-full bg-gradient-to-r from-primary to-accent origin-left"
+            style={{ scaleX: scrollYProgress }}
+          />
+        </div>
+      </div>
+
+      <div className="relative" style={{ perspective: 1000 }}>
+        {allProjects.map((project, idx) => {
+          const { offsetPx, scale, rotate } = transforms[idx];
+          return (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-20% 0px -20% 0px" }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: idx * 0.06 }}
+              className="will-change-transform"
+              style={{ transform: `translateY(${offsetPx}px) scale(${scale}) rotate(${rotate}deg)` }}
+            >
+              <ProjectCard project={project} type={project.type} />
+            </motion.div>
+          );
+        })}
+      </div>
+    </div>
   );
 }
