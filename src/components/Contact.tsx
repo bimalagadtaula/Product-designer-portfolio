@@ -45,10 +45,10 @@ export default function Contact() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-white">Get In </span>
+            <span className="text-foreground">Get In </span>
             <span className="gradient-text-neon">Touch</span>
           </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Ready to bring your virtual reality vision to life? Let's discuss your project.
           </p>
         </div>
@@ -57,10 +57,10 @@ export default function Contact() {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-4">
+              <h3 className="text-2xl font-semibold text-foreground mb-4">
                 Let's Start a Conversation
               </h3>
-              <p className="text-white/70 leading-relaxed">
+              <p className="text-foreground/70 leading-relaxed">
                 Whether you're looking to redesign your user interface, improve user experience, 
                 or create a comprehensive design system, I'm here to help turn your ideas into beautiful, 
                 functional designs that users love.
@@ -70,32 +70,32 @@ export default function Contact() {
             {/* Contact Details */}
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-pink-500/20 rounded-xl flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-blue-400" />
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <div className="text-white font-medium">Email</div>
-                  <div className="text-white/60">bimalagadtaula0@gmail.com</div>
+                  <div className="text-foreground font-medium">Email</div>
+                  <div className="text-foreground/60">bimalagadtaula0@gmail.com</div>
                 </div>
               </div>
 
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-pink-500/20 rounded-xl flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-blue-400" />
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center">
+                  <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <div className="text-white font-medium">Phone</div>
-                  <div className="text-white/60">+977 9745687205</div>
+                  <div className="text-foreground font-medium">Phone</div>
+                  <div className="text-foreground/60">+977 9745687205</div>
                 </div>
               </div>
 
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-pink-500/20 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-blue-400" />
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <div className="text-white font-medium">Location</div>
-                  <div className="text-white/60">Bhaktpur, Nepal</div>
+                  <div className="text-foreground font-medium">Location</div>
+                  <div className="text-foreground/60">Bhaktpur, Nepal</div>
                 </div>
               </div>
             </div>
@@ -105,7 +105,7 @@ export default function Contact() {
           <div className="glassmorphism rounded-2xl p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-white font-medium mb-2">
+                <label htmlFor="name" className="block text-foreground font-medium mb-2">
                   Name
                 </label>
                 <Input
@@ -115,13 +115,13 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 focus:ring-blue-400"
+                  className="bg-background/50 border-border text-foreground placeholder:text-foreground/50 focus:border-primary focus:ring-primary"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-white font-medium mb-2">
+                <label htmlFor="email" className="block text-foreground font-medium mb-2">
                   Email
                 </label>
                 <Input
@@ -131,13 +131,13 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 focus:ring-blue-400"
+                  className="bg-background/50 border-border text-foreground placeholder:text-foreground/50 focus:border-primary focus:ring-primary"
                   placeholder="your.email@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-white font-medium mb-2">
+                <label htmlFor="message" className="block text-foreground font-medium mb-2">
                   Message
                 </label>
                 <Textarea
@@ -147,7 +147,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 focus:ring-blue-400 resize-none"
+                  className="bg-background/50 border-border text-foreground placeholder:text-foreground/50 focus:border-primary focus:ring-primary resize-none"
                   placeholder="Tell us about your project..."
                 />
               </div>
