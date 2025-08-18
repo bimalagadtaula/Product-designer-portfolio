@@ -47,14 +47,23 @@ const devProjects = [
 ];
 
 const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }) => (
-  <div className="glassmorphism rounded-2xl overflow-hidden flex flex-col md:flex-row hover:scale-105 transition-transform duration-300">
+  <div className="glassmorphism rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-300 group flex flex-col">
     {/* Image */}
-    <div className="w-full md:w-1/2">
+    <div className="relative aspect-[16/10] w-full overflow-hidden">
       <img
         src={project.image}
         alt={project.title}
-        className="w-full h-72 md:h-full object-cover"
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+      <div className="absolute top-4 left-4 flex items-center gap-2">
+        <span className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">
+          {type === 'Design' ? 'Design' : 'Development'}
+        </span>
+        <span className="text-xs px-3 py-1 bg-accent/10 text-accent rounded-full border border-accent/20">
+          {project.year}
+        </span>
+      </div>
     </div>
 
     {/* Content */}
@@ -65,7 +74,7 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
 
         {/* Metrics */}
         {type === "Design" && project.metrics && (
-          <ul className="mb-3 flex flex-wrap gap-2">
+          <ul className="mb-4 flex flex-wrap gap-2">
             {project.metrics.map((m: string, idx: number) => (
               <li
                 key={idx}
@@ -78,7 +87,7 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
         )}
 
         {/* Tools */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-2 mb-6">
           {project.tools.map((tool: string, idx: number) => (
             <span
               key={idx}
@@ -137,6 +146,11 @@ const ProjectCard = ({ project, type }: { project: any; type: "Design" | "Dev" }
 );
 
 export default function Portfolio() {
+  const allProjects = [
+    ...designProjects.map((p) => ({ ...p, type: "Design" as const })),
+    ...devProjects.map((p) => ({ ...p, type: "Dev" as const })),
+  ];
+
   return (
     <section id="portfolio" className="py-20 relative">
       <div className="container mx-auto px-4">
@@ -146,38 +160,15 @@ export default function Portfolio() {
             <span className="gradient-text-neon">Portfolio</span>
           </h2>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-            Selected projects showcasing design and development work with measurable impact.
+            Selected projects showcasing product design and development with measurable impact.
           </p>
         </div>
 
-        {/* Design Projects */}
-        <div className="mb-16">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
-              <Figma className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="text-2xl font-semibold text-foreground">Design Projects</h3>
-          </div>
-          <div className="grid gap-8">
-            {designProjects.map((project, idx) => (
-              <ProjectCard key={idx} project={project} type="Design" />
-            ))}
-          </div>
-        </div>
-
-        {/* Development Projects */}
-        <div>
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center">
-              <Code className="w-6 h-6 text-secondary" />
-            </div>
-            <h3 className="text-2xl font-semibold text-foreground">Development Projects</h3>
-          </div>
-          <div className="grid gap-8">
-            {devProjects.map((project, idx) => (
-              <ProjectCard key={idx} project={project} type="Dev" />
-            ))}
-          </div>
+        {/* Projects Grid */}
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          {allProjects.map((project, idx) => (
+            <ProjectCard key={idx} project={project} type={project.type} />
+          ))}
         </div>
       </div>
     </section>
