@@ -12,7 +12,7 @@ const Footer = () => {
     <footer className="bg-background border-t border-border py-10 px-6">
       <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
         <div className="text-center lg:text-left max-w-md">
-          <h3 className="text-2xl font-extrabold tracking-tight mb-1 uppercase neon-glow bg-clip-text gradient-text-neon">
+          <h3 className="text-2xl font-bold tracking-tight mb-1 uppercase neon-glow bg-clip-text gradient-text-neon font-display">
             Bimala Gadtaula
           </h3>
         </div>

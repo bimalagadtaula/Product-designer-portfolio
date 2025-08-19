@@ -56,7 +56,7 @@ export default function Hero() {
         <div className="flex-1 min-w-0 text-center lg:text-left">
           <div className="mb-10 max-w-lg mx-auto lg:mx-0">
             <h1
-              className="text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-tight text-foreground font-display"
+              className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight text-foreground font-display"
             >
               Hi, I’m Bimala — 
             </h1>
