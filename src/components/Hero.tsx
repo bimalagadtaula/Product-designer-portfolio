@@ -57,12 +57,12 @@ export default function Hero() {
         <div className="flex-1 min-w-0 text-center lg:text-left">
           {/* Overline tagline */}
           <div className="mb-5 flex items-center justify-center lg:justify-start gap-3 text-base md:text-lg text-foreground/70">
-            <span>Hi, I’m Bimala Gadtaula</span>
+            Hi,<span>I’m Bimala Gadtaula</span>
           </div>
 
           <div className="mb-8 md:mb-12 max-w-2xl mx-auto lg:mx-0">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.15] gradient-text-neon neon-glow text-shadow font-display">
-              Product Designer
+              Product
               <span className="block md:inline"> & UX Designer</span>
             </h1>
           </div>
@@ -79,10 +79,10 @@ export default function Hero() {
               onClick={handleScrollToPortfolio}
               aria-label="View case studies"
             >
-              View Case Studies
+              Explore Portfolio
             </Button>
             <Button variant="outline" className="border-foreground/40 bg-white/5 hover:bg-white/10 text-foreground hover:shadow-lg hover:translate-y-[-1px] transition ease-premium hover-tail" asChild>
-              <a href="#contact">Hire Me</a>
+              <a href="#contact">Work Together</a>
             </Button>
           </div>
         </div>
