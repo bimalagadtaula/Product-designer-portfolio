@@ -185,8 +185,9 @@ export default function Portfolio() {
     <section id="portfolio" className="relative py-20 scroll-mt-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10 md:mb-14">
-          <h2 className="section-title mb-3 gradient-text-neon">
-            Selected Work
+          <h2 className="section-title mb-3">
+            <span className="text-foreground">Selected </span>
+            <span className="gradient-text-neon">Work</span>
           </h2>
           <p className="section-subtitle">
             Creative case studies designed with the same system I use to build
