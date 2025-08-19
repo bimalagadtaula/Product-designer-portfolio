@@ -55,9 +55,8 @@ export default function Hero() {
         {/* Left Text */}
         <div className="flex-1 min-w-0 text-center lg:text-left">
           {/* Overline tagline */}
-          <div className="mb-3 flex items-center justify-center lg:justify-start gap-3 text-xs md:text-sm text-foreground/70">
+          <div className="mb-3 flex items-center justify-center lg:justify-start gap-3 text-sm md:text-base text-foreground/70">
             <span>Hi, I’m Bimala Gadtaula</span>
-            <span className="hidden sm:inline">· Kathmandu, Nepal</span>
           </div>
 
           <div className="mb-6 md:mb-7 max-w-2xl mx-auto lg:mx-0">
@@ -70,15 +69,7 @@ export default function Hero() {
             I design scalable SaaS dashboards and marketplaces — transforming complex workflows into simple, revenue-driving experiences.
           </p>
 
-          <div className="mt-6 md:mt-8 mb-7 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm">
-            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80 hover:bg-card hover:shadow-lg hover:shadow-primary/20 transition ease-premium hover-tail cursor-pointer">Design Systems</span>
-            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80 hover:bg-card hover:shadow-lg hover:shadow-primary/20 transition ease-premium hover-tail cursor-pointer">SaaS Dashboards</span>
-            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80 hover:bg-card hover:shadow-lg hover:shadow-primary/20 transition ease-premium hover-tail cursor-pointer">User Research</span>
-            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80 hover:bg-card hover:shadow-lg hover:shadow-primary/20 transition ease-premium hover-tail cursor-pointer">Prototyping</span>
-            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80 hover:bg-card hover:shadow-lg hover:shadow-primary/20 transition ease-premium hover-tail cursor-pointer">Interaction Design</span>
-          </div>
-
-          <div className="mt-2 flex items-center justify-center lg:justify-start gap-3">
+          <div className="mt-4 flex items-center justify-center lg:justify-start gap-3">
             <Button
               className="gradient-bg-neon text-white text-lg px-8 py-4 rounded-xl hover:shadow-lg transition-transform duration-200 ease-premium hover-tail font-semibold focus:outline-none focus:ring-4 focus:ring-primary"
               onClick={handleScrollToPortfolio}
