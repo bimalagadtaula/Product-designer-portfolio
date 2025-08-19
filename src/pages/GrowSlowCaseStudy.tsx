@@ -1,51 +1,58 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Calendar, Users, Target, CheckCircle, Award, Zap } from "lucide-react";
+import { ArrowLeft, ExternalLink, Calendar, Users, Target, CheckCircle, Award, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTAPrimary, CTASecondary } from "@/components/CTA";
 import { Badge } from "@/components/ui/badge";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export default function GrowSlowCaseStudy() {
+export default function GlosifiCaseStudy() {
   const navigate = useNavigate();
 
   const study = {
-    title: "GrowSlow – Reflective Productivity App",
-    subtitle: "Mindful Productivity for Creatives",
-    description: "A mindful, non-linear productivity tool designed for creatives and neurodivergent users. Features journaling, emotional check-ins, and creative progress tracking without hustle culture pressure.",
-    image: "/src/assets/mind-garden.png",
-    category: "App Design", 
+    title: "Glosifi Web App",
+    subtitle: "Beauty & Wellness Booking Platform",
+    description:
+      "Solo UI/UX designer, collaborating with a design consultant, leading end-to-end design of a beauty and wellness booking platform with various flows including dashboards, booking, partners, and landing pages, all built with a scalable design system.",
+    image: "/src/assets/glosifi-mockup.png",
+    category: "UX/UI Design",
     year: "2025",
-    duration: "4 months",
-    team: "Solo Project",
-    tools: ["Figma", "User Research", "Accessibility", "Prototyping"],
-    challenge: "Traditional productivity apps often promote hustle culture and linear thinking, which doesn't work for many creatives and neurodivergent individuals who need more flexible, emotion-aware tools.",
-    solution: "Designed a gentle, non-linear productivity app that focuses on emotional well-being, creative progress tracking, and mindful reflection rather than rigid task management.",
+    duration: "6 months",
+    team: "1 Designer + 1 Consultant",
+    tools: ["Figma", "User Research", "Prototyping", "User Testing"],
+    liveUrl: "https://glosifi.com/",
+    challenge:
+      "Design a comprehensive booking platform that serves both customers and service providers in the beauty and wellness industry, ensuring seamless user experience across multiple user types and complex booking flows.",
+    solution:
+      "Created a scalable design system with modular components, conducted extensive user research to understand pain points, and designed intuitive flows for customers, service providers, and administrators.",
     keyMetrics: [
-      { label: "Creative Output", value: "+85%", icon: Zap },
-      { label: "Top 10 Apps", value: "Featured", icon: Award },
-      { label: "Accessibility", value: "AA", icon: CheckCircle }
+      { label: "Booking Completion", value: "+40%", icon: TrendingUp },
+      { label: "Support Tickets", value: "-60%", icon: Award },
+      { label: "User Satisfaction", value: "95%", icon: CheckCircle },
     ],
     process: [
       {
-        phase: "User Research",
-        description: "Interviewed 30+ creative professionals and individuals with ADHD/autism to understand their unique productivity challenges and needs.",
-        deliverables: ["Research Insights", "User Personas", "Accessibility Guidelines"],
-        duration: "3 weeks"
+        phase: "Research & Discovery",
+        description:
+          "Conducted user interviews with 25+ beauty service customers and 15+ service providers to understand booking pain points and preferences.",
+        deliverables: ["User Personas", "Journey Maps", "Competitive Analysis"],
+        duration: "2 weeks",
       },
       {
-        phase: "Concept Development",
-        description: "Developed the core concept of 'growth without pressure' and designed features that support mental health and creative flow.",
-        deliverables: ["Feature Mapping", "User Flows", "Wireframes"],
-        duration: "2 weeks"
+        phase: "Design System",
+        description:
+          "Built a comprehensive design system with 50+ reusable components to ensure consistency across all platform touchpoints.",
+        deliverables: ["Component Library", "Design Tokens", "Style Guide"],
+        duration: "3 weeks",
       },
       {
-        phase: "Inclusive Design",
-        description: "Ensured accessibility compliance and tested with neurodivergent users throughout the design process.",
-        deliverables: ["Accessible Prototypes", "Inclusive Design Patterns", "User Testing Results"],
-        duration: "4 weeks"
-      }
-    ]
+        phase: "Prototyping & Testing",
+        description:
+          "Created high-fidelity prototypes and conducted usability testing with 20+ users to validate design decisions.",
+        deliverables: ["Interactive Prototypes", "Usability Test Reports", "Design Iterations"],
+        duration: "4 weeks",
+      },
+    ],
   };
 
   return (
@@ -64,7 +71,7 @@ export default function GrowSlowCaseStudy() {
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Portfolio
             </Button>
-            
+
             <div className="max-w-4xl">
               <div className="flex flex-wrap gap-3 mb-6">
                 <Badge variant="secondary" className="bg-primary/10 text-primary animate-scale-in">
@@ -74,18 +81,18 @@ export default function GrowSlowCaseStudy() {
                   {study.year}
                 </Badge>
               </div>
-              
+
               <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight font-display">
                 <span className="gradient-text-neon">{study.title}</span>
               </h1>
-              
+
               <p className="text-2xl text-primary mb-6">{study.subtitle}</p>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
                 {study.description}
               </p>
 
               {/* Project Meta */}
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
                 <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
                   <div className="flex items-center gap-2 text-foreground/80 mb-1">
                     <Calendar className="w-4 h-4" />
@@ -106,6 +113,10 @@ export default function GrowSlowCaseStudy() {
                     <span className="text-sm">Role</span>
                   </div>
                   <p className="font-semibold text-foreground">Lead Designer</p>
+                </div>
+                <div className="animate-fade-in flex gap-3" style={{ animationDelay: '0.5s' }}>
+                  <CTAPrimary href="#contact" className="w-full">Get in touch</CTAPrimary>
+                  <CTASecondary href={study.liveUrl} className="w-full">Live Project</CTASecondary>
                 </div>
               </div>
             </div>
@@ -144,8 +155,8 @@ export default function GrowSlowCaseStudy() {
               {study.keyMetrics.map((metric, index) => {
                 const IconComponent = metric.icon;
                 return (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className="bg-card rounded-3xl p-8 border border-border hover-scale text-center group transition-all duration-300 hover:shadow-xl animate-fade-in"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
@@ -171,7 +182,7 @@ export default function GrowSlowCaseStudy() {
               </div>
               <p className="text-muted-foreground leading-relaxed text-lg">{study.challenge}</p>
             </div>
-            
+
             <div className="bg-card rounded-3xl p-8 border border-border hover-scale group">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -192,7 +203,7 @@ export default function GrowSlowCaseStudy() {
                   {index < study.process.length - 1 && (
                     <div className="hidden md:block absolute top-12 left-full w-8 h-0.5 bg-gradient-to-r from-primary/50 to-transparent z-0" />
                   )}
-                  
+
                   <div className="bg-card rounded-3xl p-8 border border-border hover-scale relative z-10 group-hover:shadow-xl transition-all duration-300">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-primary-foreground font-bold text-lg group-hover:scale-110 transition-transform duration-300">
@@ -200,11 +211,9 @@ export default function GrowSlowCaseStudy() {
                       </div>
                       <h4 className="text-xl font-bold text-foreground">{phase.phase}</h4>
                     </div>
-                    
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {phase.description}
-                    </p>
-                    
+
+                    <p className="text-muted-foreground mb-6 leading-relaxed">{phase.description}</p>
+
                     <div className="space-y-3 mb-6">
                       <h5 className="text-sm font-semibold text-foreground">Deliverables:</h5>
                       {phase.deliverables.map((deliverable, delIndex) => (
@@ -214,7 +223,7 @@ export default function GrowSlowCaseStudy() {
                         </div>
                       ))}
                     </div>
-                    
+
                     <div className="text-sm font-medium text-primary bg-primary/10 px-3 py-2 rounded-full inline-block">
                       {phase.duration}
                     </div>
@@ -239,8 +248,7 @@ export default function GrowSlowCaseStudy() {
               ))}
             </div>
           </div>
-
-          {/* Call to Action */}
+           {/* Call to Action */}
           <div className="text-center animate-fade-in">
             <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 rounded-3xl p-16 border border-border">
               <h2 className="text-4xl font-bold mb-6 text-foreground">
@@ -261,3 +269,4 @@ export default function GrowSlowCaseStudy() {
     </>
   );
 }
+

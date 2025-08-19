@@ -248,6 +248,21 @@ export default function GlosifiCaseStudy() {
               ))}
             </div>
           </div>
+           {/* Call to Action */}
+          <div className="text-center animate-fade-in">
+            <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 rounded-3xl p-16 border border-border">
+              <h2 className="text-4xl font-bold mb-6 text-foreground">
+                Interested in working together?
+              </h2>
+              <p className="text-muted-foreground mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
+                Let's discuss how we can create amazing user experiences for your next project.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <CTAPrimary href="/#contact">Get in Touch</CTAPrimary>
+                <CTASecondary href="/case-studies/glosifi-web-app">View More Work</CTASecondary>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />
