@@ -67,7 +67,9 @@ export default function Hero() {
           </div>
 
           <p className="text-base md:text-lg text-foreground/80 leading-[1.65] mt-6 mb-10 md:mb-12 max-w-2xl mx-auto lg:mx-0">
-            I design scalable SaaS dashboards and marketplaces — transforming complex workflows into simple, revenue-driving experiences.
+          I help startups and SaaS platforms create user-centered products that increase engagement,
+           improve conversions, and delight users. With hands-on experience designing web and mobile apps for both international and local clients, I combine research, design strategy, 
+          and interactive prototypes to deliver meaningful digital experiences.
           </p>
 
           <div className="mt-6 flex items-center justify-center lg:justify-start gap-4">
