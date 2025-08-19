@@ -1,5 +1,6 @@
 import { ExternalLink, Github, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CTAPrimary } from "@/components/CTA";
 import meImage from "@/assets/glosifi-mockup.png";
 import { motion } from "framer-motion";
 import { useMemo } from "react";
@@ -205,13 +206,7 @@ export default function Portfolio() {
 
       <div className="container mx-auto px-4">
         <div className="text-center mt-8 md:mt-10">
-          <Button
-            size="lg"
-            className="gradient-bg-neon text-white border-0"
-            asChild
-          >
-            <a href="#contact">Get in touch</a>
-          </Button>
+          <CTAPrimary href="#contact">Get in touch</CTAPrimary>
         </div>
       </div>
     </section>
