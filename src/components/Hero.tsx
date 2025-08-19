@@ -42,6 +42,7 @@ export default function Hero() {
       aria-label="Introduction section"
     >
       <div className="absolute inset-0 grid-pattern" />
+      <div className="absolute inset-0 hero-stars opacity-70" />
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-20 w-32 h-32 bg-primary/15 rounded-full blur-2xl animate-pulse" />
@@ -55,21 +56,21 @@ export default function Hero() {
         {/* Left Text */}
         <div className="flex-1 min-w-0 text-center lg:text-left">
           {/* Overline tagline */}
-          <div className="mb-4 flex items-center justify-center lg:justify-start gap-3 text-base md:text-lg text-foreground/70">
+          <div className="mb-5 flex items-center justify-center lg:justify-start gap-3 text-base md:text-lg text-foreground/70">
             <span>Hi, I’m Bimala Gadtaula</span>
           </div>
 
-          <div className="mb-6 md:mb-8 max-w-2xl mx-auto lg:mx-0">
+          <div className="mb-7 md:mb-10 max-w-2xl mx-auto lg:mx-0">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight gradient-text-neon neon-glow font-display">
               Product Designer & UX Designer
             </h1>
           </div>
 
-          <p className="text-base md:text-lg text-foreground/80 leading-relaxed mt-5 mb-8 md:mb-10 max-w-2xl mx-auto lg:mx-0">
+          <p className="text-base md:text-lg text-foreground/80 leading-[1.65] mt-6 mb-10 md:mb-12 max-w-2xl mx-auto lg:mx-0">
             I design scalable SaaS dashboards and marketplaces — transforming complex workflows into simple, revenue-driving experiences.
           </p>
 
-          <div className="mt-4 flex items-center justify-center lg:justify-start gap-3">
+          <div className="mt-6 flex items-center justify-center lg:justify-start gap-4">
             <Button
               className="gradient-bg-neon text-white text-lg px-8 py-4 rounded-xl hover:shadow-lg transition-transform duration-200 ease-premium hover-tail font-semibold focus:outline-none focus:ring-4 focus:ring-primary"
               onClick={handleScrollToPortfolio}
