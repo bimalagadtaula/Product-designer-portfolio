@@ -35,11 +35,11 @@ export default function Experience() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="section-title mb-6">
             <span className="text-foreground">Work </span>
             <span className="gradient-text-neon">Experience</span>
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+          <p className="section-subtitle">
             My journey in creating immersive digital experiences across various cutting-edge technologies.
           </p>
         </div>
