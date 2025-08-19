@@ -56,11 +56,11 @@ export default function Hero() {
         <div className="flex-1 min-w-0 text-center lg:text-left">
           <div className="mb-10 max-w-lg mx-auto lg:mx-0">
             <h1
-              className="text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-tight text-foreground"
+              className="text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-tight text-foreground font-display"
             >
               Hi, I’m Bimala — 
             </h1>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight gradient-text-neon mt-2">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight gradient-text-neon mt-2 font-display">
               Product & UX Designer
             </h2>
           </div>
