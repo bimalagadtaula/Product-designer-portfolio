@@ -1,4 +1,4 @@
-import { ExternalLink, Github, BookOpen } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import meImage from "@/assets/glosifi-mockup.png";
 import { motion } from "framer-motion";
