@@ -45,7 +45,7 @@ const CaseStudy = ({ project, type, index }: { project: any; type: CaseStudyType
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-14 items-center">
           <div className="relative order-2 md:order-1">
-            <div className="pointer-events-none select-none absolute -top-6 -left-1 md:-left-4 text-foreground/15 font-serif font-black tracking-tight leading-[0.9]">
+            <div className="pointer-events-none select-none absolute -top-6 -left-1 md:-left-4 text-foreground/15 font-display font-black tracking-tight leading-[0.9]">
               <span className="block text-[clamp(3rem,10vw,8rem)]">{ghostTitle}</span>
             </div>
 
