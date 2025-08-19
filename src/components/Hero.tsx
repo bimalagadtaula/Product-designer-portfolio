@@ -41,8 +41,8 @@ export default function Hero() {
       className="relative min-h-screen flex flex flex-col items-center justify-center pt-24 overflow-hidden bg-background"
       aria-label="Introduction section"
     >
-      <div className="absolute inset-0 grid-pattern" />
-      <div className="absolute inset-0 hero-stars opacity-70" />
+      <div className="absolute inset-0 grid-pattern opacity-30 md:opacity-50" />
+      <div className="absolute inset-0 hero-stars opacity-60" />
       {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-20 w-32 h-32 bg-primary/15 rounded-full blur-2xl animate-pulse" />
@@ -52,7 +52,7 @@ export default function Hero() {
       </div>
 
       {/* Main content container */}
-      <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-16 items-center mb-16">
+      <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-10 lg:gap-20 items-center mb-16">
         {/* Left Text */}
         <div className="flex-1 min-w-0 text-center lg:text-left">
           {/* Overline tagline */}
@@ -60,9 +60,10 @@ export default function Hero() {
             <span>Hi, I’m Bimala Gadtaula</span>
           </div>
 
-          <div className="mb-7 md:mb-10 max-w-2xl mx-auto lg:mx-0">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight gradient-text-neon neon-glow font-display">
-              Product Designer & UX Designer
+          <div className="mb-8 md:mb-12 max-w-2xl mx-auto lg:mx-0">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.15] gradient-text-neon neon-glow text-shadow font-display">
+              Product Designer
+              <span className="block md:inline"> & UX Designer</span>
             </h1>
           </div>
 
@@ -72,7 +73,7 @@ export default function Hero() {
           and interactive prototypes to deliver meaningful digital experiences.
           </p>
 
-          <div className="mt-6 flex items-center justify-center lg:justify-start gap-4">
+          <div className="mt-6 flex items-center justify-center lg:justify-start gap-5 md:gap-6">
             <Button
               className="gradient-bg-neon text-white text-lg px-8 py-4 rounded-xl hover:shadow-lg transition-transform duration-200 ease-premium hover-tail font-semibold focus:outline-none focus:ring-4 focus:ring-primary"
               onClick={handleScrollToPortfolio}
@@ -80,7 +81,7 @@ export default function Hero() {
             >
               View Case Studies
             </Button>
-            <Button variant="outline" className="border-secondary hover:bg-secondary/10 text-foreground hover:shadow-md hover:translate-y-[-1px] transition ease-premium hover-tail" asChild>
+            <Button variant="outline" className="border-foreground/40 bg-white/5 hover:bg-white/10 text-foreground hover:shadow-lg hover:translate-y-[-1px] transition ease-premium hover-tail" asChild>
               <a href="#contact">Hire Me</a>
             </Button>
           </div>
