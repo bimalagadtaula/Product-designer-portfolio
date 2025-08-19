@@ -1,8 +1,8 @@
-import { ExternalLink, Github, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
+import { ExternalLink, Github, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import meImage from "@/assets/glosifi-mockup.png";
-import { motion, useScroll, useTransform, useInView, useSpring } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useMemo } from "react";
 
 const designProjects = [
   {
@@ -48,88 +48,110 @@ const devProjects = [
   },
 ];
 
-const Slide = ({ project, type, index, onInView }: { project: any; type: "Design" | "Dev"; index: number; onInView: (i: number) => void }) => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(ref, { amount: 0.6 });
-  useEffect(() => {
-    if (isInView) onInView(index);
-  }, [isInView, index, onInView]);
+type CaseStudyType = "Design" | "Dev";
 
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const rawYImg = useTransform(scrollYProgress, [0, 1], [-14, 14]);
-  const rawYOverlay = useTransform(scrollYProgress, [0, 1], [7, -7]);
-  const yImg = useSpring(rawYImg, { stiffness: 32, damping: 34, mass: 1.0 });
-  const yOverlay = useSpring(rawYOverlay, { stiffness: 32, damping: 34, mass: 1.0 });
+const CaseStudy = ({ project, type, index }: { project: any; type: CaseStudyType; index: number }) => {
+  const ghostTitle = useMemo(() => {
+    const base = String(project.title || "");
+    // Use first 2-3 words to keep the oversized ghost title readable
+    return base.split(" ").slice(0, 3).join(" ");
+  }, [project.title]);
 
   return (
-    <section ref={ref} className="relative h-screen snap-start flex items-center">
-      {/* Background visual */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.img src={project.image} alt={project.title} className="w-full h-full object-cover will-change-transform" style={{ y: yImg, transform: 'translateZ(0)' }} />
-        <motion.div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/30 to-transparent will-change-transform" style={{ y: yOverlay }} />
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: "radial-gradient(120% 100% at 50% 100%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.15) 40%, transparent 70%)"
-        }} />
-      </div>
-
-      {/* Foreground content */}
-      <div className="container mx-auto px-4 relative z-10 w-full">
-        <motion.div className="max-w-3xl md:max-w-4xl bg-card/75 backdrop-blur-md border border-border rounded-2xl p-6 md:p-9 shadow-xl max-h-[74vh] md:max-h-[64vh] overflow-hidden" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ amount: 0.5 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
-          <div className="flex items-center gap-2 mb-5">
-            <span className="text-xs px-3 py-1 bg-card/90 text-foreground rounded-full border border-border hover-tail ease-premium">{type === 'Design' ? 'Design' : 'Development'}</span>
-            <span className="text-xs px-3 py-1 bg-card/90 text-foreground rounded-full border border-border hover-tail ease-premium">{project.year}</span>
-          </div>
-
-          <h3 className="text-3xl md:text-5xl font-bold text-foreground leading-tight mb-4">{project.title}</h3>
-          <p className="text-foreground/80 max-w-2xl mb-8 hidden md:block">{project.description}</p>
-
-          <div className="flex flex-wrap gap-2 mb-8">
-            {type === 'Design' && project.metrics?.map((m: string, i: number) => (
-              <span key={i} className="text-xs md:text-sm px-3 py-1 bg-card/90 text-foreground rounded-full border border-border hover-tail ease-premium">
-                {m}
+    <section className="relative py-20 md:py-28">
+      <div className="absolute inset-0 grid-pattern opacity-50" />
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+          {/* Left: Big title background + content card */}
+          <div className="relative order-2 md:order-1">
+            <div className="pointer-events-none select-none absolute -top-8 -left-2 md:-left-6 text-foreground/10 font-black tracking-tight leading-none whitespace-pre-wrap">
+              <span className="block text-[clamp(2.75rem,8vw,6.5rem)] md:text-[clamp(5rem,9vw,9rem)] -tracking-[0.04em]">
+                {ghostTitle}
               </span>
-            ))}
-            {project.tools.map((tool: string, i: number) => (
-              <span key={i} className="text-xs md:text-sm px-3 py-1 bg-card/90 text-foreground rounded-full border border-border hover-tail ease-premium">
-                {tool}
-              </span>
-            ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.4, once: true }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="relative bg-card/80 backdrop-blur-xl border border-border rounded-2xl p-6 md:p-8 shadow-xl"
+            >
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-xs px-3 py-1 bg-card/90 text-foreground rounded-full border border-border">{type === 'Design' ? 'Design' : 'Development'}</span>
+                <span className="text-xs px-3 py-1 bg-card/90 text-foreground rounded-full border border-border">{project.year}</span>
+              </div>
+
+              <h3 className="text-3xl md:text-5xl font-bold leading-tight mb-3 text-foreground">
+                {project.title}
+              </h3>
+              <p className="text-foreground/80 mb-6 md:mb-8 max-w-prose">{project.description}</p>
+
+              <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
+                {type === 'Design' && project.metrics?.map((m: string, i: number) => (
+                  <span key={`m-${index}-${i}`} className="text-xs md:text-sm px-3 py-1 bg-card/90 text-foreground rounded-full border border-border">
+                    {m}
+                  </span>
+                ))}
+                {project.tools.map((tool: string, i: number) => (
+                  <span key={`t-${index}-${i}`} className="text-xs md:text-sm px-3 py-1 bg-card/90 text-foreground rounded-full border border-border">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex gap-3">
+                {type === 'Design' ? (
+                  <>
+                    <Button variant="outline" className="text-foreground" asChild>
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
+                      </a>
+                    </Button>
+                    <Button className="gradient-bg-neon text-white border-0" asChild>
+                      <a href={project.caseStudyUrl}>
+                        <BookOpen className="w-4 h-4 mr-2" />
+                        Case Study
+                      </a>
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Button variant="outline" className="text-foreground" asChild>
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
+                      </a>
+                    </Button>
+                    <Button variant="outline" className="border-secondary hover:bg-secondary/10 text-foreground" asChild>
+                      <a href={project.githubUrl}>
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </a>
+                    </Button>
+                  </>
+                )}
+              </div>
+            </motion.div>
           </div>
 
-          <div className="flex gap-3 pt-1">
-            {type === 'Design' ? (
-              <>
-                <Button variant="outline" className="text-foreground hover-tail ease-premium" asChild>
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
-                  </a>
-                </Button>
-                <Button className="gradient-bg-neon text-white border-0 hover-tail ease-premium" asChild>
-                  <a href={project.caseStudyUrl}>
-                    <BookOpen className="w-4 h-4 mr-2" />
-                    Case Study
-                  </a>
-                </Button>
-              </>
-            ) : (
-              <>
-                <Button variant="outline" className="text-foreground hover-tail ease-premium" asChild>
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
-                  </a>
-                </Button>
-                <Button variant="outline" className="border-secondary hover:bg-secondary/10 text-foreground hover-tail ease-premium" asChild>
-                  <a href={project.githubUrl}>
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </a>
-                </Button>
-              </>
-            )}
+          {/* Right: Device mock / hero visual */}
+          <div className="order-1 md:order-2">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98, y: 10 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ amount: 0.4, once: true }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="relative mx-auto w-full max-w-[540px]"
+            >
+              <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 blur-2xl" />
+              <div className="relative rounded-[2rem] border border-border bg-card/60 backdrop-blur-xl shadow-2xl overflow-hidden">
+                <img src={project.image} alt={project.title} className="w-full h-auto object-cover" />
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -141,110 +163,25 @@ export default function Portfolio() {
     ...devProjects.map((p) => ({ ...p, type: "Dev" as const })),
   ];
 
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const [active, setActive] = useState(0);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = allProjects.length + 2; // intro + projects + outro
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const onScroll = () => {
-      const idx = Math.round(el.scrollTop / el.clientHeight);
-      setCurrentSlide(Math.max(0, Math.min(totalSlides - 1, idx)));
-    };
-    el.addEventListener("scroll", onScroll, { passive: true } as AddEventListenerOptions);
-    onScroll();
-    return () => el.removeEventListener("scroll", onScroll as any);
-  }, [totalSlides]);
-
-  const scrollToSlide = (idx: number) => {
-    const el = containerRef.current;
-    if (!el) return;
-    const target = el.children[idx] as HTMLElement | undefined;
-    target?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  const scrollNext = () => {
-    if (currentSlide < totalSlides - 1) scrollToSlide(currentSlide + 1);
-  };
-  const scrollPrev = () => {
-    if (currentSlide > 0) scrollToSlide(currentSlide - 1);
-  };
-
-  // Gentle wheel handler to snap between slides without jitter
-  const [lastWheelAt, setLastWheelAt] = useState(0);
-  const onWheel = (e: React.WheelEvent) => {
-    const now = Date.now();
-    if (now - lastWheelAt < 800) return;
-    if (e.deltaY > 16) {
-      e.preventDefault();
-      scrollNext();
-      setLastWheelAt(now);
-    } else if (e.deltaY < -16) {
-      e.preventDefault();
-      scrollPrev();
-      setLastWheelAt(now);
-    }
-  };
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      const tag = (e.target as HTMLElement)?.tagName?.toLowerCase();
-      if (tag === "input" || tag === "textarea" || (e.target as HTMLElement)?.isContentEditable) return;
-      if (e.key === "PageDown" || e.key === "ArrowDown" || e.key === " ") {
-        e.preventDefault();
-        scrollNext();
-      } else if (e.key === "PageUp" || e.key === "ArrowUp") {
-        e.preventDefault();
-        scrollPrev();
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [currentSlide, totalSlides]);
-
   return (
-    <section id="portfolio" className="relative">
-      
-
-      {/* Right-side progress dots */}
-      <div className="hidden md:block sticky top-1/2 -translate-y-1/2 right-6 md:right-10 z-30 float-right mr-4">
-        <div className="flex flex-col gap-3 items-center">
-          {allProjects.map((_, i) => (
-            <div key={i} className={`w-2.5 h-2.5 rounded-full border ${active === i ? 'bg-accent border-accent' : 'bg-border border-border'}`} />
-          ))}
+    <section id="portfolio" className="relative py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-14 md:mb-20">
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight gradient-text-neon mb-3">Selected Work</h2>
+          <p className="text-foreground/80 max-w-2xl mx-auto">Creative case studies designed with the same system I use to build scalable products.</p>
         </div>
       </div>
 
-      <div ref={containerRef} className="snap-y snap-mandatory h-screen overflow-y-auto scroll-smooth overscroll-y-contain" onWheel={onWheel} style={{ scrollSnapStop: 'always' }}>
-        {/* Intro slide */}
-        <section className="relative h-screen snap-start flex items-center">
-          <div className="absolute inset-0 grid-pattern" />
-          <div className="container mx-auto px-4 relative z-10 text-center">
-            <h2 className="text-4xl md:text-6xl font-black tracking-tight gradient-text-neon mb-4">Selected Work</h2>
-            <p className="text-foreground/80 text-lg max-w-2xl mx-auto">Explore case studies with a focus on product outcomes, interaction details, and design systems.</p>
-          </div>
-        </section>
+      {allProjects.map((p, idx) => (
+        <CaseStudy key={idx} project={p} type={p.type} index={idx} />
+      ))}
 
-        {allProjects.map((p, idx) => (
-          <Slide key={idx} project={p} type={p.type} index={idx} onInView={setActive} />
-        ))}
-
-        {/* Outro slide */}
-        <section className="relative h-screen snap-start flex items-center">
-          <div className="container mx-auto px-4 text-center">
-            <div className="max-w-3xl mx-auto glassmorphism rounded-2xl p-8 md:p-12 space-y-6 md:space-y-8">
-              <h3 className="text-3xl md:text-5xl font-bold text-foreground">Want the full story?</h3>
-              <p className="text-foreground/80 leading-relaxed text-base md:text-lg">Deep dives include research process, design system specs, and measurable results.</p>
-              <div className="pt-2">
-                <Button size="lg" className="gradient-bg-neon text-white border-0 hover-tail ease-premium" asChild>
-                  <a href="#contact">Get in touch</a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+      <div className="container mx-auto px-4">
+        <div className="text-center mt-8 md:mt-10">
+          <Button size="lg" className="gradient-bg-neon text-white border-0" asChild>
+            <a href="#contact">Get in touch</a>
+          </Button>
+        </div>
       </div>
     </section>
   );
