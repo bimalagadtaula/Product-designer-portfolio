@@ -70,7 +70,7 @@ export default function Testimonials() {
                   </span>
                 </div>
                 <div>
-                  <div className="text-foreground font-semibold">
+                  <div className="text-foreground font-semibold font-display">
                     {testimonial.name}
                   </div>
                   <div className="text-foreground/60 text-sm">

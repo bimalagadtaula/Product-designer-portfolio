@@ -72,6 +72,7 @@ export default function Navbar() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
+                  aria-current={activeSection === item.id ? 'page' : undefined}
                   className={`text-sm font-medium transition-colors duration-200 ${
                     activeSection === item.id
                       ? "text-blue-400 neon-glow"
@@ -119,6 +120,7 @@ export default function Navbar() {
                     <button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
+                      aria-current={activeSection === item.id ? 'page' : undefined}
                       className={`text-left text-lg font-medium transition-colors duration-200 ${
                         activeSection === item.id
                           ? "text-blue-400 neon-glow"

@@ -61,7 +61,7 @@ export default function Experience() {
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h3 className="text-xl font-semibold text-foreground mb-2">
+                        <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2 font-display">
                           {experience.position}
                         </h3>
                         <div className="flex items-center text-primary font-medium mb-2">

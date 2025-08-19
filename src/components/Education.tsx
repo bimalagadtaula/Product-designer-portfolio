@@ -62,11 +62,11 @@ export default function Education() {
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h3 className="text-xl font-semibold text-white mb-2 flex items-center">
+                        <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2 flex items-center font-display">
                           <GraduationCap className="w-5 h-5 mr-2 text-blue-300" />
                           {item.degree}
                         </h3>
-                        <div className="text-blue-400 font-medium">{item.institution}</div>
+                        <div className="text-primary font-medium">{item.institution}</div>
                       </div>
                     </div>
 
