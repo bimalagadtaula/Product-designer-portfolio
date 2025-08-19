@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CTAPrimary } from "@/components/CTA";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export default function Navbar() {
@@ -84,19 +85,10 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* CTA Button */}
-        {/* Desktop CTA Button */}
-<div className="hidden md:block">
-  <a
-    href="https://www.linkedin.com/in/bmalagadtaula/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <Button className="gradient-bg-neon text-white border-0 hover:scale-105 transition-transform duration-200">
-      Hire me
-    </Button>
-  </a>
-</div>
+            {/* Desktop CTA Button */}
+            <div className="hidden md:block">
+              <CTAPrimary href="#contact" className="border-0">Hire Me</CTAPrimary>
+            </div>
 
             {/* Mobile Menu */}
             <Sheet>
@@ -130,9 +122,7 @@ export default function Navbar() {
                       {item.label}
                     </button>
                   ))}
-                  <Button className="gradient-bg-neon text-white border-0 hover:scale-105 transition-transform duration-200 mt-4">
-                    Hire me
-                  </Button>
+                  <CTAPrimary href="#contact" className="border-0 mt-4">Hire Me</CTAPrimary>
                 </div>
               </SheetContent>
             </Sheet>

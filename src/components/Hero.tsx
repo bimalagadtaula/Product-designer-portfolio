@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { CTAPrimary, CTASecondary } from "@/components/CTA";
 import Marquee, { OrangeMarquee } from "./Marquee";
 import meImage from "../assets/animated.jpg";
 
@@ -74,16 +75,8 @@ export default function Hero() {
           </p>
 
           <div className="mt-6 flex items-center justify-center lg:justify-start gap-5 md:gap-6">
-            <Button
-              className="gradient-bg-neon text-white text-lg px-8 py-4 rounded-xl hover:shadow-lg transition-transform duration-200 ease-premium hover-tail font-semibold focus:outline-none focus:ring-4 focus:ring-primary"
-              onClick={handleScrollToPortfolio}
-              aria-label="View case studies"
-            >
-              View Case Studies
-            </Button>
-            <Button variant="outline" className="border-foreground/40 bg-white/5 hover:bg-white/10 text-foreground hover:shadow-lg hover:translate-y-[-1px] transition ease-premium hover-tail" asChild>
-              <a href="#contact">Hire Me</a>
-            </Button>
+            <CTAPrimary href="#portfolio" className="" >View Case Studies</CTAPrimary>
+            <CTASecondary href="#contact" className="">Work Together</CTASecondary>
           </div>
         </div>
 
