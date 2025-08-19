@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, ExternalLink, Calendar, Users, Target, CheckCircle, Award, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CTAPrimary, CTASecondary } from "@/components/CTA";
 import { Badge } from "@/components/ui/badge";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -81,9 +82,8 @@ export default function GlosifiCaseStudy() {
                 </Badge>
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                <span className="text-foreground">{study.title.split(' ')[0]} </span>
-                <span className="gradient-text-neon">{study.title.split(' ').slice(1).join(' ')}</span>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight font-display">
+                <span className="gradient-text-neon">{study.title}</span>
               </h1>
 
               <p className="text-2xl text-primary mb-6">{study.subtitle}</p>
@@ -114,13 +114,9 @@ export default function GlosifiCaseStudy() {
                   </div>
                   <p className="font-semibold text-foreground">Lead Designer</p>
                 </div>
-                <div className="animate-fade-in" style={{ animationDelay: '0.5s' }}>
-                  <Button variant="outline" asChild className="w-full hover-scale">
-                    <a href={study.liveUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Live Project
-                    </a>
-                  </Button>
+                <div className="animate-fade-in flex gap-3" style={{ animationDelay: '0.5s' }}>
+                  <CTAPrimary href="#contact" className="w-full">Get in touch</CTAPrimary>
+                  <CTASecondary href={study.liveUrl} className="w-full">Live Project</CTASecondary>
                 </div>
               </div>
             </div>

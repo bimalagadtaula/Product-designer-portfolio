@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { CTAPrimary, CTASecondary } from "@/components/CTA";
 import Marquee, { OrangeMarquee } from "./Marquee";
 import meImage from "../assets/animated.jpg";
@@ -75,8 +74,8 @@ export default function Hero() {
           </p>
 
           <div className="mt-6 flex items-center justify-center lg:justify-start gap-5 md:gap-6">
-            <CTAPrimary href="#portfolio" className="" >View Case Studies</CTAPrimary>
-            <CTASecondary href="#contact" className="">Work Together</CTASecondary>
+            <CTAPrimary href="#portfolio">View Case Studies</CTAPrimary>
+            <CTASecondary href="#contact">Work Together</CTASecondary>
           </div>
         </div>
 
@@ -112,4 +111,3 @@ export default function Hero() {
     </section>
   );
 }
-
