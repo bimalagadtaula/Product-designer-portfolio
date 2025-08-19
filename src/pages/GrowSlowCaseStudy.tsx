@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Calendar, Users, Target, CheckCircle, Award, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CTAPrimary, CTASecondary } from "@/components/CTA";
 import { Badge } from "@/components/ui/badge";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -74,9 +75,8 @@ export default function GrowSlowCaseStudy() {
                 </Badge>
               </div>
               
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                <span className="text-foreground">{study.title.split(' ')[0]} </span>
-                <span className="gradient-text-neon">{study.title.split(' ').slice(1).join(' ')}</span>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight font-display">
+                <span className="gradient-text-neon">{study.title}</span>
               </h1>
               
               <p className="text-2xl text-primary mb-6">{study.subtitle}</p>
@@ -250,12 +250,8 @@ export default function GrowSlowCaseStudy() {
                 Let's discuss how we can create amazing user experiences for your next project.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild className="hover-scale">
-                  <a href="/#contact">Get in Touch</a>
-                </Button>
-                <Button variant="outline" size="lg" onClick={() => navigate('/case-studies/glosifi-web-app')} className="hover-scale">
-                  View More Work
-                </Button>
+                <CTAPrimary href="/#contact">Get in Touch</CTAPrimary>
+                <CTASecondary href="/case-studies/glosifi-web-app">View More Work</CTASecondary>
               </div>
             </div>
           </div>
