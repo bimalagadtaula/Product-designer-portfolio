@@ -55,13 +55,13 @@ export default function Hero() {
         {/* Left Text */}
         <div className="flex-1 min-w-0 text-center lg:text-left">
           {/* Overline tagline */}
-          <div className="mb-3 flex items-center justify-center lg:justify-start gap-3 text-sm md:text-base text-foreground/70">
+          <div className="mb-4 flex items-center justify-center lg:justify-start gap-3 text-base md:text-lg text-foreground/70">
             <span>Hi, I’m Bimala Gadtaula</span>
           </div>
 
-          <div className="mb-6 md:mb-7 max-w-2xl mx-auto lg:mx-0">
+          <div className="mb-6 md:mb-8 max-w-2xl mx-auto lg:mx-0">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight gradient-text-neon neon-glow font-display">
-              Product Designer
+              Product Designer & UX Designer
             </h1>
           </div>
 
@@ -85,13 +85,13 @@ export default function Hero() {
 
         {/* Right Image */}
         <div className="flex-1 min-w-0 flex justify-center lg:justify-end">
-          <div className="relative mt-6 lg:mt-0">
+          <div className="relative mt-6 lg:mt-0 perspective-1000 transform-style-preserve-3d">
             {/* Glow Effects */}
             <div className="absolute -inset-4 rounded-full blur-2xl animated-gradient-glow" />
             <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-xl" />
 
             {/* Image Container */}
-            <div className="relative glassmorphism rounded-2xl p-2 overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
+            <div className="relative glassmorphism rounded-2xl p-2 overflow-hidden transition-3d hover-rotate-y-12 hover:shadow-xl cursor-pointer">
               <img
                 src={meImage}
                 alt="Portrait of Bimala Gadtaula, UI/UX Designer"
