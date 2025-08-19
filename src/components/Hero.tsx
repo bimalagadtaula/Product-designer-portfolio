@@ -51,32 +51,30 @@ export default function Hero() {
       </div>
 
       {/* Main content container */}
-      <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-6 lg:gap-12 items-center mb-16">
+      <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-16 items-center mb-16">
         {/* Left Text */}
         <div className="flex-1 min-w-0 text-center lg:text-left">
           <div className="mb-6 md:mb-8 max-w-lg mx-auto lg:mx-0">
             <h1
-              className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight text-foreground font-display"
+              className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight font-display gradient-text-neon"
             >
-              Hi, I’m Bimala — 
-            </h1>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight gradient-text-neon mt-1 md:mt-2 font-display">
               Product & UX Designer
+            </h1>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground mt-2 font-display">
+              Bimala Gadtaula
             </h2>
           </div>
 
-          <p className="text-base md:text-lg text-foreground/80 leading-relaxed mt-4 mb-6 max-w-lg mx-auto lg:mx-0">
-            I help startups and SaaS platforms create user-centered products that increase engagement,
-            improve conversions, and delight users. With hands-on experience designing web and mobile apps for both international and local clients, I combine research, design strategy,
-            and interactive prototypes to deliver meaningful digital experiences.
+          <p className="text-base md:text-lg text-foreground/80 leading-relaxed mt-5 md:mt-6 mb-8 max-w-xl mx-auto lg:mx-0">
+            I design and ship customer-validated product experiences for SaaS and marketplaces—turning research into clear flows, scalable design systems, and high-fidelity prototypes that lift activation, retention, and revenue.
           </p>
 
           <Button
             className="gradient-bg-neon text-white text-lg px-8 py-4 rounded-xl hover:shadow-lg transition-transform duration-200 ease-premium hover-tail font-semibold focus:outline-none focus:ring-4 focus:ring-primary"
             onClick={handleScrollToPortfolio}
-            aria-label="View Portfolio"
+            aria-label="Explore my work"
           >
-            View Portfolio
+            Explore My Work
           </Button>
         </div>
 
