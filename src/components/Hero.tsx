@@ -61,34 +61,36 @@ export default function Hero() {
           </div>
 
           <div className="mb-6 md:mb-7 max-w-2xl mx-auto lg:mx-0">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground font-display">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight gradient-text-neon neon-glow mt-0 font-display">
+              Product Designer
+            </h2>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground mt-2 font-display">
               Bimala Gadtaula
             </h1>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight gradient-text-neon mt-2 font-display">
-              Product & UX Designer
-            </h2>
           </div>
 
-          <p className="text-base md:text-lg text-foreground/80 leading-relaxed mt-5 mb-7 max-w-2xl mx-auto lg:mx-0">
-            I help SaaS platforms and marketplaces grow by combining research, systemized UI, and rapid prototyping — turning complex problems into simple, revenue‑driving experiences.
+          <p className="text-base md:text-lg text-foreground/80 leading-relaxed mt-5 mb-8 md:mb-10 max-w-2xl mx-auto lg:mx-0">
+            I design scalable SaaS dashboards and marketplaces — transforming complex workflows into simple, revenue-driving experiences.
           </p>
 
-          <div className="mt-4 mb-7 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm">
+          <div className="mt-6 md:mt-8 mb-7 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm">
             <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80 hover:bg-card hover:shadow-lg hover:shadow-primary/20 transition ease-premium hover-tail cursor-pointer">Design Systems</span>
             <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80 hover:bg-card hover:shadow-lg hover:shadow-primary/20 transition ease-premium hover-tail cursor-pointer">SaaS Dashboards</span>
             <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80 hover:bg-card hover:shadow-lg hover:shadow-primary/20 transition ease-premium hover-tail cursor-pointer">User Research</span>
+            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80 hover:bg-card hover:shadow-lg hover:shadow-primary/20 transition ease-premium hover-tail cursor-pointer">Prototyping</span>
+            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80 hover:bg-card hover:shadow-lg hover:shadow-primary/20 transition ease-premium hover-tail cursor-pointer">Interaction Design</span>
           </div>
 
           <div className="mt-2 flex items-center justify-center lg:justify-start gap-3">
             <Button
               className="gradient-bg-neon text-white text-lg px-8 py-4 rounded-xl hover:shadow-lg transition-transform duration-200 ease-premium hover-tail font-semibold focus:outline-none focus:ring-4 focus:ring-primary"
               onClick={handleScrollToPortfolio}
-              aria-label="Explore my work"
+              aria-label="View case studies"
             >
-              Explore My Work
+              View Case Studies
             </Button>
             <Button variant="outline" className="border-secondary hover:bg-secondary/10 text-foreground hover:shadow-md hover:translate-y-[-1px] transition ease-premium hover-tail" asChild>
-              <a href="#contact">Let’s Collaborate</a>
+              <a href="#contact">Hire Me</a>
             </Button>
           </div>
         </div>
@@ -97,7 +99,7 @@ export default function Hero() {
         <div className="flex-1 min-w-0 flex justify-center lg:justify-end">
           <div className="relative mt-6 lg:mt-0">
             {/* Glow Effects */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary/25 to-accent/25 rounded-full blur-2xl animate-pulse" />
+            <div className="absolute -inset-4 rounded-full blur-2xl animated-gradient-glow" />
             <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-xl" />
 
             {/* Image Container */}

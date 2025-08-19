@@ -162,6 +162,12 @@ All colors MUST be HSL.
     background: linear-gradient(135deg, #3b82f6, #ec4899);
     box-shadow: 0 0 30px rgba(59, 130, 246, 0.4), 0 0 60px rgba(236, 72, 153, 0.2);
   }
+
+  /* Subtle animated gradient glow for hero avatar/headline */
+  .animated-gradient-glow {
+    background: conic-gradient(from 0deg, rgba(59,130,246,0.25), rgba(236,72,153,0.25), rgba(59,130,246,0.25));
+    animation: rotateGlow 8s linear infinite;
+  }
 }
 
 @layer utilities {
@@ -304,6 +310,11 @@ All colors MUST be HSL.
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+@keyframes rotateGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @keyframes glow {
