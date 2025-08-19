@@ -111,8 +111,8 @@ export default function Navbar() {
                 <div className="flex flex-col space-y-6 mt-8">
                   {[
                     { id: "home", label: "HOME" },
-                    { id: "services", label: "PRODUCTS" },
-                    { id: "portfolio", label: "SERVICES" },
+                    { id: "services", label: "SERVICES" },
+                    { id: "portfolio", label: "PORTFOLIO" },
                     { id: "contact", label: "CONTACT" },
                   ].map((item) => (
                     <button

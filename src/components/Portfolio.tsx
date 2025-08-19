@@ -59,10 +59,10 @@ const CaseStudy = ({
   }, [project.title]);
 
   return (
-    <section className="relative py-16 md:py-20">
+    <section className="relative py-10 md:py-14">
       <div className="absolute inset-0 grid-pattern opacity-50" />
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center">
           {/* Left: Text + card */}
           <div className="relative order-2 md:order-1">
             <div className="pointer-events-none select-none absolute -top-8 -left-2 md:-left-6 text-foreground/10 font-black tracking-tight leading-none whitespace-pre-wrap">
@@ -182,9 +182,9 @@ export default function Portfolio() {
   ];
 
   return (
-    <section id="portfolio" className="relative py-16 md:py-24">
+    <section id="portfolio" className="relative py-20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-10 md:mb-16">
+        <div className="text-center mb-10 md:mb-14">
           <h2 className="text-4xl md:text-6xl font-black tracking-tight gradient-text-neon mb-3 font-display">
             Selected Work
           </h2>

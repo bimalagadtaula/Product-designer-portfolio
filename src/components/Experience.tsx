@@ -34,7 +34,7 @@ export default function Experience() {
       <div className="absolute inset-0 grid-pattern" />
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-14">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-foreground">Work </span>
             <span className="gradient-text-neon">Experience</span>
