@@ -60,23 +60,23 @@ export default function Hero() {
             <span className="hidden sm:inline">— Kathmandu, Nepal</span>
           </div>
 
-          <div className="mb-5 md:mb-6 max-w-2xl mx-auto lg:mx-0">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground font-display">
+          <div className="mb-6 md:mb-7 max-w-2xl mx-auto lg:mx-0">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground font-display">
               Bimala Gadtaula
             </h1>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight gradient-text-neon mt-2 font-display">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight gradient-text-neon mt-2 font-display">
               Product & UX Designer
             </h2>
           </div>
 
-          <p className="text-base md:text-lg text-foreground/80 leading-relaxed mt-4 mb-6 max-w-2xl mx-auto lg:mx-0">
-            I design and evolve SaaS products and marketplaces—combining research, systemized UI, and prototype‑led delivery to improve activation, retention, and revenue.
+          <p className="text-base md:text-lg text-foreground/80 leading-relaxed mt-5 mb-7 max-w-2xl mx-auto lg:mx-0">
+            I help SaaS platforms and marketplaces grow by combining research, systemized UI, and rapid prototyping — turning complex problems into simple, revenue‑driving experiences.
           </p>
 
-          <div className="mt-4 mb-6 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm">
-            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80">Design Systems</span>
-            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80">SaaS Dashboards</span>
-            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80">User Research</span>
+          <div className="mt-4 mb-7 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm">
+            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80 hover:bg-card hover:shadow-lg hover:shadow-primary/20 transition ease-premium hover-tail cursor-pointer">Design Systems</span>
+            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80 hover:bg-card hover:shadow-lg hover:shadow-primary/20 transition ease-premium hover-tail cursor-pointer">SaaS Dashboards</span>
+            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80 hover:bg-card hover:shadow-lg hover:shadow-primary/20 transition ease-premium hover-tail cursor-pointer">User Research</span>
           </div>
 
           <div className="mt-2 flex items-center justify-center lg:justify-start gap-3">
@@ -87,8 +87,8 @@ export default function Hero() {
             >
               Explore My Work
             </Button>
-            <Button variant="outline" className="border-secondary hover:bg-secondary/10 text-foreground" asChild>
-              <a href="#contact">Get in touch</a>
+            <Button variant="outline" className="border-secondary hover:bg-secondary/10 text-foreground hover:shadow-md hover:translate-y-[-1px] transition ease-premium hover-tail" asChild>
+              <a href="#contact">Let’s Collaborate</a>
             </Button>
           </div>
         </div>
