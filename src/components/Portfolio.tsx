@@ -165,6 +165,9 @@ const CaseStudy = ({
                   src={project.image}
                   alt={project.title}
                   className="w-full h-auto object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
                 />
               </div>
             </motion.div>
