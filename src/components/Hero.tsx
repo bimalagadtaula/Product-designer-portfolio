@@ -54,18 +54,18 @@ export default function Hero() {
       <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-6 lg:gap-12 items-center mb-16">
         {/* Left Text */}
         <div className="flex-1 min-w-0 text-center lg:text-left">
-          <div className="mb-10 max-w-lg mx-auto lg:mx-0">
+          <div className="mb-6 md:mb-8 max-w-lg mx-auto lg:mx-0">
             <h1
               className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight text-foreground font-display"
             >
               Hi, I’m Bimala — 
             </h1>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight gradient-text-neon mt-3 font-display">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight gradient-text-neon mt-1 md:mt-2 font-display">
               Product & UX Designer
             </h2>
           </div>
 
-          <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+          <p className="text-base md:text-lg text-foreground/80 leading-relaxed mt-4 mb-6 max-w-lg mx-auto lg:mx-0">
             I help startups and SaaS platforms create user-centered products that increase engagement,
             improve conversions, and delight users. With hands-on experience designing web and mobile apps for both international and local clients, I combine research, design strategy,
             and interactive prototypes to deliver meaningful digital experiences.
