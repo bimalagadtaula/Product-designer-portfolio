@@ -42,6 +42,7 @@ const CaseStudy = ({
   type: CaseStudyType;
   index: number;
 }) => {
+  const isEven = index % 2 === 0;
   const ghostTitle = useMemo(() => {
     const base = String(project.title || "");
     return base.split(" ").slice(0, 3).join(" ");
@@ -53,7 +54,11 @@ const CaseStudy = ({
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           {/* Left: Text + card */}
-          <div className="relative order-2 md:order-1">
+          <div
+            className={
+              `relative order-2 ${isEven ? 'md:order-1' : 'md:order-2'}`
+            }
+          >
             <div className="pointer-events-none select-none absolute -top-8 -left-2 md:-left-6 text-foreground/10 font-black tracking-tight leading-none whitespace-pre-wrap">
               <span className="block text-[clamp(2.75rem,8vw,6.5rem)] md:text-[clamp(5rem,9vw,9rem)] -tracking-[0.04em]">
                 {ghostTitle}
@@ -76,7 +81,7 @@ const CaseStudy = ({
                 </span>
               </div>
 
-              <h3 className="text-3xl md:text-5xl font-bold leading-tight mb-3 text-foreground">
+              <h3 className="text-3xl md:text-5xl font-bold leading-tight mb-3 text-foreground font-display">
                 {project.title}
               </h3>
               <p className="text-foreground/80 mb-6 md:mb-8 max-w-prose">
@@ -140,7 +145,11 @@ const CaseStudy = ({
           </div>
 
           {/* Right: Image */}
-          <div className="order-1 md:order-2">
+          <div
+            className={
+              `order-1 ${isEven ? 'md:order-2' : 'md:order-1'}`
+            }
+          >
             <motion.div
               initial={{ opacity: 0, scale: 0.98, y: 10 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -174,7 +183,7 @@ export default function Portfolio() {
     <section id="portfolio" className="relative py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-14 md:mb-20">
-          <h2 className="text-4xl md:text-6xl font-black tracking-tight gradient-text-neon mb-3">
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight gradient-text-neon mb-3 font-display">
             Selected Work
           </h2>
           <p className="text-foreground/80 max-w-2xl mx-auto">
