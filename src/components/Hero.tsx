@@ -54,18 +54,15 @@ export default function Hero() {
       <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-16 items-center mb-16">
         {/* Left Text */}
         <div className="flex-1 min-w-0 text-center lg:text-left">
-          {/* Overline */}
-          <div className="mb-4 flex items-center justify-center lg:justify-start gap-3 text-sm text-foreground/70">
-            <span className="px-3 py-1 rounded-full border border-border bg-card/60">Product Designer</span>
-            <span className="hidden sm:inline">— Kathmandu, Nepal</span>
+          {/* Overline tagline */}
+          <div className="mb-3 flex items-center justify-center lg:justify-start gap-3 text-xs md:text-sm text-foreground/70">
+            <span>Hi, I’m Bimala Gadtaula</span>
+            <span className="hidden sm:inline">· Kathmandu, Nepal</span>
           </div>
 
           <div className="mb-6 md:mb-7 max-w-2xl mx-auto lg:mx-0">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight gradient-text-neon neon-glow mt-0 font-display">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight gradient-text-neon neon-glow font-display">
               Product Designer
-            </h2>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground mt-2 font-display">
-              Bimala Gadtaula
             </h1>
           </div>
 
