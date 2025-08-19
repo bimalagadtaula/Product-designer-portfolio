@@ -59,10 +59,10 @@ const CaseStudy = ({
   }, [project.title]);
 
   return (
-    <section className="relative py-10 md:py-14">
+    <section className="relative py-12 md:py-16">
       <div className="absolute inset-0 grid-pattern opacity-50" />
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
           {/* Left: Text + card */}
           <div className="relative order-2 md:order-1">
             <div className="pointer-events-none select-none absolute -top-8 -left-2 md:-left-6 text-foreground/10 font-black tracking-tight leading-none whitespace-pre-wrap">
@@ -72,9 +72,9 @@ const CaseStudy = ({
             </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ amount: 0.4, once: true }}
+              viewport={{ amount: 0.45, once: true }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="relative bg-card/80 backdrop-blur-xl border border-border rounded-2xl p-6 md:p-8 shadow-xl"
             >
@@ -153,9 +153,9 @@ const CaseStudy = ({
           {/* Right: Image */}
           <div className="order-1 md:order-2">
             <motion.div
-              initial={{ opacity: 0, scale: 0.98, y: 10 }}
+              initial={{ opacity: 0, scale: 0.975, y: 16 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ amount: 0.4, once: true }}
+              viewport={{ amount: 0.45, once: true }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="relative mx-auto w-full max-w-[540px]"
             >
@@ -182,7 +182,7 @@ export default function Portfolio() {
   ];
 
   return (
-    <section id="portfolio" className="relative py-20">
+    <section id="portfolio" className="relative py-20 scroll-mt-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10 md:mb-14">
           <h2 className="text-4xl md:text-6xl font-black tracking-tight gradient-text-neon mb-3 font-display">
