@@ -72,9 +72,9 @@ const CaseStudy = ({
             </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ amount: 0.4, once: true }}
+              viewport={{ amount: 0.45, once: true }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="relative bg-card/80 backdrop-blur-xl border border-border rounded-2xl p-6 md:p-8 shadow-xl"
             >
@@ -153,9 +153,9 @@ const CaseStudy = ({
           {/* Right: Image */}
           <div className="order-1 md:order-2">
             <motion.div
-              initial={{ opacity: 0, scale: 0.98, y: 10 }}
+              initial={{ opacity: 0, scale: 0.975, y: 16 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ amount: 0.4, once: true }}
+              viewport={{ amount: 0.45, once: true }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="relative mx-auto w-full max-w-[540px]"
             >
@@ -182,7 +182,7 @@ export default function Portfolio() {
   ];
 
   return (
-    <section id="portfolio" className="relative py-20">
+    <section id="portfolio" className="relative py-20 scroll-mt-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10 md:mb-14">
           <h2 className="text-4xl md:text-6xl font-black tracking-tight gradient-text-neon mb-3 font-display">

@@ -43,7 +43,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 relative">
+    <section id="services" className="py-20 relative scroll-mt-24">
       <div className="absolute inset-0 grid-pattern" />
       <div className="container mx-auto px-4">
         {/* Section Header */}

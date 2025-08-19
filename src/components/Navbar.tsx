@@ -27,7 +27,7 @@ export default function Navbar() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.25, rootMargin: "-20% 0px -55% 0px" }
     );
 
     const sections = document.querySelectorAll("section[id]");
@@ -39,7 +39,7 @@ export default function Navbar() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
     }
   };
 
