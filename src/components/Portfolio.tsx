@@ -3,20 +3,31 @@ import { Button } from "@/components/ui/button";
 import meImage from "@/assets/glosifi-mockup.png";
 import { motion } from "framer-motion";
 import { useMemo } from "react";
+import growSlowImage from "@/assets/mind-garden.png";
 
 type CaseStudyType = "Design" | "Dev";
 
 const designProjects = [
   {
-    title: "MarcoPolo World School",
+    title: "Glosifi Web App",
     description:
-      "Minimising drop-off during app onboarding and signup for an award-winning edtech brand.",
+      "Beauty & wellness booking platform with dashboards, booking flows, provider tools, and a scalable design system.",
     image: meImage,
     year: "2025",
-    tools: ["Figma", "Prototyping", "Usability Testing"],
-    metrics: ["Drop-off -18%", "Time-to-complete -25%"],
-    liveUrl: "#",
+    tools: ["Figma", "Design System", "User Research", "Prototyping"],
+    metrics: ["Booking completion +40%", "Support tickets -60%"],
+    liveUrl: "https://glosifi.com/",
     caseStudyUrl: "/case-studies/glosifi-web-app",
+  },
+  {
+    title: "GrowSlow – Reflective Productivity App",
+    description:
+      "Mindful, non-linear productivity tool for creatives and neurodivergent users with journaling and emotional check-ins.",
+    image: growSlowImage,
+    year: "2025",
+    tools: ["Figma", "Accessibility", "Prototyping"],
+    liveUrl: "#",
+    caseStudyUrl: "/case-studies/growslow-reflective-productivity-app",
   },
 ];
 
@@ -42,23 +53,18 @@ const CaseStudy = ({
   type: CaseStudyType;
   index: number;
 }) => {
-  const isEven = index % 2 === 0;
   const ghostTitle = useMemo(() => {
     const base = String(project.title || "");
     return base.split(" ").slice(0, 3).join(" ");
   }, [project.title]);
 
   return (
-    <section className="relative py-20 md:py-28">
+    <section className="relative py-16 md:py-20">
       <div className="absolute inset-0 grid-pattern opacity-50" />
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left: Text + card */}
-          <div
-            className={
-              `relative order-2 ${isEven ? 'md:order-1' : 'md:order-2'}`
-            }
-          >
+          <div className="relative order-2 md:order-1">
             <div className="pointer-events-none select-none absolute -top-8 -left-2 md:-left-6 text-foreground/10 font-black tracking-tight leading-none whitespace-pre-wrap">
               <span className="block text-[clamp(2.75rem,8vw,6.5rem)] md:text-[clamp(5rem,9vw,9rem)] -tracking-[0.04em]">
                 {ghostTitle}
@@ -145,11 +151,7 @@ const CaseStudy = ({
           </div>
 
           {/* Right: Image */}
-          <div
-            className={
-              `order-1 ${isEven ? 'md:order-2' : 'md:order-1'}`
-            }
-          >
+          <div className="order-1 md:order-2">
             <motion.div
               initial={{ opacity: 0, scale: 0.98, y: 10 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -182,7 +184,7 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="relative py-16 md:py-24">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-14 md:mb-20">
+        <div className="text-center mb-10 md:mb-16">
           <h2 className="text-4xl md:text-6xl font-black tracking-tight gradient-text-neon mb-3 font-display">
             Selected Work
           </h2>
