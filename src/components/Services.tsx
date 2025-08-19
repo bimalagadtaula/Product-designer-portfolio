@@ -48,11 +48,8 @@ export default function Services() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            {/* <span className="text-foreground">Our </span> */}
-            <span className="gradient-text-neon">Services</span>
-          </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+          <h2 className="section-title mb-6 gradient-text-neon">Services</h2>
+          <p className="section-subtitle">
             I focus on creating user-centered product designs that align with your business goals. Here’s how I can help bring your project to life:
           </p>
         </div>

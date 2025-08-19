@@ -45,11 +45,11 @@ export default function Contact() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="section-title mb-6">
             <span className="text-foreground">Get In </span>
             <span className="gradient-text-neon">Touch</span>
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+          <p className="section-subtitle">
             Ready to bring your virtual reality vision to life? Let's discuss your project.
           </p>
         </div>
