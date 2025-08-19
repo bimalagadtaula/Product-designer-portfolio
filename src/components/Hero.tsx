@@ -54,33 +54,48 @@ export default function Hero() {
       <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-16 items-center mb-16">
         {/* Left Text */}
         <div className="flex-1 min-w-0 text-center lg:text-left">
-          <div className="mb-6 md:mb-8 max-w-lg mx-auto lg:mx-0">
-            <h1
-              className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight font-display gradient-text-neon"
-            >
-              Product & UX Designer
-            </h1>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground mt-2 font-display">
+          {/* Overline */}
+          <div className="mb-4 flex items-center justify-center lg:justify-start gap-3 text-sm text-foreground/70">
+            <span className="px-3 py-1 rounded-full border border-border bg-card/60">Product Designer</span>
+            <span className="hidden sm:inline">— Kathmandu, Nepal</span>
+          </div>
+
+          <div className="mb-5 md:mb-6 max-w-2xl mx-auto lg:mx-0">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground font-display">
               Bimala Gadtaula
+            </h1>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight gradient-text-neon mt-2 font-display">
+              Product & UX Designer
             </h2>
           </div>
 
-          <p className="text-base md:text-lg text-foreground/80 leading-relaxed mt-5 md:mt-6 mb-8 max-w-xl mx-auto lg:mx-0">
-            I design and ship customer-validated product experiences for SaaS and marketplaces—turning research into clear flows, scalable design systems, and high-fidelity prototypes that lift activation, retention, and revenue.
+          <p className="text-base md:text-lg text-foreground/80 leading-relaxed mt-4 mb-6 max-w-2xl mx-auto lg:mx-0">
+            I design and evolve SaaS products and marketplaces—combining research, systemized UI, and prototype‑led delivery to improve activation, retention, and revenue.
           </p>
 
-          <Button
-            className="gradient-bg-neon text-white text-lg px-8 py-4 rounded-xl hover:shadow-lg transition-transform duration-200 ease-premium hover-tail font-semibold focus:outline-none focus:ring-4 focus:ring-primary"
-            onClick={handleScrollToPortfolio}
-            aria-label="Explore my work"
-          >
-            Explore My Work
-          </Button>
+          <div className="mt-4 mb-6 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm">
+            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80">Design Systems</span>
+            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80">SaaS Dashboards</span>
+            <span className="px-3 py-1 rounded-full border border-border bg-card/60 text-foreground/80">User Research</span>
+          </div>
+
+          <div className="mt-2 flex items-center justify-center lg:justify-start gap-3">
+            <Button
+              className="gradient-bg-neon text-white text-lg px-8 py-4 rounded-xl hover:shadow-lg transition-transform duration-200 ease-premium hover-tail font-semibold focus:outline-none focus:ring-4 focus:ring-primary"
+              onClick={handleScrollToPortfolio}
+              aria-label="Explore my work"
+            >
+              Explore My Work
+            </Button>
+            <Button variant="outline" className="border-secondary hover:bg-secondary/10 text-foreground" asChild>
+              <a href="#contact">Get in touch</a>
+            </Button>
+          </div>
         </div>
 
         {/* Right Image */}
         <div className="flex-1 min-w-0 flex justify-center lg:justify-end">
-          <div className="relative">
+          <div className="relative mt-6 lg:mt-0">
             {/* Glow Effects */}
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/25 to-accent/25 rounded-full blur-2xl animate-pulse" />
             <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-xl" />
