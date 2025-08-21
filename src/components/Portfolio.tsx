@@ -1,10 +1,11 @@
 import { ExternalLink, Github, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTAPrimary } from "@/components/CTA";
-import meImage from "@/assets/glosifi-mockup.png";
+import meImage from "@/assets/CRM-GLOSIFI.png";
 import { motion } from "framer-motion";
 import { useMemo } from "react";
-import growSlowImage from "@/assets/mind-garden.png";
+import growSlowImage from "@/assets/break-ritual.png";
+import Agriai from "@/assets/agriai.png";
 
 type CaseStudyType = "Design" | "Dev";
 
@@ -30,17 +31,47 @@ const designProjects = [
     liveUrl: "#",
     caseStudyUrl: "/case-studies/growslow-reflective-productivity-app",
   },
+  {
+    title: "Agri App",
+    description:
+      "Agri AI is an intelligent agriculture app designed to help farmers make data-driven decisions. It provides weather forecasts, plant disease detection, and actionable recommendations to optimize crop health and yield.",
+    image: Agriai,
+    year: "2025",
+    tools: ["Figma", "UI design", "Prototyping"],
+    liveUrl: "#",
+    caseStudyUrl: "/case-studies/growslow-reflective-productivity-app",
+  },
 ];
 
 const devProjects = [
   {
-    title: "Reflective Productivity App",
+    title: "Epaath-Geometric Shapes",
     description:
       "Mindful productivity app for neurodivergent users with journaling and progress tracking features.",
     image: meImage,
     year: "2024",
     tools: ["React", "TypeScript"],
-    liveUrl: "#",
+    liveUrl: "https://dev.epaath.olenepal.org/activity.html?id=matngs01&lang=en&grade=2",
+    githubUrl: "#",
+  },
+  {
+    title: "Epaath-Hamro Bidhyalaya",
+    description:
+      "Mindful productivity app for neurodivergent users with journaling and progress tracking features.",
+    image: meImage,
+    year: "2024",
+    tools: ["React", "TypeScript"],
+    liveUrl: "https://dev.epaath.olenepal.org/activity.html?id=nepbcd01&lang=np&pg=2&scId=0&grade=2",
+    githubUrl: "#",
+  },
+   {
+    title: "Learning about Plants",
+    description:
+      "Mindful productivity app for neurodivergent users with journaling and progress tracking features.",
+    image: meImage,
+    year: "2024",
+    tools: ["React", "TypeScript"],
+    liveUrl: "https://dev.epaath.olenepal.org/activity.html?id=scilap01&lang=en&pg=1&scId=0&grade=1",
     githubUrl: "#",
   },
 ];
