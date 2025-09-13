@@ -50,7 +50,7 @@ export default function Contact() {
             <span className="gradient-text-neon">Touch</span>
           </h2>
           <p className="section-subtitle">
-            Ready to bring your virtual reality vision to life? Let's discuss your project.
+            Ready to bring your vision to life? Let's discuss your project.
           </p>
         </div>
 
