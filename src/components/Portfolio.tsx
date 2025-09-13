@@ -1,5 +1,6 @@
 import { ExternalLink, Github, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CTAPrimary } from "@/components/CTA";
 import meImage from "@/assets/CRM-GLOSIFI.png";
 import { motion } from "framer-motion";
@@ -229,11 +230,33 @@ export default function Portfolio() {
             scalable products.
           </p>
         </div>
-      </div>
 
-      {allProjects.map((p, idx) => (
-        <CaseStudy key={idx} project={p} type={p.type} index={idx} />
-      ))}
+        <Tabs defaultValue="all" className="w-full">
+          <TabsList className="grid w-full grid-cols-3 max-w-md mx-auto mb-8">
+            <TabsTrigger value="all">All Work</TabsTrigger>
+            <TabsTrigger value="design">Design</TabsTrigger>
+            <TabsTrigger value="dev">Development</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="all" className="space-y-0">
+            {allProjects.map((p, idx) => (
+              <CaseStudy key={idx} project={p} type={p.type} index={idx} />
+            ))}
+          </TabsContent>
+
+          <TabsContent value="design" className="space-y-0">
+            {designProjects.map((p, idx) => (
+              <CaseStudy key={idx} project={p} type="Design" index={idx} />
+            ))}
+          </TabsContent>
+
+          <TabsContent value="dev" className="space-y-0">
+            {devProjects.map((p, idx) => (
+              <CaseStudy key={idx} project={p} type="Dev" index={idx} />
+            ))}
+          </TabsContent>
+        </Tabs>
+      </div>
 
       <div className="container mx-auto px-4">
         <div className="text-center mt-8 md:mt-10">
