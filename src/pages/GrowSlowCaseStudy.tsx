@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Calendar, Users, Target, CheckCircle, Award, TrendingUp, Brain, Heart, Lightbulb, Eye, Palette, Code, Star, Clock, Briefcase, Zap, Focus, BarChart } from "lucide-react";
+import { ArrowLeft, Calendar, Users, Target, CheckCircle, Award, TrendingUp, Brain, Heart, Lightbulb, Eye, Palette, Code, Star, Clock, Briefcase, Zap, Focus, BarChart, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTAPrimary, CTASecondary } from "@/components/CTA";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 
 export default function GrowSlowCaseStudy() {
   const navigate = useNavigate();
@@ -122,7 +123,12 @@ export default function GrowSlowCaseStudy() {
         <div className="container mx-auto px-4 py-12">
           
           {/* Header */}
-          <div className="mb-16 animate-fade-in">
+          <motion.div 
+            className="mb-16"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
             <Button
               variant="ghost"
               onClick={() => navigate('/#portfolio')}
@@ -134,86 +140,120 @@ export default function GrowSlowCaseStudy() {
 
             <div className="max-w-5xl">
               <div className="flex flex-wrap gap-3 mb-6">
-                <Badge variant="secondary" className="bg-primary/10 text-primary animate-scale-in">
-                  Mobile App Design
-                </Badge>
-                <Badge variant="outline" className="animate-scale-in" style={{ animationDelay: '0.1s' }}>
-                  2024
-                </Badge>
-                <Badge variant="outline" className="animate-scale-in" style={{ animationDelay: '0.2s' }}>
-                  Wellness & Productivity
-                </Badge>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                >
+                  <Badge variant="secondary" className="bg-primary/10 text-primary">
+                    Mobile App Design
+                  </Badge>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                >
+                  <Badge variant="outline">
+                    2024
+                  </Badge>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.4 }}
+                >
+                  <Badge variant="outline">
+                    Wellness & Productivity
+                  </Badge>
+                </motion.div>
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight font-display">
+              <motion.h1 
+                className="text-5xl md:text-7xl font-bold mb-6 leading-tight font-display"
+                initial={{ opacity: 0, y: 32 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+              >
                 <span className="gradient-text-neon">GrowSlow</span>
-              </h1>
+              </motion.h1>
 
-              <p className="text-2xl text-primary mb-6">Mindful Productivity & Reflective Planning App</p>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mb-8">
+              <motion.p 
+                className="text-2xl text-primary mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                Mindful Productivity & Reflective Planning App
+              </motion.p>
+              <motion.p 
+                className="text-lg text-muted-foreground leading-relaxed max-w-4xl mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
                 Designing a revolutionary productivity app that prioritizes mental wellbeing over aggressive goal-setting. 
-                GrowSlow combines energy-based planning, reflective practices, and gentle habit formation to help users 
-                achieve sustainable productivity without burnout. The app increased user engagement by 89% while reducing 
-                self-reported stress levels by 73%.
-              </p>
+                GrowSlow combines energy-based planning, reflective practices, and gentle habit formation to create 
+                a sustainable approach to productivity that respects users' natural rhythms and mental health.
+              </motion.p>
 
               {/* Project Meta */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-                <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <motion.div 
+                className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                <div>
                   <div className="flex items-center gap-2 text-foreground/80 mb-1">
                     <Calendar className="w-4 h-4" />
                     <span className="text-sm">Duration</span>
                   </div>
                   <p className="font-semibold text-foreground">6 months</p>
                 </div>
-                <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                <div>
                   <div className="flex items-center gap-2 text-foreground/80 mb-1">
                     <Users className="w-4 h-4" />
                     <span className="text-sm">Team</span>
                   </div>
                   <p className="font-semibold text-foreground">Solo Designer + Dev</p>
                 </div>
-                <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                <div>
                   <div className="flex items-center gap-2 text-foreground/80 mb-1">
                     <Target className="w-4 h-4" />
                     <span className="text-sm">Role</span>
                   </div>
                   <p className="font-semibold text-foreground">Lead Product Designer</p>
                 </div>
-                <div className="animate-fade-in flex gap-3" style={{ animationDelay: '0.5s' }}>
+                <div className="flex gap-3">
                   <CTAPrimary href="https://growslow.app/" className="w-full">Try GrowSlow</CTAPrimary>
                   <CTASecondary href="/#contact" className="w-full">Get in Touch</CTASecondary>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Hero Mockup */}
-          <div className="mb-20 animate-scale-in">
-            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-accent/20 aspect-video shadow-2xl">
-              <img
-                src={mockups[0].src}
-                alt={mockups[0].alt}
-                className="w-full h-full object-cover hover-scale transition-transform duration-700"
-                onError={(e) => {
-                  const target = e.currentTarget as HTMLImageElement;
-                  const nextSibling = target.nextElementSibling as HTMLElement;
-                  target.style.display = 'none';
-                  if (nextSibling) nextSibling.style.display = 'flex';
-                }}
-              />
-              <div className="hidden w-full h-full items-center justify-center absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20">
-                <div className="text-muted-foreground text-center">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-card flex items-center justify-center shadow-lg">
-                    <Heart className="w-10 h-10 text-primary" />
+          {/* Hero Video Placeholder */}
+          <motion.div 
+            className="mb-20"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-accent/20 aspect-video shadow-2xl group">
+              <div className="w-full h-full flex items-center justify-center absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20">
+                <div className="text-center">
+                  <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-card/90 backdrop-blur-sm flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                    <Play className="w-12 h-12 text-primary ml-1" />
                   </div>
-                  <p className="text-lg font-medium">GrowSlow App Interface</p>
+                  <p className="text-xl font-semibold text-foreground mb-2">GrowSlow App Demo</p>
+                  <p className="text-sm text-muted-foreground">Experience mindful productivity in action</p>
                 </div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
             </div>
-            <p className="text-center text-muted-foreground mt-4 text-sm">{mockups[0].caption}</p>
-          </div>
+            <p className="text-center text-muted-foreground mt-4 text-sm">Interactive demo showcasing energy-based planning and reflective features</p>
+          </motion.div>
 
           {/* Project Context */}
           <div className="mb-20 animate-fade-in">

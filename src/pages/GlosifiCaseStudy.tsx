@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Calendar, Users, Target, CheckCircle, Award, TrendingUp, Lightbulb, Eye, Palette, Code, Star, Phone, Clock, Briefcase } from "lucide-react";
+import { ArrowLeft, Calendar, Users, Target, CheckCircle, Award, TrendingUp, Lightbulb, Eye, Palette, Code, Star, Phone, Clock, Briefcase, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTAPrimary, CTASecondary } from "@/components/CTA";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 
 export default function GlosifiCaseStudy() {
   const navigate = useNavigate();
@@ -122,7 +123,12 @@ export default function GlosifiCaseStudy() {
         <div className="container mx-auto px-4 py-12">
           
           {/* Header */}
-          <div className="mb-16 animate-fade-in">
+          <motion.div 
+            className="mb-16"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
             <Button
               variant="ghost"
               onClick={() => navigate('/#portfolio')}
@@ -134,85 +140,120 @@ export default function GlosifiCaseStudy() {
 
             <div className="max-w-5xl">
               <div className="flex flex-wrap gap-3 mb-6">
-                <Badge variant="secondary" className="bg-primary/10 text-primary animate-scale-in">
-                  Product Design
-                </Badge>
-                <Badge variant="outline" className="animate-scale-in" style={{ animationDelay: '0.1s' }}>
-                  2024-2025
-                </Badge>
-                <Badge variant="outline" className="animate-scale-in" style={{ animationDelay: '0.2s' }}>
-                  B2B SaaS
-                </Badge>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                >
+                  <Badge variant="secondary" className="bg-primary/10 text-primary">
+                    Product Design
+                  </Badge>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                >
+                  <Badge variant="outline">
+                    2024-2025
+                  </Badge>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.4 }}
+                >
+                  <Badge variant="outline">
+                    B2B SaaS
+                  </Badge>
+                </motion.div>
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight font-display">
+              <motion.h1 
+                className="text-5xl md:text-7xl font-bold mb-6 leading-tight font-display"
+                initial={{ opacity: 0, y: 32 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+              >
                 <span className="gradient-text-neon">Glosifi</span>
-              </h1>
+              </motion.h1>
 
-              <p className="text-2xl text-primary mb-6">Beauty & Wellness Booking Platform Redesign</p>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mb-8">
+              <motion.p 
+                className="text-2xl text-primary mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                Beauty & Wellness Booking Platform Redesign
+              </motion.p>
+              <motion.p 
+                className="text-lg text-muted-foreground leading-relaxed max-w-4xl mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
                 Leading the complete redesign of a multi-sided booking platform serving customers, service providers, and salon owners. 
-                Transformed a fragmented user experience into a cohesive ecosystem that increased booking completion rates by 47% 
-                and reduced support tickets by 65%.
-              </p>
+                Transformed a fragmented user experience into a cohesive ecosystem that significantly improved user satisfaction 
+                through comprehensive UX research and iterative design.
+              </motion.p>
 
               {/* Project Meta */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-                <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <motion.div 
+                className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                <div>
                   <div className="flex items-center gap-2 text-foreground/80 mb-1">
                     <Calendar className="w-4 h-4" />
                     <span className="text-sm">Duration</span>
                   </div>
                   <p className="font-semibold text-foreground">6 months</p>
                 </div>
-                <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                <div>
                   <div className="flex items-center gap-2 text-foreground/80 mb-1">
                     <Users className="w-4 h-4" />
                     <span className="text-sm">Team</span>
                   </div>
                   <p className="font-semibold text-foreground">Lead Designer + PM</p>
                 </div>
-                <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                <div>
                   <div className="flex items-center gap-2 text-foreground/80 mb-1">
                     <Target className="w-4 h-4" />
                     <span className="text-sm">Role</span>
                   </div>
                   <p className="font-semibold text-foreground">Lead Product Designer</p>
                 </div>
-                <div className="animate-fade-in flex gap-3" style={{ animationDelay: '0.5s' }}>
+                <div className="flex gap-3">
                   <CTAPrimary href="https://glosifi.com/" className="w-full">Live Project</CTAPrimary>
                   <CTASecondary href="/#contact" className="w-full">Get in Touch</CTASecondary>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Hero Mockup */}
-          <div className="mb-20 animate-scale-in">
-            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-accent/20 aspect-video shadow-2xl">
-              <img
-                src={mockups[0].src}
-                alt={mockups[0].alt}
-                className="w-full h-full object-cover hover-scale transition-transform duration-700"
-                onError={(e) => {
-                  const target = e.currentTarget as HTMLImageElement;
-                  const nextSibling = target.nextElementSibling as HTMLElement;
-                  target.style.display = 'none';
-                  if (nextSibling) nextSibling.style.display = 'flex';
-                }}
-              />
-              <div className="hidden w-full h-full items-center justify-center absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20">
-                <div className="text-muted-foreground text-center">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-card flex items-center justify-center shadow-lg">
-                    <Target className="w-10 h-10 text-primary" />
+          {/* Hero Video Placeholder */}
+          <motion.div 
+            className="mb-20"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-accent/20 aspect-video shadow-2xl group">
+              <div className="w-full h-full flex items-center justify-center absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20">
+                <div className="text-center">
+                  <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-card/90 backdrop-blur-sm flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                    <Play className="w-12 h-12 text-primary ml-1" />
                   </div>
-                  <p className="text-lg font-medium">Glosifi Platform Overview</p>
+                  <p className="text-xl font-semibold text-foreground mb-2">Glosifi Platform Demo</p>
+                  <p className="text-sm text-muted-foreground">Interactive walkthrough of the redesigned booking experience</p>
                 </div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
             </div>
-            <p className="text-center text-muted-foreground mt-4 text-sm">{mockups[0].caption}</p>
-          </div>
+            <p className="text-center text-muted-foreground mt-4 text-sm">Complete platform walkthrough showing user flows and interface improvements</p>
+          </motion.div>
 
           {/* Project Context */}
           <div className="mb-20 animate-fade-in">
@@ -245,7 +286,13 @@ export default function GlosifiCaseStudy() {
           </div>
 
           {/* Problem Definition */}
-          <div className="mb-20 animate-fade-in">
+          <motion.div 
+            className="mb-20"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.3, once: true }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
             <h2 className="text-4xl font-bold mb-12 text-center">The Challenge</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <Card className="p-8 border-red-200 bg-red-50/50 dark:bg-red-950/20 dark:border-red-800">
@@ -254,69 +301,69 @@ export default function GlosifiCaseStudy() {
                     <div className="w-12 h-12 bg-red-100 dark:bg-red-900/50 rounded-2xl flex items-center justify-center">
                       <Target className="w-6 h-6 text-red-600 dark:text-red-400" />
                     </div>
-                    <CardTitle className="text-xl">User Experience Issues</CardTitle>
+                    <CardTitle className="text-xl text-red-800 dark:text-red-200">User Experience Issues</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="p-0 space-y-4">
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-foreground">High Abandonment Rate</p>
-                      <p className="text-sm text-muted-foreground">68% of users left during provider selection phase</p>
+                      <p className="font-medium text-red-800 dark:text-red-200">High Abandonment Rate</p>
+                      <p className="text-sm text-red-700 dark:text-red-300">68% of users left during provider selection phase</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-foreground">Decision Paralysis</p>
-                      <p className="text-sm text-muted-foreground">Users compared 8+ providers before making choice</p>
+                      <p className="font-medium text-red-800 dark:text-red-200">Decision Paralysis</p>
+                      <p className="text-sm text-red-700 dark:text-red-300">Users compared 8+ providers before making choice</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-foreground">Confusing Interface</p>
-                      <p className="text-sm text-muted-foreground">Different UIs for each user type caused inconsistency</p>
+                      <p className="font-medium text-red-800 dark:text-red-200">Confusing Interface</p>
+                      <p className="text-sm text-red-700 dark:text-red-300">Different UIs for each user type caused inconsistency</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="p-8 border-orange-200 bg-orange-50/50 dark:bg-orange-950/20 dark:border-orange-800">
+              <Card className="p-8 border-green-200 bg-green-50/50 dark:bg-green-950/20 dark:border-green-800">
                 <CardHeader className="p-0 mb-6">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/50 rounded-2xl flex items-center justify-center">
-                      <Briefcase className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+                    <div className="w-12 h-12 bg-green-100 dark:bg-green-900/50 rounded-2xl flex items-center justify-center">
+                      <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400" />
                     </div>
-                    <CardTitle className="text-xl">Business Impact</CardTitle>
+                    <CardTitle className="text-xl text-green-800 dark:text-green-200">Design Solution</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="p-0 space-y-4">
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0" />
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-foreground">Revenue Loss</p>
-                      <p className="text-sm text-muted-foreground">$2.3M annually from incomplete bookings</p>
+                      <p className="font-medium text-green-800 dark:text-green-200">Unified Experience</p>
+                      <p className="text-sm text-green-700 dark:text-green-300">Consistent design system across all user types</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0" />
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-foreground">Support Overhead</p>
-                      <p className="text-sm text-muted-foreground">40% of tickets were booking-related issues</p>
+                      <p className="font-medium text-green-800 dark:text-green-200">Guided Selection</p>
+                      <p className="text-sm text-green-700 dark:text-green-300">Smart filtering to reduce decision paralysis</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0" />
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-foreground">Provider Churn</p>
-                      <p className="text-sm text-muted-foreground">25% quarterly churn due to platform complexity</p>
+                      <p className="font-medium text-green-800 dark:text-green-200">Streamlined Booking</p>
+                      <p className="text-sm text-green-700 dark:text-green-300">Simplified 3-step booking process</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             </div>
-          </div>
+          </motion.div>
 
           {/* Design Process */}
           <div className="mb-20 animate-fade-in">
