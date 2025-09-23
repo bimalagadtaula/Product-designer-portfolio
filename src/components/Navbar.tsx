@@ -5,10 +5,12 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTAPrimary } from "@/components/CTA";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,11 +40,25 @@ export default function Navbar() {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
+    // If we're not on the home page, navigate to home first
+    if (location.pathname !== "/") {
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+    
     const element = document.getElementById(sectionId);
     if (element) {
       setActiveSection(sectionId);
       element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
     }
+  };
+
+  // Determine active section based on current route
+  const getCurrentActiveSection = () => {
+    if (location.pathname.includes("/case-studies/")) {
+      return "portfolio";
+    }
+    return activeSection;
   };
 
   return (
@@ -55,12 +71,12 @@ export default function Navbar() {
         <div className="glassmorphism-nav rounded-2xl px-6 py-3">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center space-x-3">
+            <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-pink-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">BG</span>
               </div>
               <span className="text-white font-semibold text-lg">Portfolio</span>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
@@ -73,9 +89,9 @@ export default function Navbar() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  aria-current={activeSection === item.id ? 'page' : undefined}
+                  aria-current={getCurrentActiveSection() === item.id ? 'page' : undefined}
                   className={`text-sm font-medium transition-colors duration-200 ${
-                    activeSection === item.id
+                    getCurrentActiveSection() === item.id
                       ? "text-blue-400 neon-glow"
                       : "text-white/80 hover:text-white"
                   }`}
@@ -112,9 +128,9 @@ export default function Navbar() {
                     <button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
-                      aria-current={activeSection === item.id ? 'page' : undefined}
+                      aria-current={getCurrentActiveSection() === item.id ? 'page' : undefined}
                       className={`text-left text-lg font-medium transition-colors duration-200 ${
-                        activeSection === item.id
+                        getCurrentActiveSection() === item.id
                           ? "text-blue-400 neon-glow"
                           : "text-white/80 hover:text-white"
                       }`}
