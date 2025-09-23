@@ -404,41 +404,200 @@ export default function GrowSlowCaseStudy() {
             </div>
           </div>
 
-          {/* Visual Design Showcase - 8 Mockups Grid */}
-          <div className="mb-20 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-12 text-center">Visual Design Solutions</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {mockups.slice(1).map((mockup, index) => (
-                <Card key={index} className="overflow-hidden group hover-scale transition-all duration-300">
-                  <div className="relative aspect-video bg-gradient-to-br from-primary/10 to-accent/20">
-                    <img
-                      src={mockup.src}
-                      alt={mockup.alt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      onError={(e) => {
-                        const target = e.currentTarget as HTMLImageElement;
-                        const placeholder = target.parentElement?.querySelector('.placeholder');
-                        target.style.display = 'none';
-                        if (placeholder) placeholder.classList.remove('hidden');
-                      }}
-                    />
-                    <div className="hidden placeholder absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/20 to-accent/20">
-                      <div className="text-center text-muted-foreground">
-                        <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-card flex items-center justify-center shadow-lg">
-                          <Eye className="w-8 h-8 text-primary" />
-                        </div>
-                        <p className="font-medium">App Interface</p>
+          {/* Visual Design & Mindful Interface */}
+          <motion.div 
+            className="mb-20"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.3, once: true }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold mb-6">Visual Design & Mindful Interface</h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Crafting a visual language that promotes calm, focus, and wellbeing through intentional design choices 
+                that reduce cognitive load and support sustainable productivity habits.
+              </p>
+            </div>
+
+            {/* Mindful Design Philosophy */}
+            <motion.div 
+              className="mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.3, once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h3 className="text-2xl font-semibold mb-8 text-center">Mindful Design Philosophy</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <Card className="p-6 bg-gradient-to-br from-card to-green-500/5 border-green-200/30">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center">
+                      <Heart className="w-6 h-6 text-green-600" />
+                    </div>
+                    <h4 className="font-semibold text-lg">Calm Over Aggressive</h4>
+                  </div>
+                  <p className="text-muted-foreground text-sm">
+                    Soft gradients, muted colors, and gentle animations replace the harsh notifications and jarring interactions common in productivity apps.
+                  </p>
+                </Card>
+                
+                <Card className="p-6 bg-gradient-to-br from-card to-blue-500/5 border-blue-200/30">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center">
+                      <Focus className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <h4 className="font-semibold text-lg">Focus Through Simplicity</h4>
+                  </div>
+                  <p className="text-muted-foreground text-sm">
+                    Minimal interface elements, generous whitespace, and clear visual hierarchy guide users naturally without overwhelming choices.
+                  </p>
+                </Card>
+                
+                <Card className="p-6 bg-gradient-to-br from-card to-purple-500/5 border-purple-200/30">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center">
+                      <Brain className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <h4 className="font-semibold text-lg">Reflection Over Action</h4>
+                  </div>
+                  <p className="text-muted-foreground text-sm">
+                    Interface design encourages thoughtful consideration over impulsive task creation, promoting sustainable productivity patterns.
+                  </p>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Therapeutic Color System */}
+            <motion.div 
+              className="mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.3, once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <h3 className="text-2xl font-semibold mb-8 text-center">Therapeutic Color System</h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <Card className="p-8 bg-gradient-to-br from-card to-green-500/5">
+                  <h4 className="font-semibold text-xl mb-4 text-green-700 dark:text-green-300">Nature-Inspired Palette</h4>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-8 h-8 bg-green-500 rounded-lg shadow-md"></div>
+                      <div>
+                        <p className="font-medium">Forest Green (#059669)</p>
+                        <p className="text-sm text-muted-foreground">Growth, balance, natural energy</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="w-8 h-8 bg-blue-400 rounded-lg shadow-md"></div>
+                      <div>
+                        <p className="font-medium">Sky Blue (#3B82F6)</p>
+                        <p className="text-sm text-muted-foreground">Calm, clarity, open thinking</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="w-8 h-8 bg-amber-400 rounded-lg shadow-md"></div>
+                      <div>
+                        <p className="font-medium">Warm Amber (#F59E0B)</p>
+                        <p className="text-sm text-muted-foreground">Gentle attention, warmth</p>
                       </div>
                     </div>
                   </div>
-                  <CardContent className="p-6">
-                    <h3 className="font-semibold text-foreground mb-2">{mockup.alt}</h3>
-                    <p className="text-sm text-muted-foreground">{mockup.caption}</p>
-                  </CardContent>
                 </Card>
+
+                <Card className="p-8 bg-gradient-to-br from-card to-slate-500/5">
+                  <h4 className="font-semibold text-xl mb-4 text-slate-700 dark:text-slate-300">Mindful Typography</h4>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="text-2xl font-light mb-1">Inter Light</p>
+                      <p className="text-sm text-muted-foreground">Gentle headlines, meditation prompts</p>
+                    </div>
+                    <div>
+                      <p className="text-lg font-normal mb-1">Inter Regular</p>
+                      <p className="text-sm text-muted-foreground">Body text, comfortable reading</p>
+                    </div>
+                    <div>
+                      <p className="text-base font-medium mb-1">Inter Medium</p>
+                      <p className="text-sm text-muted-foreground">Subtle emphasis, form labels</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-light">Inter Light Small</p>
+                      <p className="text-xs text-muted-foreground">Captions, non-intrusive guidance</p>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Key Interface Screens */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-semibold mb-8 text-center">Key Interface Screens</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                {mockups.slice(0, 4).map((mockup, index) => (
+                  <motion.div
+                    key={index}
+                    className="group"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ amount: 0.3, once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Card className="overflow-hidden hover-scale transition-all duration-300 hover:shadow-2xl bg-gradient-to-br from-card to-green-500/5">
+                      <div className="aspect-[4/3] bg-gradient-to-br from-green-500/10 to-blue-500/10 flex items-center justify-center relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-blue-500/10" />
+                        <div className="text-center z-10 p-8">
+                          <div className="w-24 h-24 mx-auto mb-6 rounded-3xl bg-card/90 backdrop-blur-sm flex items-center justify-center shadow-2xl border border-border/50 group-hover:scale-110 transition-transform duration-300">
+                            <Play className="w-12 h-12 text-green-600 ml-1" />
+                          </div>
+                          <div className="space-y-2">
+                            <p className="text-lg font-light text-foreground">{mockup.alt}</p>
+                            <div className="text-xs text-muted-foreground bg-card/80 backdrop-blur-sm px-3 py-1 rounded-full inline-block">
+                              Mindful Interaction
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <CardContent className="p-6 bg-card/50">
+                        <p className="text-muted-foreground text-sm leading-relaxed font-normal">{mockup.caption}</p>
+                        <div className="flex items-center gap-2 mt-4 pt-4 border-t border-border/50">
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span className="text-xs text-muted-foreground">Wellbeing-First</span>
+                          <div className="w-2 h-2 bg-blue-500 rounded-full ml-2"></div>
+                          <span className="text-xs text-muted-foreground">Energy-Aware</span>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Supporting Interface Elements */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {mockups.slice(4).map((mockup, index) => (
+                <motion.div
+                  key={index + 4}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ amount: 0.3, once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
+                  <Card className="overflow-hidden hover-scale transition-all duration-300 group bg-gradient-to-br from-card to-green-500/5">
+                    <div className="aspect-[3/4] bg-gradient-to-br from-green-500/10 to-blue-500/10 flex items-center justify-center relative">
+                      <div className="text-center">
+                        <div className="w-16 h-16 mx-auto mb-3 rounded-2xl bg-card/80 backdrop-blur-sm flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200">
+                          <Play className="w-8 h-8 text-green-600 ml-0.5" />
+                        </div>
+                      </div>
+                    </div>
+                    <CardContent className="p-4">
+                      <p className="text-xs text-muted-foreground leading-tight font-light">{mockup.caption}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Impact & Metrics */}
           <div className="mb-20 animate-fade-in">

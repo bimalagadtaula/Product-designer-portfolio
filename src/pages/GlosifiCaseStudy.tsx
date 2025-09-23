@@ -410,41 +410,200 @@ export default function GlosifiCaseStudy() {
             </div>
           </div>
 
-          {/* Visual Design Showcase - 8 Mockups Grid */}
-          <div className="mb-20 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-12 text-center">Visual Design Solutions</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {mockups.slice(1).map((mockup, index) => (
-                <Card key={index} className="overflow-hidden group hover-scale transition-all duration-300">
-                  <div className="relative aspect-video bg-gradient-to-br from-primary/10 to-accent/20">
-                    <img
-                      src={mockup.src}
-                      alt={mockup.alt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      onError={(e) => {
-                        const target = e.currentTarget as HTMLImageElement;
-                        const placeholder = target.parentElement?.querySelector('.placeholder');
-                        target.style.display = 'none';
-                        if (placeholder) placeholder.classList.remove('hidden');
-                      }}
-                    />
-                    <div className="hidden placeholder absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/20 to-accent/20">
-                      <div className="text-center text-muted-foreground">
-                        <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-card flex items-center justify-center shadow-lg">
-                          <Eye className="w-8 h-8 text-primary" />
-                        </div>
-                        <p className="font-medium">Design Mockup</p>
+          {/* Visual Design & Interface Showcase */}
+          <motion.div 
+            className="mb-20"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.3, once: true }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold mb-6">Visual Design & Interface</h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Creating a cohesive design system that serves three distinct user types while maintaining 
+                visual consistency and accessibility standards across all touchpoints.
+              </p>
+            </div>
+
+            {/* Design Principles */}
+            <motion.div 
+              className="mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.3, once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h3 className="text-2xl font-semibold mb-8 text-center">Design Principles</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <Card className="p-6 bg-gradient-to-br from-card to-primary/5 border-primary/20">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center">
+                      <Eye className="w-6 h-6 text-primary" />
+                    </div>
+                    <h4 className="font-semibold text-lg">Clarity First</h4>
+                  </div>
+                  <p className="text-muted-foreground text-sm">
+                    Prioritize information hierarchy and reduce cognitive load through progressive disclosure and clear visual cues.
+                  </p>
+                </Card>
+                
+                <Card className="p-6 bg-gradient-to-br from-card to-accent/5 border-accent/20">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center">
+                      <Users className="w-6 h-6 text-accent" />
+                    </div>
+                    <h4 className="font-semibold text-lg">Multi-User Harmony</h4>
+                  </div>
+                  <p className="text-muted-foreground text-sm">
+                    Maintain consistent visual language while adapting interface complexity for customers, providers, and admins.
+                  </p>
+                </Card>
+                
+                <Card className="p-6 bg-gradient-to-br from-card to-secondary/5 border-secondary/20">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-secondary/10 rounded-2xl flex items-center justify-center">
+                      <CheckCircle className="w-6 h-6 text-secondary" />
+                    </div>
+                    <h4 className="font-semibold text-lg">Accessible by Design</h4>
+                  </div>
+                  <p className="text-muted-foreground text-sm">
+                    WCAG 2.1 AA compliant with 4.5:1 contrast ratios, keyboard navigation, and screen reader optimization.
+                  </p>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Design System Showcase */}
+            <motion.div 
+              className="mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.3, once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <h3 className="text-2xl font-semibold mb-8 text-center">Design System & Brand Identity</h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <Card className="p-8 bg-gradient-to-br from-card to-primary/5">
+                  <h4 className="font-semibold text-xl mb-4 text-primary">Color Psychology & Accessibility</h4>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-8 h-8 bg-primary rounded-lg shadow-md"></div>
+                      <div>
+                        <p className="font-medium">Primary Blue (#2563EB)</p>
+                        <p className="text-sm text-muted-foreground">Trust, reliability, professional service</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="w-8 h-8 bg-green-500 rounded-lg shadow-md"></div>
+                      <div>
+                        <p className="font-medium">Success Green (#10B981)</p>
+                        <p className="text-sm text-muted-foreground">Confirmations, positive actions</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="w-8 h-8 bg-orange-500 rounded-lg shadow-md"></div>
+                      <div>
+                        <p className="font-medium">Warning Orange (#F59E0B)</p>
+                        <p className="text-sm text-muted-foreground">Attention, pending states</p>
                       </div>
                     </div>
                   </div>
-                  <CardContent className="p-6">
-                    <h3 className="font-semibold text-foreground mb-2">{mockup.alt}</h3>
-                    <p className="text-sm text-muted-foreground">{mockup.caption}</p>
-                  </CardContent>
                 </Card>
+
+                <Card className="p-8 bg-gradient-to-br from-card to-accent/5">
+                  <h4 className="font-semibold text-xl mb-4 text-accent">Typography & Hierarchy</h4>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="text-2xl font-bold mb-1">Poppins Bold</p>
+                      <p className="text-sm text-muted-foreground">Headlines, key actions, branding</p>
+                    </div>
+                    <div>
+                      <p className="text-lg font-semibold mb-1">Poppins Semibold</p>
+                      <p className="text-sm text-muted-foreground">Subheadings, section titles</p>
+                    </div>
+                    <div>
+                      <p className="text-base font-medium mb-1">Poppins Medium</p>
+                      <p className="text-sm text-muted-foreground">Body text, form labels</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-normal">Poppins Regular</p>
+                      <p className="text-xs text-muted-foreground">Supporting text, captions</p>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Key Interface Screens */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-semibold mb-8 text-center">Interface Showcase</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                {mockups.slice(0, 4).map((mockup, index) => (
+                  <motion.div
+                    key={index}
+                    className="group"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ amount: 0.3, once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Card className="overflow-hidden hover-scale transition-all duration-300 hover:shadow-2xl bg-gradient-to-br from-card to-accent/5">
+                      <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-accent/15 flex items-center justify-center relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/10" />
+                        <div className="text-center z-10 p-8">
+                          <div className="w-24 h-24 mx-auto mb-6 rounded-3xl bg-card/90 backdrop-blur-sm flex items-center justify-center shadow-2xl border border-border/50 group-hover:scale-110 transition-transform duration-300">
+                            <Play className="w-12 h-12 text-primary ml-1" />
+                          </div>
+                          <div className="space-y-2">
+                            <p className="text-lg font-semibold text-foreground">{mockup.alt}</p>
+                            <div className="text-xs text-muted-foreground bg-card/80 backdrop-blur-sm px-3 py-1 rounded-full inline-block">
+                              Interactive Prototype
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <CardContent className="p-6 bg-card/50">
+                        <p className="text-muted-foreground text-sm leading-relaxed font-medium">{mockup.caption}</p>
+                        <div className="flex items-center gap-2 mt-4 pt-4 border-t border-border/50">
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span className="text-xs text-muted-foreground">Responsive Design</span>
+                          <div className="w-2 h-2 bg-blue-500 rounded-full ml-2"></div>
+                          <span className="text-xs text-muted-foreground">WCAG AA</span>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Additional Interface Elements */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {mockups.slice(4).map((mockup, index) => (
+                <motion.div
+                  key={index + 4}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ amount: 0.3, once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
+                  <Card className="overflow-hidden hover-scale transition-all duration-300 group">
+                    <div className="aspect-[3/4] bg-gradient-to-br from-accent/10 to-primary/10 flex items-center justify-center relative">
+                      <div className="text-center">
+                        <div className="w-16 h-16 mx-auto mb-3 rounded-2xl bg-card/80 backdrop-blur-sm flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200">
+                          <Play className="w-8 h-8 text-primary ml-0.5" />
+                        </div>
+                      </div>
+                    </div>
+                    <CardContent className="p-4">
+                      <p className="text-xs text-muted-foreground leading-tight">{mockup.caption}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Impact & Metrics */}
           <div className="mb-20 animate-fade-in">
