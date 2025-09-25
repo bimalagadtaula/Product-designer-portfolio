@@ -1,6 +1,31 @@
-import { Button } from "@/components/ui/button";
-import { FadeIn } from "@/components/motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { CTAPrimary, CTASecondary } from "@/components/CTA";
+import Marquee, { OrangeMarquee } from "./Marquee";
+import meImage from "../assets/animated.jpg";
+
+const defaultItems = [
+  "User Research",
+  "Wireframing",
+  "Prototyping",
+  "User Testing",
+  "Design Systems",
+  "Mobile Design",
+  "Web Design",
+  "UI Design",
+  "UX Design",
+  "Figma",
+  "User Interviews",
+  "Personas",
+  "Responsive Design",
+  "Visual Design",
+  "Information Architecture",
+  "Empathy Mapping",
+  "User Flows",
+  "User Journeys",
+  "User Scenarios",
+  "User Stories",
+  "User Personas",
+  "User Journey Mapping",
+];
 
 export default function Hero() {
   const handleScrollToPortfolio = () => {
@@ -13,98 +38,75 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      aria-label="Hero section"
+      className="relative min-h-screen flex flex flex-col items-center justify-center pt-24 overflow-hidden bg-background"
+      aria-label="Introduction section"
     >
-      {/* Creative background mesh */}
-      <div className="absolute inset-0 bg-[var(--gradient-mesh)]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
-      
-      {/* Floating geometric elements */}
-      <div className="absolute top-20 left-10 w-2 h-2 bg-accent rounded-full animate-pulse opacity-60" />
-      <div className="absolute top-40 right-16 w-1 h-1 bg-emerald-dark rounded-full animate-bounce opacity-40" />
-      <div className="absolute bottom-32 left-20 w-1.5 h-1.5 bg-accent rounded-full animate-ping opacity-50" />
-      
-      <div className="container mx-auto px-6 lg:px-8 relative z-10 pt-16">
-        <div className="max-w-7xl mx-auto">
-          {/* Hero Content */}
-          <div className="text-center space-y-12">
-            <FadeIn delay={0.1}>
-              <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-accent mb-8">
-                  <Sparkles className="w-4 h-4" />
-                  Available for new opportunities
-                </div>
-                <h1 className="display-text text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground tracking-tight leading-none">
-                  Crafting digital experiences
-                  <br />
-                  that <span className="relative inline-block">
-                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-emerald-dark to-accent">inspire</span>
-                    <div className="absolute -inset-1 bg-gradient-to-r from-emerald/20 to-accent/20 rounded-lg blur-sm" />
-                  </span> and{" "}
-                  <span className="text-charcoal">delight</span>
-                </h1>
-              </div>
-            </FadeIn>
-            
-            <FadeIn delay={0.3}>
-              <p className="text-xl text-cool-gray max-w-3xl mx-auto leading-relaxed">
-                Senior Product Designer with 5+ years of experience transforming complex problems 
-                into elegant, user-centered solutions for industry-leading companies.
-              </p>
-            </FadeIn>
+      <div className="absolute inset-0 grid-pattern opacity-30 md:opacity-50" />
+      <div className="absolute inset-0 hero-stars opacity-60" />
+      {/* Background Orbs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-20 w-32 h-32 bg-primary/15 rounded-full blur-2xl animate-pulse" />
+        <div className="absolute top-40 right-32 w-24 h-24 bg-accent/20 rounded-full blur-xl animate-pulse delay-1000" />
+        <div className="absolute bottom-32 left-32 w-28 h-28 bg-secondary/20 rounded-full blur-2xl animate-pulse delay-1500" />
+        <div className="absolute bottom-20 right-20 w-20 h-20 bg-primary/15 rounded-full blur-xl animate-pulse delay-2000" />
+      </div>
 
-            <FadeIn delay={0.5}>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
-                <Button 
-                  onClick={handleScrollToPortfolio}
-                  size="lg" 
-                  className="h-14 px-8 text-base font-semibold group bg-charcoal hover:bg-charcoal/90 text-white rounded-2xl shadow-elegant"
-                >
-                  View My Work
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Button>
-                
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="h-14 px-8 text-base font-semibold group border-2 rounded-2xl hover:bg-accent/5"
-                  onClick={() => {
-                    window.open("mailto:hello@designer.com", "_blank");
-                  }}
-                >
-                  Let's Connect
-                </Button>
-              </div>
-            </FadeIn>
+      {/* Main content container */}
+      <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-10 lg:gap-20 items-center mb-16">
+        {/* Left Text */}
+        <div className="flex-1 min-w-0 text-center lg:text-left">
+          {/* Overline tagline */}
+          <div className="mb-5 flex items-center justify-center lg:justify-start gap-3 text-base md:text-lg text-foreground/70">
+            Hi,<span>I’m Bimala Gadtaula</span>
           </div>
 
-          {/* Creative Visual Element */}
-          <FadeIn delay={0.7}>
-            <div className="mt-24 flex justify-center">
-              <div className="relative">
-                {/* Main creative composition */}
-                <div className="relative w-96 h-96 md:w-[500px] md:h-[500px]">
-                  {/* Primary gradient orb */}
-                  <div className="absolute top-1/4 left-1/4 w-48 h-48 md:w-64 md:h-64 bg-gradient-to-br from-emerald via-accent to-emerald-dark rounded-full blur-3xl opacity-30 animate-pulse" />
-                  
-                  {/* Geometric frames */}
-                  <div className="absolute inset-8 border border-accent/30 rounded-3xl rotate-3 hover:rotate-6 transition-transform duration-700" />
-                  <div className="absolute inset-16 bg-white/80 backdrop-blur-sm rounded-2xl shadow-creative hover:shadow-float transition-all duration-500 border border-sage/50" />
-                  
-                  {/* Inner content placeholder */}
-                  <div className="absolute inset-24 bg-gradient-to-br from-sage/30 to-accent/20 rounded-xl opacity-60" />
-                  
-                  {/* Floating accent elements */}
-                  <div className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-emerald to-emerald-dark rounded-2xl rotate-12 shadow-float animate-float" />
-                  <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-accent rounded-xl -rotate-12 shadow-elegant animate-bounce" />
-                  <div className="absolute top-8 -left-8 w-8 h-8 bg-charcoal rounded-lg rotate-45 opacity-80 animate-pulse" />
-                  <div className="absolute bottom-8 -right-8 w-6 h-6 bg-emerald-dark rounded-full animate-ping" />
-                </div>
-              </div>
-            </div>
-          </FadeIn>
+          <div className="mb-8 md:mb-12 max-w-2xl mx-auto lg:mx-0">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.15] gradient-text-neon neon-glow text-shadow font-display">
+              Product
+              <span className="block md:inline"> & UX Designer</span>
+            </h1>
+          </div>
+
+          <p className="text-base md:text-lg text-foreground/80 leading-[1.65] mt-6 mb-10 md:mb-12 max-w-2xl mx-auto lg:mx-0">
+          I help startups and SaaS platforms create user-centered products that increase engagement,
+           improve conversions, and delight users. With hands-on experience designing web and mobile apps for both international and local clients, I combine research, design strategy, 
+          and interactive prototypes to deliver meaningful digital experiences.
+          </p>
+
+          <div className="mt-6 flex items-center justify-center lg:justify-start gap-5 md:gap-6">
+            <CTAPrimary href="#portfolio">View Case Studies</CTAPrimary>
+            <CTASecondary href="#contact">Work Together</CTASecondary>
+          </div>
         </div>
+
+        {/* Right Image */}
+        <div className="flex-1 min-w-0 flex justify-center lg:justify-end">
+          <div className="relative mt-6 lg:mt-0 perspective-1000 transform-style-preserve-3d">
+            {/* Glow Effects */}
+            <div className="absolute -inset-4 rounded-full blur-2xl animated-gradient-glow" />
+            <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-xl" />
+
+            {/* Image Container */}
+            <div className="relative glassmorphism rounded-2xl p-2 overflow-hidden transition-3d hover-rotate-y-12 hover:shadow-xl cursor-pointer">
+              <img
+                src={meImage}
+                alt="Portrait of Bimala Gadtaula, UI/UX Designer"
+                className="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-xl scale-x-[-1]"
+                loading="eager"
+              />
+
+              {/* Neon Overlay Effects */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/10 via-transparent to-accent/10 pointer-events-none" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent rounded-t-xl pointer-events-none" />
+              <div className="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-r from-accent to-primary rounded-b-xl pointer-events-none" />
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Marquee */}
+      <div className="mt-20 w-full" aria-label="Skills marquee">
+        <Marquee items={defaultItems} />
+        <OrangeMarquee />
       </div>
     </section>
   );

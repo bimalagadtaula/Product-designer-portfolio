@@ -36,5 +36,5 @@ export function CTASecondary({ href, children, className }: CTAProps) {
   );
 }
 
-// Named exports only - no default export needed
+export default { CTAPrimary, CTASecondary };
 
