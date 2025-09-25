@@ -9,27 +9,45 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Professional Light Mode */
-    --background: 0 0% 100%;
-    --foreground: 240 10% 4%;
+    /* Creative Professional Light Mode */
+    --background: 0 0% 99%;
+    --foreground: 222 47% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 4%;
+    --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 4%;
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 98%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 31 81% 56%;
-    --accent-foreground: 210 40% 98%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 222 47% 11%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 13% 97%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 220 13% 97%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 142 76% 73%;
+    --accent-foreground: 222 47% 11%;
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221 83% 53%;
-    --radius: 0.75rem;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 142 76% 73%;
+    --radius: 1rem;
+    
+    /* Creative palette */
+    --emerald: 142 76% 73%;
+    --emerald-dark: 142 84% 32%;
+    --sage: 142 20% 88%;
+    --warm-gray: 30 9% 96%;
+    --cool-gray: 220 9% 46%;
+    --charcoal: 222 47% 11%;
+    
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--emerald)) 0%, hsl(var(--emerald-dark)) 100%);
+    --gradient-subtle: linear-gradient(135deg, hsl(var(--warm-gray)) 0%, hsl(var(--background)) 100%);
+    --gradient-mesh: radial-gradient(ellipse 800px 600px at 50% 0%, hsl(var(--emerald) / 0.15) 0%, transparent 70%);
+    
+    /* Sophisticated shadows */
+    --shadow-creative: 0 25px 50px -12px hsl(var(--foreground) / 0.08);
+    --shadow-float: 0 10px 40px -10px hsl(var(--emerald) / 0.2);
+    --shadow-elegant: 0 4px 24px -4px hsl(var(--foreground) / 0.06);
   }
 }
 
