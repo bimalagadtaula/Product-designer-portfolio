@@ -1,112 +1,157 @@
-import { CTAPrimary, CTASecondary } from "@/components/CTA";
-import Marquee, { OrangeMarquee } from "./Marquee";
+import { CTAPrimary } from "@/components/CTA";
+import { motion } from "framer-motion";
 import meImage from "../assets/animated.jpg";
-
-const defaultItems = [
-  "User Research",
-  "Wireframing",
-  "Prototyping",
-  "User Testing",
-  "Design Systems",
-  "Mobile Design",
-  "Web Design",
-  "UI Design",
-  "UX Design",
-  "Figma",
-  "User Interviews",
-  "Personas",
-  "Responsive Design",
-  "Visual Design",
-  "Information Architecture",
-  "Empathy Mapping",
-  "User Flows",
-  "User Journeys",
-  "User Scenarios",
-  "User Stories",
-  "User Personas",
-  "User Journey Mapping",
-];
+import { Sparkles, Palette, Users, Code } from "lucide-react";
 
 export default function Hero() {
-  const handleScrollToPortfolio = () => {
-    const portfolioSection = document.getElementById("portfolio");
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex flex-col items-center justify-center pt-24 overflow-hidden bg-background"
-      aria-label="Introduction section"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
     >
-      <div className="absolute inset-0 grid-pattern opacity-30 md:opacity-50" />
-      <div className="absolute inset-0 hero-stars opacity-60" />
-      {/* Background Orbs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-primary/15 rounded-full blur-2xl animate-pulse" />
-        <div className="absolute top-40 right-32 w-24 h-24 bg-accent/20 rounded-full blur-xl animate-pulse delay-1000" />
-        <div className="absolute bottom-32 left-32 w-28 h-28 bg-secondary/20 rounded-full blur-2xl animate-pulse delay-1500" />
-        <div className="absolute bottom-20 right-20 w-20 h-20 bg-primary/15 rounded-full blur-xl animate-pulse delay-2000" />
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 grid-pattern opacity-20" />
+      
+      {/* Floating Orbs */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <motion.div
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 20, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            y: [0, 40, 0],
+            x: [0, -30, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl"
+        />
       </div>
 
-      {/* Main content container */}
-      <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-10 lg:gap-20 items-center mb-16">
-        {/* Left Text */}
-        <div className="flex-1 min-w-0 text-center lg:text-left">
-          {/* Overline tagline */}
-          <div className="mb-5 flex items-center justify-center lg:justify-start gap-3 text-base md:text-lg text-foreground/70">
-            Hi,<span>I’m Bimala Gadtaula</span>
-          </div>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Main Content */}
+          <div className="text-center space-y-8">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glassmorphism border border-primary/20"
+            >
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm text-foreground/80">Product & UX Designer</span>
+            </motion.div>
 
-          <div className="mb-8 md:mb-12 max-w-2xl mx-auto lg:mx-0">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.15] gradient-text-neon neon-glow text-shadow font-display">
-              Product
-              <span className="block md:inline"> & UX Designer</span>
-            </h1>
-          </div>
+            {/* Headline */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
+                <span className="block text-foreground">Crafting Digital</span>
+                <span className="block gradient-text-neon">Experiences</span>
+              </h1>
+            </motion.div>
 
-          <p className="text-base md:text-lg text-foreground/80 leading-[1.65] mt-6 mb-10 md:mb-12 max-w-2xl mx-auto lg:mx-0">
-          I help startups and SaaS platforms create user-centered products that increase engagement,
-           improve conversions, and delight users. With hands-on experience designing web and mobile apps for both international and local clients, I combine research, design strategy, 
-          and interactive prototypes to deliver meaningful digital experiences.
-          </p>
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto leading-relaxed"
+            >
+              I design user-centered products that increase engagement, improve conversions, 
+              and create meaningful digital experiences.
+            </motion.p>
 
-          <div className="mt-6 flex items-center justify-center lg:justify-start gap-5 md:gap-6">
-            <CTAPrimary href="#portfolio">View Case Studies</CTAPrimary>
-            <CTASecondary href="#contact">Work Together</CTASecondary>
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="grid grid-cols-3 gap-6 max-w-2xl mx-auto py-8"
+            >
+              <div className="text-center space-y-1">
+                <div className="text-3xl font-bold gradient-text-neon">5+</div>
+                <div className="text-sm text-foreground/60">Years Experience</div>
+              </div>
+              <div className="text-center space-y-1">
+                <div className="text-3xl font-bold gradient-text-neon">20+</div>
+                <div className="text-sm text-foreground/60">Projects Delivered</div>
+              </div>
+              <div className="text-center space-y-1">
+                <div className="text-3xl font-bold gradient-text-neon">100%</div>
+                <div className="text-sm text-foreground/60">Client Satisfaction</div>
+              </div>
+            </motion.div>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="flex items-center justify-center gap-4"
+            >
+              <CTAPrimary href="/projects">View Projects</CTAPrimary>
+              <CTAPrimary href="/about">About Me</CTAPrimary>
+            </motion.div>
+
+            {/* Floating Cards */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1 }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto pt-16"
+            >
+              <motion.div
+                whileHover={{ y: -10, scale: 1.05 }}
+                className="glassmorphism rounded-2xl p-6 border border-primary/10"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
+                  <Palette className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Design Systems</h3>
+                <p className="text-sm text-foreground/60">Scalable design foundations</p>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10, scale: 1.05 }}
+                className="glassmorphism rounded-2xl p-6 border border-primary/10"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">User Research</h3>
+                <p className="text-sm text-foreground/60">Data-driven insights</p>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10, scale: 1.05 }}
+                className="glassmorphism rounded-2xl p-6 border border-primary/10"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
+                  <Code className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Prototyping</h3>
+                <p className="text-sm text-foreground/60">Interactive demos</p>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
-
-        {/* Right Image */}
-        <div className="flex-1 min-w-0 flex justify-center lg:justify-end">
-          <div className="relative mt-6 lg:mt-0 perspective-1000 transform-style-preserve-3d">
-            {/* Glow Effects */}
-            <div className="absolute -inset-4 rounded-full blur-2xl animated-gradient-glow" />
-            <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-xl" />
-
-            {/* Image Container */}
-            <div className="relative glassmorphism rounded-2xl p-2 overflow-hidden transition-3d hover-rotate-y-12 hover:shadow-xl cursor-pointer">
-              <img
-                src={meImage}
-                alt="Portrait of Bimala Gadtaula, UI/UX Designer"
-                className="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-xl scale-x-[-1]"
-                loading="eager"
-              />
-
-              {/* Neon Overlay Effects */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/10 via-transparent to-accent/10 pointer-events-none" />
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent rounded-t-xl pointer-events-none" />
-              <div className="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-r from-accent to-primary rounded-b-xl pointer-events-none" />
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Marquee */}
-      <div className="mt-20 w-full" aria-label="Skills marquee">
-        <Marquee items={defaultItems} />
-        <OrangeMarquee />
       </div>
     </section>
   );
