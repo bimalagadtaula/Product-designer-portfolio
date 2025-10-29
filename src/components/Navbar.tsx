@@ -80,41 +80,30 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link
-                to="/"
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  location.pathname === "/"
-                    ? "text-blue-400 neon-glow"
-                    : "text-white/80 hover:text-white"
-                }`}
-              >
-                HOME
-              </Link>
-              <Link
-                to="/about"
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  location.pathname === "/about"
-                    ? "text-blue-400 neon-glow"
-                    : "text-white/80 hover:text-white"
-                }`}
-              >
-                ABOUT
-              </Link>
-              <Link
-                to="/projects"
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  location.pathname === "/projects"
-                    ? "text-blue-400 neon-glow"
-                    : "text-white/80 hover:text-white"
-                }`}
-              >
-                PROJECTS
-              </Link>
+              {[
+                { id: "home", label: "HOME" },
+                { id: "services", label: "SERVICES" },
+                { id: "portfolio", label: "PORTFOLIO" },
+                { id: "contact", label: "CONTACT" },
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  aria-current={getCurrentActiveSection() === item.id ? 'page' : undefined}
+                  className={`text-sm font-medium transition-colors duration-200 ${
+                    getCurrentActiveSection() === item.id
+                      ? "text-blue-400 neon-glow"
+                      : "text-white/80 hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
 
             {/* Desktop CTA Button */}
             <div className="hidden md:block">
-              <CTAPrimary href="/projects" className="border-0">View Work</CTAPrimary>
+              <CTAPrimary href="#contact" className="border-0">Hire Me</CTAPrimary>
             </div>
 
             {/* Mobile Menu */}
@@ -130,37 +119,26 @@ export default function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="glassmorphism border-l border-white/10">
                 <div className="flex flex-col space-y-6 mt-8">
-                  <Link
-                    to="/"
-                    className={`text-left text-lg font-medium transition-colors duration-200 ${
-                      location.pathname === "/"
-                        ? "text-blue-400 neon-glow"
-                        : "text-white/80 hover:text-white"
-                    }`}
-                  >
-                    HOME
-                  </Link>
-                  <Link
-                    to="/about"
-                    className={`text-left text-lg font-medium transition-colors duration-200 ${
-                      location.pathname === "/about"
-                        ? "text-blue-400 neon-glow"
-                        : "text-white/80 hover:text-white"
-                    }`}
-                  >
-                    ABOUT
-                  </Link>
-                  <Link
-                    to="/projects"
-                    className={`text-left text-lg font-medium transition-colors duration-200 ${
-                      location.pathname === "/projects"
-                        ? "text-blue-400 neon-glow"
-                        : "text-white/80 hover:text-white"
-                    }`}
-                  >
-                    PROJECTS
-                  </Link>
-                  <CTAPrimary href="/projects" className="border-0 mt-4">View Work</CTAPrimary>
+                  {[
+                    { id: "home", label: "HOME" },
+                    { id: "services", label: "SERVICES" },
+                    { id: "portfolio", label: "PORTFOLIO" },
+                    { id: "contact", label: "CONTACT" },
+                  ].map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      aria-current={getCurrentActiveSection() === item.id ? 'page' : undefined}
+                      className={`text-left text-lg font-medium transition-colors duration-200 ${
+                        getCurrentActiveSection() === item.id
+                          ? "text-blue-400 neon-glow"
+                          : "text-white/80 hover:text-white"
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                  <CTAPrimary href="#contact" className="border-0 mt-4">Hire Me</CTAPrimary>
                 </div>
               </SheetContent>
             </Sheet>
