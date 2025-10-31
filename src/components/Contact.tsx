@@ -96,7 +96,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-foreground font-medium">Location</div>
-                  <div className="text-foreground/60">Bhaktpur, Nepal</div>
+                  <div className="text-foreground/60">Kathmandu, Nepal</div>
                 </div>
               </div>
             </div>
