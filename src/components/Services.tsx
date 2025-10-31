@@ -49,7 +49,7 @@ export default function Services() {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-14">
           <h2 className="section-title mb-6">
-            <span className="text-foreground">Our </span>
+            {/* <span className="text-foreground">My </span> */}
             <span className="gradient-text-neon">Services</span>
           </h2>
           <p className="section-subtitle">
