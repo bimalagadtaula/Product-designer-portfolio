@@ -14,9 +14,9 @@ import breakRitual from "@/assets/mockup/break  ritual.png";
 import IA from "@/assets/mockup/IA.png";
 import analytics from "@/assets/mockup/analytics.png";
 import addSeed from "@/assets/mockup/add seed.png";
-import progress from "@/assets/mockup/unsplash mockup.png";
-import reflection from "@/assets/mockup/unsplash mockup.png";
-import settings from "@/assets/mockup/unsplash mockup.png";
+import progress from "@/assets/mockup/break  ritual.png";
+import reflection from "@/assets/mockup/unsplash mockup-1.png";
+import settings from "@/assets/mockup/unsplash mockup-6.png";
 import userPersona from "@/assets/mockup/analytics.png";
 
 export default function GrowSlowCaseStudy() {

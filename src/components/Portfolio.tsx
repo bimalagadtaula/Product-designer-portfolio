@@ -7,10 +7,23 @@ import { motion } from "framer-motion";
 import { useMemo } from "react";
 import growSlowImage from "@/assets/break-ritual.png";
 import Agriai from "@/assets/agriai.png";
+import { relative } from "path";
 
 type CaseStudyType = "Design" | "Dev";
 
 const designProjects = [
+
+    {
+    title: "GrowSlow – Reflective Productivity App",
+    description:
+      "Mindful, non-linear productivity tool for creatives and neurodivergent users with journaling and emotional check-ins.",
+    image: growSlowImage,
+    year: "2025",
+    tools: ["Figma", "Accessibility", "Prototyping"],
+    liveUrl: "https://www.figma.com/proto/eWtpCTuKP95Dve0y5DOojN/Case-studies?node-id=1-1543&t=i3KXQby9KHsq8NtH-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+    // caseStudyUrl: "/case-studies/growslow-reflective-productivity-app",
+        caseStudyUrl: "https://www.figma.com/proto/eWtpCTuKP95Dve0y5DOojN/Case-studies?node-id=1-1543&t=i3KXQby9KHsq8NtH-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+  },
   {
     title: "Glosifi Web App",
     description:
@@ -18,20 +31,11 @@ const designProjects = [
     image: meImage,
     year: "2025",
     tools: ["Figma", "Design System", "User Research", "Prototyping"],
-    metrics: ["Booking completion +40%", "Support tickets -60%"],
+    // metrics: ["Booking completion +40%", "Support tickets -60%"],
     liveUrl: "https://glosifi.com/",
-    caseStudyUrl: "/case-studies/glosifi-web-app",
+    caseStudyUrl: "https://glosifi.com/",
   },
-  {
-    title: "GrowSlow – Reflective Productivity App",
-    description:
-      "Mindful, non-linear productivity tool for creatives and neurodivergent users with journaling and emotional check-ins.",
-    image: growSlowImage,
-    year: "2025",
-    tools: ["Figma", "Accessibility", "Prototyping"],
-    liveUrl: "#",
-    caseStudyUrl: "/case-studies/growslow-reflective-productivity-app",
-  },
+
   {
     title: "Agri App",
     description:
@@ -40,7 +44,7 @@ const designProjects = [
     year: "2025",
     tools: ["Figma", "UI design", "Prototyping"],
     liveUrl: "#",
-    caseStudyUrl: "/case-studies/growslow-reflective-productivity-app",
+    // caseStudyUrl: "/case-studies/growslow-reflective-productivity-app",
   },
 ];
 
@@ -48,30 +52,30 @@ const devProjects = [
   {
     title: "Epaath-Geometric Shapes",
     description:
-      "Mindful productivity app for neurodivergent users with journaling and progress tracking features.",
+      "Interactive educational platform designed to teach students fundamental concepts of geometric shapes and their components through engaging web interfaces.",
     image: meImage,
     year: "2024",
-    tools: ["React", "TypeScript"],
+    tools: ["JQuery", "Javascript","CSS","Json"],
     liveUrl: "https://dev.epaath.olenepal.org/activity.html?id=matngs01&lang=en&grade=2",
     githubUrl: "#",
   },
   {
     title: "Epaath-Hamro Bidhyalaya",
     description:
-      "Mindful productivity app for neurodivergent users with journaling and progress tracking features.",
+      "Interactive chapter designed to teach students fundamental concepts about school, classrooms, and the things found inside a classroom in an engaging way.",
     image: meImage,
     year: "2024",
-    tools: ["React", "TypeScript"],
+ tools: ["JQuery", "Javascript","CSS","Json"],
     liveUrl: "https://dev.epaath.olenepal.org/activity.html?id=nepbcd01&lang=np&pg=2&scId=0&grade=2",
     githubUrl: "#",
   },
    {
     title: "Learning about Plants",
     description:
-      "Mindful productivity app for neurodivergent users with journaling and progress tracking features.",
+      "Chapter of epaath designed to help students learn how to classify plants, utilizing modern web technologies for interactive learning experiences.",
     image: meImage,
     year: "2024",
-    tools: ["React", "TypeScript"],
+   tools: ["JQuery", "Javascript","CSS","Json"],
     liveUrl: "https://dev.epaath.olenepal.org/activity.html?id=scilap01&lang=en&pg=1&scId=0&grade=1",
     githubUrl: "#",
   },
