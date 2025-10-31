@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 
 // Import mockup images
-import mindGarden from "@/assets/mockup/unsplash mockup-2.png";
-import energyPlanner from "@/assets/mockup/unsplash mockup-1.png";
+import mindGarden from "@/assets/mockup/mindgarden.png";
+import energyPlanner from "@/assets/mockup/energy_planner.png";
 import breakRitual from "@/assets/mockup/break  ritual.png";
 
 // Additional mockups for the placeholder sections
@@ -15,8 +15,9 @@ import IA from "@/assets/mockup/IA.png";
 import analytics from "@/assets/mockup/analytics.png";
 import addSeed from "@/assets/mockup/add seed.png";
 import progress from "@/assets/mockup/break  ritual.png";
-import reflection from "@/assets/mockup/unsplash mockup-1.png";
-import settings from "@/assets/mockup/unsplash mockup-6.png";
+import signup from "@/assets/mockup/signup.png";
+import login from "@/assets/mockup/login.png";
+import profile from "@/assets/mockup/profile.jpg";
 import userPersona from "@/assets/Profile.png";
 
 export default function GrowSlowCaseStudy() {
@@ -417,8 +418,8 @@ export default function GrowSlowCaseStudy() {
                 { src: analytics, alt: "Analytics Dashboard", title: "Analytics" },
                 { src: addSeed, alt: "Add New Habit", title: "Add Seed" },
                 { src: progress, alt: "Progress Tracking", title: "Progress" },
-                { src: reflection, alt: "Daily Reflection", title: "Reflection" },
-                { src: settings, alt: "App Settings", title: "Settings" },
+                { src: profile, alt: "Daily Reflection", title: "Reflection" },
+                { src: profile, alt: "App Settings", title: "Settings" },
                 { src: energyPlanner, alt: "Energy Planning", title: "Energy Planner" }
               ].map((mockup, index) => (
                 <div key={index} className="bg-accent/5 rounded-2xl p-8 flex items-center justify-center aspect-[9/16]">
