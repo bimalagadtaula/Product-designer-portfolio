@@ -12,25 +12,24 @@ const services = [
   //   title: "UX Research",
   //   description:
   //     "Getting to know your users through interviews, surveys, and testing to create designs that really work."
-  // },
-  {
-    icon: Smartphone,
-    title: "Mobile Design",
-    description:
-      "Building responsive, user-friendly mobile apps that feel smooth on both iOS and Android."
-  },
-  {
-    icon: Globe,
-    title: "SaaS & Web App Design",
-    description:
-      "Designing web and SaaS apps that are simple, scalable, and easy to use."
-  },
-   {
-    icon: Shield,
-    title: "Design Systems",
-    description:
-      "Creating design systems that keep your product consistent and make future updates easier."
-  }
+{
+  icon: Smartphone,
+  title: "Feature Flow Design",
+  description:
+    "You have a new feature idea for your existing app; I'll design the complete user journey for it. I'll deliver a polished, interactive prototype of this specific flow that integrates seamlessly with your current product."
+},
+{
+  icon: Globe,
+  title: "MVP Launch Package",
+  description:
+    "You have a vision for a new product; I'll design its foundational experience. I'll architect and design the core set of screens and user flows that form your minimum viable product, giving you a complete, testable prototype."
+},
+{
+  icon: Shield,
+  title: "UI Modernization",
+  description:
+    "Your product's core features are set, but the design feels outdated. I'll redesign and modernize your key screens to boost usability, refresh the visual appeal, and improve user engagement."
+}
   // {
   //   icon: Zap,
   //   title: "Prototyping",
