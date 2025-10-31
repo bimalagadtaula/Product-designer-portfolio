@@ -2,29 +2,28 @@ import { Calendar, MapPin, ExternalLink } from "lucide-react";
 
 const experiences = [
   {
-    position: "Associate UI/UX designer",
-    company: "Glosifi",
-    period: "2024 - Present",
-    location: "Singapore",
-    description: "Leading design initiatives for enterprise clients, specializing in user research, wireframing, and creating intuitive user interfaces that drive engagement and conversion.",
-    skills: ["Figma", "Miro", "User Research", "Prototyping", "Design Systems"]
-  },
-  
+  position: "Solo UI/UX & Product Designer",
+  company: "Glosifi",
+  period: "2024 - Present",
+  location: "Singapore",
+  description: "Leading end-to-end design initiatives for a beauty and wellness platform, handling user research, wireframing, prototyping, and creating intuitive user interfaces that drive engagement and conversion.",
+  skills: ["Figma", "Wireframing", "User Research", "Prototyping", "Design Systems"]
+},  
   {
     position: "UI developer",
     company: "Freelance",
     period: "2023 - 2024",
     location: "Remote",
-    description: "Collaborated with senior designers on various projects, learning best practices in UI/UX design and contributing to design system development.",
-    skills: ["Photoshop", "Illustrator", "Sketch", "Prototyping", "Design Principles"]
+    description: "Collaborated with senior developers and designers on various projects, learning best practices in UI/UX design and contributing to  development.",
+    skills: ["ReactJs", "CSS", "MaterialUI", "Figma"]
   },
   {
     position: "Frontend developer",
     company: "OLE Nepal",
     period: "2023 - 2024",
     location: "Lalitpur, Nepal",
-    description: "Designed user experiences for web and mobile applications, focusing on user-centered design principles and creating seamless user journeys.",
-    skills: ["Adobe XD", "InVision", "User Testing", "Wireframing", "Mobile Design"]
+    description: "Developed 15 interactive educational chapters for ePaath, designed to teach students fundamental concepts in subjects like mathematics and science through engaging web interfaces. Built using jQuery, JavaScript, CSS, and JSON, each chapter provides interactive learning experiences that make complex topics like geometric shapes and plant classification accessible and fun for students.",
+    skills: ["Javascript", "JQuery", "Json", "CSS"]
   },
 ];
 
