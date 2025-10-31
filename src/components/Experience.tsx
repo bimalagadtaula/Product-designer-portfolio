@@ -4,7 +4,7 @@ const experiences = [
   {
   position: "Solo UI/UX & Product Designer",
   company: "Glosifi",
-  period: "2024 - Present",
+  period: "2025 - Present",
   location: "Singapore",
   description: "Leading end-to-end design initiatives for a beauty and wellness platform, handling user research, wireframing, prototyping, and creating intuitive user interfaces that drive engagement and conversion.",
   skills: ["Figma", "Wireframing", "User Research", "Prototyping", "Design Systems"]
@@ -12,7 +12,7 @@ const experiences = [
   {
   position: "UI Developer & Social Media Designer",
   company: "Freelance",
-  period: "2023 - 2024",
+  period: "2024 - 2025",
   location: "Remote",
   description: "Collaborated with senior developers and designers on various projects, learning best practices in UI/UX design, contributing to frontend development, and creating visual content for social media campaigns.",
   skills: ["ReactJS", "CSS", "Material UI", "Javascript", "Figma", "Adobe Photoshop", "Canva"]
