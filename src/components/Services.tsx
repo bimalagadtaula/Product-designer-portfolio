@@ -1,18 +1,18 @@
 import { Code, Palette, Smartphone, Globe, Zap, Shield } from "lucide-react";
 
 const services = [
-  {
-    icon: Code,
-    title: "UI Design",
-    description:
-      "Clean, easy-to-use interfaces designed with modern design principles and accessibility in mind."
-  },
-  {
-    icon: Palette,
-    title: "UX Research",
-    description:
-      "Getting to know your users through interviews, surveys, and testing to create designs that really work."
-  },
+  // {
+  //   icon: Code,
+  //   title: "UI Design",
+  //   description:
+  //     "Clean, easy-to-use interfaces designed with modern design principles and accessibility in mind."
+  // },
+  // {
+  //   icon: Palette,
+  //   title: "UX Research",
+  //   description:
+  //     "Getting to know your users through interviews, surveys, and testing to create designs that really work."
+  // },
   {
     icon: Smartphone,
     title: "Mobile Design",
@@ -30,13 +30,13 @@ const services = [
     title: "Design Systems",
     description:
       "Creating design systems that keep your product consistent and make future updates easier."
-  },
-  {
-    icon: Zap,
-    title: "Prototyping",
-    description:
-      "Making clickable prototypes and wireframes so you can see and try your idea before it’s built."
   }
+  // {
+  //   icon: Zap,
+  //   title: "Prototyping",
+  //   description:
+  //     "Making clickable prototypes and wireframes so you can see and try your idea before it’s built."
+  // }
  
 ];
 

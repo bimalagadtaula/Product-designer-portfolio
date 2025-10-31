@@ -10,19 +10,19 @@ const experiences = [
   skills: ["Figma", "Wireframing", "User Research", "Prototyping", "Design Systems"]
 },  
   {
-    position: "UI developer",
-    company: "Freelance",
-    period: "2023 - 2024",
-    location: "Remote",
-    description: "Collaborated with senior developers and designers on various projects, learning best practices in UI/UX design and contributing to  development.",
-    skills: ["ReactJs", "CSS", "MaterialUI", "Figma"]
-  },
+  position: "UI Developer & Social Media Designer",
+  company: "Freelance",
+  period: "2023 - 2024",
+  location: "Remote",
+  description: "Collaborated with senior developers and designers on various projects, learning best practices in UI/UX design, contributing to frontend development, and creating visual content for social media campaigns.",
+  skills: ["ReactJS", "CSS", "Material UI", "Javascript", "Figma", "Adobe Photoshop", "Canva"]
+},
   {
     position: "Frontend developer",
     company: "OLE Nepal",
     period: "2023 - 2024",
     location: "Lalitpur, Nepal",
-    description: "Developed 15 interactive educational chapters for ePaath, designed to teach students fundamental concepts in subjects like mathematics and science through engaging web interfaces. Built using jQuery, JavaScript, CSS, and JSON, each chapter provides interactive learning experiences that make complex topics like geometric shapes and plant classification accessible and fun for students.",
+    description: "Developed 15 interactive educational chapters for ePaath, designed to teach students fundamental concepts in subjects like Mathematics, Nepali, English and Science through engaging web interfaces. Built using jQuery, JavaScript, CSS, and JSON, each chapter provides interactive learning experiences that make complex topics like geometric shapes and plant classification accessible and fun for students.",
     skills: ["Javascript", "JQuery", "Json", "CSS"]
   },
 ];
