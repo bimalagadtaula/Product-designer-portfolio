@@ -23,7 +23,7 @@ const designProjects = [
     liveUrl:
       "https://www.figma.com/proto/eWtpCTuKP95Dve0y5DOojN/Case-studies?node-id=1-1543&t=g5Re4TLxJ0tKyVIB-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
     caseStudyUrl:
-      "https://www.figma.com/proto/eWtpCTuKP95Dve0y5DOojN/Case-studies?node-id=1-1543&t=g5Re4TLxJ0tKyVIB-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+      "https://www.behance.net/gallery/237657859/Growslow",
   },
   {
     title: "Glosifi Web App",
