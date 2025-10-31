@@ -21,7 +21,7 @@ const designProjects = [
     year: "2025",
     tools: ["Figma", "Accessibility", "Prototyping"],
     liveUrl:
-      "https://www.figma.com/proto/eWtpCTuKP95Dve0y5DOojN/Case-studies?node-id=1-1543&t=g5Re4TLxJ0tKyVIB-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+      "https://www.figma.com/proto/DOmoTpnS5BaJBsuUbQX0t2/growslow_app?node-id=338-6201&t=evHtlE1dV52PrQaq-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=313%3A5388",
     caseStudyUrl:
       "https://www.behance.net/gallery/237657859/Growslow",
   },
