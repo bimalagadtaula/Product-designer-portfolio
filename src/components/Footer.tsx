@@ -1,11 +1,11 @@
-import { FaLinkedin, FaTwitter, FaGithub, FaDribbble } from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaGithub, FaDribbble, FaBehance } from "react-icons/fa";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: FaLinkedin, label: "LinkedIn", href: "#" },
-    { icon: FaTwitter, label: "Twitter", href: "#" },
-    { icon: FaGithub, label: "GitHub", href: "#" },
-    { icon: FaDribbble, label: "Dribbble", href: "#" },
+    { icon: FaLinkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/bmalagadtaula/" },
+    // { icon: FaTwitter, label: "Twitter", href: "#" },
+    { icon: FaGithub, label: "GitHub", href: "https://github.com/bimalagadtaula" },
+    { icon: FaBehance, label: "Behance", href: "https://www.behance.net/bimalagadtaula" },
   ];
 
   return (
@@ -40,7 +40,7 @@ const Footer = () => {
             "0 0 4px rgba(0,132,255,0.3), 0 0 8px rgba(0,132,255,0.15)",
         }}
       >
-        &copy; 2024 Bimala Gadtaula. All rights reserved.
+        &copy; 2025 Bimala Gadtaula. All rights reserved.
       </div>
     </footer>
   );
