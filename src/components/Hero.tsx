@@ -74,8 +74,10 @@ export default function Hero() {
           </p>
 
           <div className="mt-6 flex items-center justify-center lg:justify-start gap-5 md:gap-6">
-            <CTAPrimary href="#portfolio">View Case Studies</CTAPrimary>
-            <CTASecondary href="#contact">Work Together</CTASecondary>
+          <CTAPrimary href="https://drive.google.com/file/d/1yicFEsjduu504mJR5bWAhIBonu6y0ITz/view?usp=sharing">
+  View CV
+</CTAPrimary>
+<CTASecondary href="#contact">Work Together</CTASecondary>
           </div>
         </div>
 

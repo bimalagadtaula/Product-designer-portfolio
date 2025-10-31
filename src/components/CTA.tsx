@@ -16,7 +16,9 @@ export function CTAPrimary({ href, children, className }: CTAProps) {
         (className || "")
       }
     >
-      <a href={href}>{children}</a>
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
     </Button>
   );
 }
@@ -37,4 +39,3 @@ export function CTASecondary({ href, children, className }: CTAProps) {
 }
 
 export default { CTAPrimary, CTASecondary };
-

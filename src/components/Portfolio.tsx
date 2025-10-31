@@ -7,22 +7,21 @@ import { motion } from "framer-motion";
 import { useMemo } from "react";
 import growSlowImage from "@/assets/break-ritual.png";
 import Agriai from "@/assets/agriai.png";
-import { relative } from "path";
 
 type CaseStudyType = "Design" | "Dev";
 
 const designProjects = [
-
-    {
+  {
     title: "GrowSlow – Reflective Productivity App",
     description:
       "Mindful, non-linear productivity tool for creatives and neurodivergent users with journaling and emotional check-ins.",
     image: growSlowImage,
     year: "2025",
     tools: ["Figma", "Accessibility", "Prototyping"],
-    liveUrl: "https://www.figma.com/proto/eWtpCTuKP95Dve0y5DOojN/Case-studies?node-id=1-1543&t=i3KXQby9KHsq8NtH-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
-    // caseStudyUrl: "/case-studies/growslow-reflective-productivity-app",
-        caseStudyUrl: "https://www.figma.com/proto/eWtpCTuKP95Dve0y5DOojN/Case-studies?node-id=1-1543&t=i3KXQby9KHsq8NtH-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+    liveUrl:
+      "https://www.figma.com/proto/eWtpCTuKP95Dve0y5DOojN/Case-studies?node-id=1-1543&t=g5Re4TLxJ0tKyVIB-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+    caseStudyUrl:
+      "https://www.figma.com/proto/eWtpCTuKP95Dve0y5DOojN/Case-studies?node-id=1-1543&t=g5Re4TLxJ0tKyVIB-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
   },
   {
     title: "Glosifi Web App",
@@ -31,21 +30,19 @@ const designProjects = [
     image: meImage,
     year: "2025",
     tools: ["Figma", "Design System", "User Research", "Prototyping"],
-    // metrics: ["Booking completion +40%", "Support tickets -60%"],
     liveUrl: "https://glosifi.com/",
     caseStudyUrl: "https://glosifi.com/",
   },
-
-  {
-    title: "Agri App",
-    description:
-      "Agri AI is an intelligent agriculture app designed to help farmers make data-driven decisions. It provides weather forecasts, plant disease detection, and actionable recommendations to optimize crop health and yield.",
-    image: Agriai,
-    year: "2025",
-    tools: ["Figma", "UI design", "Prototyping"],
-    liveUrl: "#",
-    // caseStudyUrl: "/case-studies/growslow-reflective-productivity-app",
-  },
+  // {
+  //   title: "Agri App",
+  //   description:
+  //     "Agri AI is an intelligent agriculture app designed to help farmers make data-driven decisions. It provides weather forecasts, plant disease detection, and actionable recommendations to optimize crop health and yield.",
+  //   image: Agriai,
+  //   year: "2025",
+  //   tools: ["Figma", "UI Design", "Prototyping"],
+  //   liveUrl: "#",
+  //   // caseStudyUrl: "#",
+  // },
 ];
 
 const devProjects = [
@@ -55,29 +52,32 @@ const devProjects = [
       "Interactive educational platform designed to teach students fundamental concepts of geometric shapes and their components through engaging web interfaces.",
     image: meImage,
     year: "2024",
-    tools: ["JQuery", "Javascript","CSS","Json"],
-    liveUrl: "https://dev.epaath.olenepal.org/activity.html?id=matngs01&lang=en&grade=2",
-    githubUrl: "#",
+    tools: ["JQuery", "Javascript", "CSS", "JSON"],
+    liveUrl:
+      "https://dev.epaath.olenepal.org/activity.html?id=matngs01&lang=en&grade=2",
+    // githubUrl: "#",
   },
+  // {
+  //   title: "Epaath-Hamro Bidhyalaya",
+  //   description:
+  //     "Interactive chapter designed to teach students fundamental concepts about school, classrooms, and the things found inside a classroom in an engaging way.",
+  //   image: meImage,
+  //   year: "2024",
+  //   tools: ["JQuery", "Javascript", "CSS", "JSON"],
+  //   liveUrl:
+  //     "https://dev.epaath.olenepal.org/activity.html?id=nepbcd01&lang=np&pg=2&scId=0&grade=2",
+  //   // githubUrl: "#",
+  // },
   {
-    title: "Epaath-Hamro Bidhyalaya",
-    description:
-      "Interactive chapter designed to teach students fundamental concepts about school, classrooms, and the things found inside a classroom in an engaging way.",
-    image: meImage,
-    year: "2024",
- tools: ["JQuery", "Javascript","CSS","Json"],
-    liveUrl: "https://dev.epaath.olenepal.org/activity.html?id=nepbcd01&lang=np&pg=2&scId=0&grade=2",
-    githubUrl: "#",
-  },
-   {
     title: "Learning about Plants",
     description:
       "Chapter of epaath designed to help students learn how to classify plants, utilizing modern web technologies for interactive learning experiences.",
     image: meImage,
     year: "2024",
-   tools: ["JQuery", "Javascript","CSS","Json"],
-    liveUrl: "https://dev.epaath.olenepal.org/activity.html?id=scilap01&lang=en&pg=1&scId=0&grade=1",
-    githubUrl: "#",
+    tools: ["JQuery", "Javascript", "CSS", "JSON"],
+    liveUrl:
+      "https://dev.epaath.olenepal.org/activity.html?id=scilap01&lang=en&pg=1&scId=0&grade=1",
+    // githubUrl: "#",
   },
 ];
 
@@ -132,15 +132,6 @@ const CaseStudy = ({
               </p>
 
               <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
-                {type === "Design" &&
-                  project.metrics?.map((m: string, i: number) => (
-                    <span
-                      key={`m-${index}-${i}`}
-                      className="text-xs md:text-sm px-3 py-1 bg-card/90 text-foreground rounded-full border border-border"
-                    >
-                      {m}
-                    </span>
-                  ))}
                 {project.tools.map((tool: string, i: number) => (
                   <span
                     key={`t-${index}-${i}`}
@@ -155,13 +146,21 @@ const CaseStudy = ({
                 {type === "Design" ? (
                   <>
                     <Button variant="outline" className="text-foreground" asChild>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <ExternalLink className="w-4 h-4 mr-2" />
                         Live Demo
                       </a>
                     </Button>
                     <Button className="gradient-bg-neon text-white border-0" asChild>
-                      <a href={project.caseStudyUrl}>
+                      <a
+                        href={project.caseStudyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <BookOpen className="w-4 h-4 mr-2" />
                         Case Study
                       </a>
@@ -170,17 +169,29 @@ const CaseStudy = ({
                 ) : (
                   <>
                     <Button variant="outline" className="text-foreground" asChild>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <ExternalLink className="w-4 h-4 mr-2" />
                         Live Demo
                       </a>
                     </Button>
-                    <Button variant="outline" className="border-secondary hover:bg-secondary/10 text-foreground" asChild>
-                      <a href={project.githubUrl}>
+                    {/* <Button
+                      variant="outline"
+                      className="border-secondary hover:bg-secondary/10 text-foreground"
+                      asChild
+                    >
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Github className="w-4 h-4 mr-2" />
                         Code
                       </a>
-                    </Button>
+                    </Button> */}
                   </>
                 )}
               </div>
@@ -260,12 +271,6 @@ export default function Portfolio() {
             ))}
           </TabsContent>
         </Tabs>
-      </div>
-
-      <div className="container mx-auto px-4">
-        <div className="text-center mt-8 md:mt-10">
-          <CTAPrimary href="#contact">Get in touch</CTAPrimary>
-        </div>
       </div>
     </section>
   );
