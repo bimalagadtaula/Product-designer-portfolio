@@ -17,7 +17,7 @@ import addSeed from "@/assets/mockup/add seed.png";
 import progress from "@/assets/mockup/break  ritual.png";
 import reflection from "@/assets/mockup/unsplash mockup-1.png";
 import settings from "@/assets/mockup/unsplash mockup-6.png";
-import userPersona from "@/assets/mockup/analytics.png";
+import userPersona from "@/assets/Profile.png";
 
 export default function GrowSlowCaseStudy() {
   const navigate = useNavigate();

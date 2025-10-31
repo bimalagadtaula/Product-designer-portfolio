@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CTAPrimary } from "@/components/CTA";
 import meImage from "@/assets/CRM-GLOSIFI.png";
+import epaath1 from "@/assets/epaath1.png";
+import epaath2 from "@/assets/mockup/LAP.png";
 import { motion } from "framer-motion";
 import { useMemo } from "react";
 import growSlowImage from "@/assets/break-ritual.png";
@@ -50,7 +52,7 @@ const devProjects = [
     title: "Epaath-Geometric Shapes",
     description:
       "Interactive educational platform designed to teach students fundamental concepts of geometric shapes and their components through engaging web interfaces.",
-    image: meImage,
+    image: epaath1, // <-- specific image
     year: "2024",
     tools: ["JQuery", "Javascript", "CSS", "JSON"],
     liveUrl:
@@ -72,7 +74,7 @@ const devProjects = [
     title: "Learning about Plants",
     description:
       "Chapter of epaath designed to help students learn how to classify plants, utilizing modern web technologies for interactive learning experiences.",
-    image: meImage,
+    image: epaath2,
     year: "2024",
     tools: ["JQuery", "Javascript", "CSS", "JSON"],
     liveUrl:
