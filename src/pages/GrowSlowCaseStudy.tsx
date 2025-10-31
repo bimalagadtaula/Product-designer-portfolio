@@ -242,6 +242,127 @@ export default function GrowSlowCaseStudy() {
             </div>
           </motion.section>
 
+          {/* User Persona */}
+          <motion.section 
+            className="mb-32"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold mb-8">User Persona</h2>
+            <div className="bg-accent/5 rounded-2xl p-8 sm:p-12">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <div className="w-32 h-32 rounded-full bg-primary/10 mb-4"></div>
+                  <h3 className="text-2xl font-bold">Sarah Martinez</h3>
+                  <p className="text-lg text-muted-foreground">Product Manager, 32</p>
+                  <div className="space-y-2 pt-4">
+                    <div>
+                      <p className="font-semibold mb-1">Goals</p>
+                      <p className="text-muted-foreground">Build sustainable productivity habits without burnout</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold mb-1">Frustrations</p>
+                      <p className="text-muted-foreground">Aggressive productivity apps increase anxiety and stress</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div>
+                    <p className="font-semibold mb-2">Background</p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Sarah has tried multiple productivity apps but found them overwhelming. She values mental wellbeing and wants to be productive without sacrificing her health.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-2">Behaviors</p>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• Plans tasks around energy levels</li>
+                      <li>• Prefers reflection over aggressive goals</li>
+                      <li>• Values sustainable over quick wins</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.section>
+
+          {/* Information Architecture */}
+          <motion.section 
+            className="mb-32"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold mb-8">Information Architecture</h2>
+            <div className="bg-accent/5 rounded-2xl p-8 sm:p-12">
+              <p className="text-muted-foreground mb-8 leading-relaxed">
+                The app structure was designed to minimize cognitive load while providing intuitive access to all features. We organized content around the user's natural workflow.
+              </p>
+              <div className="grid sm:grid-cols-3 gap-6">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-2">
+                    <span className="text-xl font-bold">1</span>
+                  </div>
+                  <h3 className="font-semibold">Home Dashboard</h3>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li>• Today's energy level</li>
+                    <li>• Planned tasks</li>
+                    <li>• Quick reflections</li>
+                  </ul>
+                </div>
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-2">
+                    <span className="text-xl font-bold">2</span>
+                  </div>
+                  <h3 className="font-semibold">Energy Planner</h3>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li>• Energy mapping</li>
+                    <li>• Task scheduling</li>
+                    <li>• Break rituals</li>
+                  </ul>
+                </div>
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-2">
+                    <span className="text-xl font-bold">3</span>
+                  </div>
+                  <h3 className="font-semibold">Mind Garden</h3>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li>• Progress visualization</li>
+                    <li>• Reflections</li>
+                    <li>• Insights</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </motion.section>
+
+          {/* Mockups Section */}
+          <motion.section 
+            className="mb-32"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold mb-8">Additional Mockups</h2>
+            <p className="text-muted-foreground mb-8 leading-relaxed">
+              Detailed mockups showcasing the app's interface across different scenarios and user interactions.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="bg-accent/5 rounded-2xl p-8 flex items-center justify-center aspect-[9/16]">
+                  <div className="text-center">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 mx-auto mb-3"></div>
+                    <p className="text-sm text-muted-foreground">Mockup {i}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.section>
+
           {/* Color Palette */}
           <motion.section 
             className="mb-32"
