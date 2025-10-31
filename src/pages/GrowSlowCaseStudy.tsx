@@ -102,10 +102,10 @@ export default function GrowSlowCaseStudy() {
             <h2 className="text-3xl sm:text-4xl font-bold mb-8">Overview</h2>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                In a world where productivity apps contribute to burnout rather than wellbeing, GrowSlow emerged as an antidote to "hustle culture." Through extensive research with over 50 professionals experiencing productivity app fatigue, we discovered that 78% felt overwhelmed by aggressive goal-setting and constant notifications.
+                GrowSlow is a conceptual productivity app designed as an antidote to "hustle culture." Based on research into productivity app fatigue and burnout patterns, the concept addresses how aggressive goal-setting and constant notifications contribute to user overwhelm and abandonment.
               </p>
               <p>
-                GrowSlow reimagines productivity by centering on mental health and sustainable practices. The app introduces energy-based planning, where users schedule tasks around their natural energy rhythms rather than rigid time blocks, alongside reflection-driven goals that emerge from self-awareness rather than external pressure.
+                This concept reimagines productivity by centering on mental health and sustainable practices. The app introduces energy-based planning, where users would schedule tasks around their natural energy rhythms rather than rigid time blocks, alongside reflection-driven goals that emerge from self-awareness rather than external pressure.
               </p>
             </div>
           </motion.section>
@@ -121,20 +121,20 @@ export default function GrowSlowCaseStudy() {
             <h2 className="text-3xl sm:text-4xl font-bold mb-8">The Problem</h2>
             <div className="bg-accent/5 rounded-2xl p-8 sm:p-12">
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                Traditional productivity apps often exacerbate stress through aggressive notifications, unrealistic goal-setting, and metrics that prioritize quantity over mental wellbeing. Our research revealed that users abandon these apps not due to lack of motivation, but because they increase anxiety and create unsustainable work patterns.
+                Traditional productivity apps often exacerbate stress through aggressive notifications, unrealistic goal-setting, and metrics that prioritize quantity over mental wellbeing. Industry research suggests that users abandon these apps not due to lack of motivation, but because they increase anxiety and create unsustainable work patterns.
               </p>
               <div className="grid sm:grid-cols-3 gap-6">
                 <div>
-                  <div className="text-4xl font-bold text-foreground mb-2">78%</div>
-                  <p className="text-sm text-muted-foreground">Feel overwhelmed by productivity apps</p>
+                  <div className="text-xl font-semibold text-foreground mb-2">User Overwhelm</div>
+                  <p className="text-sm text-muted-foreground">Aggressive productivity apps create anxiety and stress</p>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-foreground mb-2">67%</div>
-                  <p className="text-sm text-muted-foreground">Abandon aggressive goal apps</p>
+                  <div className="text-xl font-semibold text-foreground mb-2">App Abandonment</div>
+                  <p className="text-sm text-muted-foreground">Users quit due to unrealistic expectations</p>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-foreground mb-2">92%</div>
-                  <p className="text-sm text-muted-foreground">Want sustainable productivity</p>
+                  <div className="text-xl font-semibold text-foreground mb-2">Need for Balance</div>
+                  <p className="text-sm text-muted-foreground">Demand for sustainable productivity tools</p>
                 </div>
               </div>
             </div>
@@ -224,19 +224,19 @@ export default function GrowSlowCaseStudy() {
               <div>
                 <h3 className="text-xl font-semibold mb-4">Research & Discovery</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Interviewed 50+ professionals experiencing productivity app fatigue. Collaborated with behavioral psychologists to understand intrinsic vs. extrinsic motivation and discovered that energy-based scheduling outperforms time-based scheduling for wellbeing.
+                  Analyzed existing research on productivity app fatigue and behavioral psychology patterns. Studied intrinsic vs. extrinsic motivation frameworks and how energy-based scheduling could potentially outperform time-based scheduling for wellbeing.
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-4">Design System & Aesthetics</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Developed a unique color palette based on nature therapy research. Removed red notifications, aggressive CTAs, and competitive elements common in productivity apps. The interface emphasizes calm through soft gradients, muted colors, and gentle animations.
+                  Developed a unique color palette inspired by nature therapy principles. Intentionally removed red notifications, aggressive CTAs, and competitive elements common in productivity apps. The interface emphasizes calm through soft gradients, muted colors, and gentle animations.
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-4">Testing & Iteration</h3>
+                <h3 className="text-xl font-semibold mb-4">Conceptual Framework</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Conducted unique "wellbeing-first" usability testing where we measured stress levels alongside task completion. Modified features that increased anxiety and implemented gradual feature introduction over 4 weeks to prevent overwhelming users.
+                  Designed a "wellbeing-first" approach that would prioritize mental health alongside task completion. The concept includes gradual feature introduction to prevent overwhelming users and focuses on sustainable habit formation rather than quick results.
                 </p>
               </div>
             </div>
@@ -399,7 +399,7 @@ export default function GrowSlowCaseStudy() {
             </div>
           </motion.section>
 
-          {/* Impact Section */}
+          {/* Design Goals */}
           <motion.section 
             className="mb-32"
             initial={{ opacity: 0, y: 20 }}
@@ -407,27 +407,27 @@ export default function GrowSlowCaseStudy() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-8">Impact & Results</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-8">Design Goals</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               <div>
-                <div className="text-4xl font-bold text-foreground mb-2">+89%</div>
-                <p className="text-sm font-medium mb-1">User Engagement</p>
-                <p className="text-sm text-muted-foreground">Daily active users increased through mindful design</p>
+                <div className="text-xl font-semibold text-foreground mb-2">User Wellbeing</div>
+                <p className="text-sm font-medium mb-1">Primary Focus</p>
+                <p className="text-sm text-muted-foreground">Prioritize mental health over aggressive productivity metrics</p>
               </div>
               <div>
-                <div className="text-4xl font-bold text-foreground mb-2">+156%</div>
-                <p className="text-sm font-medium mb-1">Session Duration</p>
-                <p className="text-sm text-muted-foreground">Users spend more quality time in reflection</p>
+                <div className="text-xl font-semibold text-foreground mb-2">Mindful Engagement</div>
+                <p className="text-sm font-medium mb-1">Quality Time</p>
+                <p className="text-sm text-muted-foreground">Encourage reflection and self-awareness practices</p>
               </div>
               <div>
-                <div className="text-4xl font-bold text-foreground mb-2">73%</div>
-                <p className="text-sm font-medium mb-1">Stress Reduction</p>
-                <p className="text-sm text-muted-foreground">Self-reported stress levels decreased</p>
+                <div className="text-xl font-semibold text-foreground mb-2">Reduce Anxiety</div>
+                <p className="text-sm font-medium mb-1">Stress Management</p>
+                <p className="text-sm text-muted-foreground">Remove aggressive notifications and competitive elements</p>
               </div>
               <div>
-                <div className="text-4xl font-bold text-foreground mb-2">+67%</div>
-                <p className="text-sm font-medium mb-1">Habit Completion</p>
-                <p className="text-sm text-muted-foreground">Sustainable habit formation without burnout</p>
+                <div className="text-xl font-semibold text-foreground mb-2">Sustainable Habits</div>
+                <p className="text-sm font-medium mb-1">Long-term Success</p>
+                <p className="text-sm text-muted-foreground">Build lasting practices without burnout</p>
               </div>
             </div>
           </motion.section>
@@ -440,24 +440,24 @@ export default function GrowSlowCaseStudy() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-8">Key Learnings</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-8">Key Design Insights</h2>
             <div className="space-y-6">
               <div className="border-l-4 border-primary pl-6">
                 <h3 className="text-xl font-semibold mb-2">Less can be more powerful</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Removing features often improved user wellbeing more than adding them. Our "feature subtraction" approach became a key methodology.
+                  The concept emphasizes "feature subtraction" - intentionally removing common productivity app elements that create anxiety rather than adding more features.
                 </p>
               </div>
               <div className="border-l-4 border-primary pl-6">
                 <h3 className="text-xl font-semibold mb-2">Energy beats time management</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Users achieved better results when planning around energy levels rather than fixed time blocks. This became our core differentiator.
+                  The design prioritizes energy-based planning over fixed time blocks, potentially allowing users to work with their natural rhythms rather than against them.
                 </p>
               </div>
               <div className="border-l-4 border-primary pl-6">
                 <h3 className="text-xl font-semibold mb-2">Community without comparison</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We learned to design social features that provide support without triggering unhealthy competition or comparison.
+                  The concept explores social features that would provide support without triggering unhealthy competition or comparison.
                 </p>
               </div>
             </div>
